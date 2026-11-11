@@ -1,0 +1,41 @@
+{% extends "_base.html.j2" %}
+{% block title %}Tổng kết{% endblock %}
+{% block content %}
+{% set c = conclusion %}
+{% macro tbd() %}<span class="tbd mono">Nội dung đang được cập nhật</span>{% endmacro %}
+<section class="page-head">
+  <div class="wrap">
+    <p class="kicker mono">Encore</p>
+    <h1 class="h1">Tổng kết</h1>
+    <p class="sec-sub">Nhìn lại cả học phần sau sáu bài tập.</p>
+  </div>
+</section>
+
+<section class="wrap conc">
+  <blockquote class="destination">{% if c.experience is blank %}{{ tbd() }}{% else %}<p>{{ c.experience }}</p>{% endif %}</blockquote>
+
+  <div class="conc-grid">
+    <div class="part">
+      <h2 class="h3"><span class="mono">01</span>Kiến thức và kỹ năng có được</h2>
+      {% if c.key_skills is blank %}{{ tbd() }}{% else %}<ul class="ticks">{% for s in c.key_skills %}<li>{{ s }}</li>{% endfor %}</ul>{% endif %}
+    </div>
+    <div class="part">
+      <h2 class="h3"><span class="mono">02</span>Bài tâm đắc nhất</h2>
+      {% if c.highlight is blank %}{{ tbd() }}{% else %}<p>{{ c.highlight }}</p>{% endif %}
+    </div>
+    <div class="part">
+      <h2 class="h3"><span class="mono">03</span>Khó khăn và cách vượt qua</h2>
+      {% if c.challenge is blank %}{{ tbd() }}{% else %}<p>{{ c.challenge }}</p>{% endif %}
+    </div>
+    <div class="part">
+      <h2 class="h3"><span class="mono">04</span>Hướng đi tiếp theo</h2>
+      {% if c.future is blank %}{{ tbd() }}{% else %}<p>{{ c.future }}</p>{% endif %}
+    </div>
+  </div>
+
+  <h2 class="h3 conc-list-h">Setlist đã diễn</h2>
+  <ol class="mini-set">
+    {% for p in projects %}<li><a href="project-{{ p.id }}.html"><span class="mono">{{ '%02d'|format(p.id) }}</span>{{ p.title }}</a></li>{% endfor %}
+  </ol>
+</section>
+{% endblock %}

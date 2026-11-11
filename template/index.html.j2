@@ -1,0 +1,157 @@
+{% extends "_base.html.j2" %}
+{% block title %}Giới thiệu{% endblock %}
+{% block content %}
+{% set words = name.split(' ') %}
+<section class="hero">
+  <div class="beams" aria-hidden="true"><i class="beam b1"></i><i class="beam b2"></i><i class="beam b3"></i></div>
+  <div class="wrap hero-in">
+    <div class="hero-copy">
+      <p class="cue mono"><span class="rec"></span>Live session · {{ major }}</p>
+      <h1 class="marquee" aria-label="{{ name }}">
+        <span class="m-line" aria-hidden="true">{{ words[0] }}</span>
+        <span class="m-line" aria-hidden="true">{{ words[1:]|join(' ') }}</span>
+      </h1>
+      <p class="hero-bio">{{ short_bio }}</p>
+      <div class="hero-act">
+        <a class="btn btn-hot" href="projects.html">Vào dự án</a>
+        <a class="btn btn-ghost" href="#mic">Mic check<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v10M3.5 7.5 8 12l4.5-4.5"/></svg></a>
+      </div>
+    </div>
+
+    <figure class="screen">
+      <div class="screen-bar mono"><span class="onair">● On stage</span><span>CAM 01</span></div>
+      {% if avatar_url %}<img src="{{ avatar_url }}" alt="{{ name }} đang biểu diễn trên sân khấu" width="512" height="341">{% else %}<div class="screen-empty">{{ avatar_emoji }}</div>{% endif %}
+      <figcaption class="mono">{{ avatar_caption }}</figcaption>
+      <i class="corner c1"></i><i class="corner c2"></i><i class="corner c3"></i><i class="corner c4"></i>
+    </figure>
+  </div>
+  <canvas class="hero-wave" id="heroWave" aria-hidden="true"></canvas>
+</section>
+
+<section class="about reveal" id="about">
+  <div class="wrap about-in">
+    <div>
+      <p class="kicker mono">01 — Soundcheck</p>
+      <h2 class="h2">Về mình</h2>
+      <p class="lead">{{ about.intro }}</p>
+    </div>
+    <div class="rider">
+      <p class="rider-h mono">Tech rider · {{ words[-2:]|join(' ') }}</p>
+      <dl>
+        <div><dt>Ngành</dt><dd>{{ major }}</dd></div>
+        <div><dt>Sở thích</dt><dd>{{ about.hobbies }} <span class="eq-mini" aria-hidden="true"><i></i><i></i><i></i><i></i></span></dd></div>
+        <div><dt>Mã sinh viên</dt><dd>{{ student_id or '— đang cập nhật' }}</dd></div>
+        <div><dt>Lớp</dt><dd>{{ class or '— đang cập nhật' }}</dd></div>
+        {% if birthday %}<div><dt>Ngày sinh</dt><dd>{{ birthday }}</dd></div>{% endif %}
+        <div><dt>Trường</dt><dd>{{ school }}</dd></div>
+        <div><dt>Học phần</dt><dd>{{ subject }}</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="goals reveal">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker mono">02 — Mixing</p>
+      <h2 class="h2">Mục tiêu học tập</h2>
+      <p class="sec-sub">Bốn kênh mình muốn đẩy lên trong học phần Nhập môn Công nghệ số và AI. Bấm vào một kênh để nghe nó.</p>
+    </div>
+    <ol class="console">
+      {% set chord = [261.63, 329.63, 392.0, 493.88] %}
+      {% for g in about.learning_goals %}
+      <li class="strip" style="--lv:{{ g.level }}" data-freq="{{ chord[loop.index0 % 4] }}" tabindex="0" role="button" aria-label="Kênh {{ loop.index }}: {{ g.title }}">
+        <span class="ch mono">CH {{ loop.index }}</span>
+        <span class="knobs" aria-hidden="true"><i></i><i></i></span>
+        <span class="fader" aria-hidden="true">
+          <span class="scale">{% for t in ['+6','0','-6','-12','-24','∞'] %}<b>{{ t }}</b>{% endfor %}</span>
+          <span class="track"><span class="meter"></span></span>
+          <span class="cap"></span>
+        </span>
+        <span class="strip-txt">
+          <strong>{{ g.title }}</strong>
+          <span>{{ g.text }}</span>
+        </span>
+      </li>
+      {% endfor %}
+    </ol>
+    <details class="orig">
+      <summary class="mono">Đọc nguyên văn mục tiêu học tập</summary>
+      {% for para in about.learning_goal.split('\n\n') if para.strip() %}<p>{{ para.strip() }}</p>{% endfor %}
+    </details>
+  </div>
+</section>
+
+<section class="direction reveal">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker mono">03 — Arrangement</p>
+      <h2 class="h2">Định hướng phát triển</h2>
+      <p class="sec-sub">{{ about.direction_intro }}</p>
+    </div>
+    <div class="daw" id="daw">
+      <div class="daw-top">
+        <button class="play" id="dawPlay" type="button" aria-pressed="false"><svg viewBox="0 0 20 20" aria-hidden="true"><path class="i-play" d="M6 3.5v13l11-6.5z"/><path class="i-stop" d="M5 5h10v10H5z"/></svg><span>Phát bản phối</span></button>
+        <span class="mono daw-meta">5 track · 12 ô nhịp · 112 BPM</span>
+      </div>
+      <div class="ruler mono" aria-hidden="true"><span class="lane-h"></span><span class="bars">{% for b in range(1, 13) %}<b>{{ b }}</b>{% endfor %}</span></div>
+      <ol class="lanes">
+        {% set hues = [292, 330, 262, 200, 38] %}
+        {% for t in about.direction_tracks %}
+        <li class="lane" style="--h:{{ hues[loop.index0 % 5] }}" data-lane="{{ loop.index0 }}">
+          <span class="lane-h"><b>{{ t.name }}</b></span>
+          <span class="bars">
+            {% for c in t.clips %}<span class="clip" style="--a:{{ c[0] + 1 }};--b:{{ c[1] + 1 }}" data-a="{{ c[0] }}" data-b="{{ c[1] }}"></span>{% endfor %}
+          </span>
+          <p class="lane-txt">{{ t.text }}</p>
+        </li>
+        {% endfor %}
+      </ol>
+      <span class="playhead" aria-hidden="true"></span>
+    </div>
+    <blockquote class="destination"><p>{{ about.direction_goal }}</p></blockquote>
+  </div>
+</section>
+
+<section class="mic reveal" id="mic">
+  <div class="wrap mic-in">
+    <div class="mic-copy">
+      <p class="kicker mono">04 — Mic check</p>
+      <h2 class="h2">Hát một nốt, web đoán cao độ</h2>
+      <p>Một trò nhỏ ghép sở thích ca hát với công nghệ số: bật micro rồi ngân một nốt, trang sẽ đo tần số giọng bạn, gọi tên nốt (cả kiểu C–D–E lẫn Đô–Rê–Mi) và cho biết bạn đang chênh bao nhiêu cent.</p>
+      <div class="mic-act">
+        <button class="btn btn-hot" id="micBtn" type="button" aria-pressed="false">Bật micro</button>
+        <button class="btn btn-ghost" id="refBtn" type="button">Nghe nốt La chuẩn (A4)</button>
+      </div>
+      <p class="mic-note mono">Âm thanh được xử lý ngay trên máy bạn — không ghi âm, không gửi đi đâu cả.</p>
+    </div>
+    <div class="tuner" aria-live="polite">
+      <div class="tuner-read">
+        <span class="t-note" id="tNote">♪</span>
+        <span class="t-solf" id="tSolf">chờ tín hiệu</span>
+        <span class="t-hz mono" id="tHz">0.0 Hz</span>
+      </div>
+      <div class="needle-wrap" aria-hidden="true">
+        <span class="needle-scale mono"><b>-50</b><b>0</b><b>+50</b></span>
+        <span class="needle-track"><span class="needle" id="tNeedle"></span></span>
+        <span class="t-cents mono" id="tCents">±0 cent</span>
+      </div>
+      <canvas id="pitchCv" class="pitch-cv" aria-hidden="true"></canvas>
+    </div>
+  </div>
+</section>
+
+<section class="purpose reveal">
+  <div class="wrap purpose-in">
+    <div>
+      <p class="kicker mono">05 — Encore</p>
+      <h2 class="h2">Portfolio này để làm gì</h2>
+      <p class="lead">{{ about.portfolio_goal }}</p>
+    </div>
+    <ul class="pillars">
+      {% for p in about.portfolio_pillars %}<li><span class="mono">{{ '%02d'|format(loop.index) }}</span><strong>{{ p.title }}</strong><span>{{ p.text }}</span></li>{% endfor %}
+    </ul>
+    <a class="big-link" href="projects.html"><span>Xem 6 dự án</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+{% endblock %}

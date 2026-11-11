@@ -1,0 +1,29 @@
+{% extends "_base.html.j2" %}
+{% block title %}Dự án{% endblock %}
+{% block content %}
+<section class="page-head">
+  <div class="wrap">
+    <p class="kicker mono">Setlist · 6 bài</p>
+    <h1 class="h1">Dự án</h1>
+    <p class="sec-sub">Sáu bài tập ứng với sáu chương của học phần, xếp như sáu pad trên bàn sampler. Rê chuột (hoặc chạm) để nghe, bấm để mở bài.</p>
+  </div>
+</section>
+
+<section class="wrap pads-wrap">
+  {% set scale = [261.63, 293.66, 329.63, 392.0, 440.0, 523.25] %}
+  <ol class="pads">
+    {% for p in projects %}
+    {% set done = not (p.objective is blank) %}
+    <li>
+      <a class="pad{{ ' is-todo' if not done }}" href="project-{{ p.id }}.html" data-freq="{{ scale[loop.index0 % 6] }}" style="--h:{{ [292, 322, 262, 200, 330, 38][loop.index0 % 6] }}">
+        <span class="pad-no mono">{{ '%02d'|format(p.id) }}</span>
+        <span class="pad-led" aria-hidden="true"></span>
+        <span class="pad-title">{{ p.title }}</span>
+        <span class="pad-ch mono">{{ p.chapter.split('–')[0].strip() }} · {{ p.section }}</span>
+        <span class="pad-state mono">{{ 'Đã hoàn thành' if done else 'Đang cập nhật' }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+{% endblock %}

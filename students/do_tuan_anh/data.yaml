@@ -1,0 +1,166 @@
+# =====================================================================
+#  DỮ LIỆU PORTFOLIO – ĐỖ TUẤN ANH
+#  Sửa nội dung rồi chạy:  python scripts/render.py
+#  Mẫu đầy đủ phần bài tập: ..\Duong_Nhu_Quynh_web\students\duong_nhu_quynh\data.yaml
+# =====================================================================
+
+name: "Đỗ Tuấn Anh"
+student_id: ""          # bắt buộc theo đề – điền khi có
+birthday: ""
+class: ""               # bắt buộc theo đề – điền khi có
+subject: "Nhập môn Công nghệ số và ứng dụng trí tuệ nhân tạo"
+school: "Trường Đại học Sư phạm Nghệ thuật Trung ương"
+email: ""
+major: "Sư phạm Âm nhạc"
+avatar_emoji: "🎤"
+avatar: "images/Do_Tuan_Anh.jpg"
+avatar_caption: "trên sân khấu · keys & vocals"
+short_bio: "Sinh viên Sư phạm Âm nhạc mê ca hát, thích đứng trên sân khấu — và đang tập dùng công nghệ số, AI để sáng tạo âm nhạc và đổi mới cách dạy nhạc."
+
+about:
+  intro: "Mình là Đỗ Tuấn Anh, sinh viên ngành Sư phạm Âm nhạc. Ca hát là điều mình yêu thích nhất, và mình muốn trở thành một giáo viên âm nhạc năng động, sáng tạo, biết đưa công nghệ hiện đại vào lớp học."
+  hobbies: "Ca hát"
+
+  # 4 "kênh" trên bàn mixer – mục tiêu học tập (tách từ đoạn mục tiêu gốc bên dưới)
+  learning_goals:
+    - title: "Nền tảng số"
+      level: 78
+      text: "Nắm kiến thức cơ bản về công nghệ số, chuyển đổi số và AI; hiểu vai trò, tầm quan trọng và ứng dụng của chúng trong học tập, công việc và đời sống."
+    - title: "Công cụ AI"
+      level: 86
+      text: "Biết dùng ChatGPT, Gemini, Copilot để tìm kiếm thông tin, hỗ trợ học tập, giải quyết vấn đề và nâng cao hiệu quả công việc."
+    - title: "Prompt & kiểm chứng"
+      level: 70
+      text: "Rèn kỹ năng đặt câu lệnh (prompt), phân tích, đánh giá và kiểm chứng thông tin do AI cung cấp."
+    - title: "Sáng tạo & trách nhiệm"
+      level: 92
+      text: "Hình thành tư duy sáng tạo, khả năng thích ứng với công nghệ, cùng ý thức về bảo mật, quyền riêng tư, bản quyền và trách nhiệm khi dùng AI."
+  learning_goal: |
+    Môn học Nhập môn Công nghệ số và Ứng dụng AI nhằm trang bị cho sinh viên những kiến thức cơ bản về công nghệ số, chuyển đổi số và trí tuệ nhân tạo (AI), giúp sinh viên hiểu được vai trò, tầm quan trọng cũng như những ứng dụng của công nghệ trong học tập, công việc và đời sống. Bên cạnh đó, môn học giúp sinh viên biết cách sử dụng các công cụ AI như ChatGPT, Gemini, Copilot để tìm kiếm thông tin, hỗ trợ học tập, giải quyết vấn đề và nâng cao hiệu quả công việc. Sinh viên cũng được rèn luyện kỹ năng đặt câu lệnh (Prompt), phân tích, đánh giá và kiểm chứng thông tin do AI cung cấp.
+
+    Ngoài ra, môn học còn giúp hình thành tư duy sáng tạo, khả năng thích ứng với sự phát triển của công nghệ, đồng thời nâng cao ý thức về bảo mật thông tin, quyền riêng tư, bản quyền và trách nhiệm khi sử dụng AI. Qua đó, sinh viên có thể vận dụng hiệu quả công nghệ số và trí tuệ nhân tạo vào thực tiễn, đáp ứng yêu cầu học tập và làm việc trong thời đại số.
+
+  # Định hướng phát triển cá nhân – mỗi dòng là một "track" trong bản phối
+  direction_intro: "Chủ động, sáng tạo và thích ứng với xu thế chuyển đổi số trong giáo dục — từng bước nâng cao năng lực ứng dụng công nghệ số và AI vào học tập, nghiên cứu khoa học và nghiệp vụ sư phạm âm nhạc."
+  direction_tracks:
+    - name: "Sáng tạo"
+      text: "Chủ động khai thác công cụ AI để hỗ trợ sáng tạo âm nhạc."
+      clips: [[0, 3], [4, 8]]
+    - name: "Lớp học"
+      text: "Thiết kế bài giảng, xây dựng học liệu số và đổi mới phương pháp dạy học."
+      clips: [[2, 6], [7, 12]]
+    - name: "Kỹ năng"
+      text: "Rèn tư duy phản biện, tự học, giải quyết vấn đề, làm việc độc lập và hợp tác trong môi trường số."
+      clips: [[0, 5], [6, 10]]
+    - name: "Cập nhật"
+      text: "Học tập suốt đời, thường xuyên cập nhật tiến bộ của khoa học công nghệ."
+      clips: [[1, 12]]
+    - name: "Trách nhiệm"
+      text: "Dùng AI an toàn, hiệu quả, có trách nhiệm; tuân thủ đạo đức nghề nghiệp và bản quyền."
+      clips: [[0, 12]]
+  direction_goal: "Hoàn thiện năng lực chuyên môn, kỹ năng sư phạm và phẩm chất nghề nghiệp — trở thành người giáo viên âm nhạc năng động, sáng tạo, biết ứng dụng công nghệ hiện đại trong giảng dạy."
+
+  portfolio_goal: "Portfolio này tổng hợp, lưu trữ và thể hiện quá trình học tập, rèn luyện cùng những kiến thức, kỹ năng mình đạt được trong học phần — từ hiểu biết về công nghệ số, AI đến cách dùng ChatGPT, Gemini và các nền tảng số để học tập và giải quyết vấn đề thực tiễn."
+  portfolio_pillars:
+    - { title: "Hệ thống hóa", text: "Kiến thức về công nghệ số và AI qua 6 chương" }
+    - { title: "Trình diễn", text: "Sản phẩm, bài tập và kết quả đạt được" }
+    - { title: "Tự đánh giá", text: "Sự tiến bộ, tư duy sáng tạo và phản biện của bản thân" }
+    - { title: "Có trách nhiệm", text: "Dùng AI hiệu quả, an toàn trong thời đại số" }
+
+# ---------------------------------------------------------------------
+#  6 BÀI TẬP – tên bài & chương cố định theo đề, CHƯA ĐIỀN nội dung.
+#  Ô nào còn "…" sẽ hiện "đang cập nhật" trên web.
+# ---------------------------------------------------------------------
+projects:
+  - id: 1
+    section: "1.4"
+    title: "Thao tác cơ bản với tệp tin và thư mục"
+    chapter: "Chương 1 – Máy tính và các thiết bị ngoại vi"
+    objective: "…"
+    process:
+      - "Bước 1: …"
+    tool: "…"
+    ai_use: "…"
+    product:
+      intro: "Yêu cầu: trình bày cấu trúc thư mục tối ưu và quy tắc đặt tên tệp đã thiết lập, kèm ảnh chụp minh họa."
+      blocks: []
+      gallery: []
+
+  - id: 2
+    section: "2.4"
+    title: "Tìm kiếm và đánh giá thông tin học thuật"
+    chapter: "Chương 2 – Khai thác dữ liệu và thông tin"
+    objective: "…"
+    process:
+      - "Bước 1: …"
+    tool: "…"
+    ai_use: "…"
+    product:
+      intro: "Yêu cầu: trình bày kết quả tìm kiếm, đánh giá nguồn tin học thuật và tổng hợp thông tin."
+      blocks: []
+      gallery: []
+
+  - id: 3
+    section: "3.4"
+    title: "Viết Prompt hiệu quả cho các tác vụ học tập"
+    chapter: "Chương 3 – Tổng quan về trí tuệ nhân tạo"
+    objective: "…"
+    process:
+      - "Bước 1: …"
+    tool: "…"
+    ai_use: "…"
+    product:
+      intro: "Yêu cầu: trình bày các prompt đã xây dựng, so sánh kết quả giữa các phiên bản và rút ra nguyên tắc viết prompt."
+      blocks: []
+      gallery: []
+
+  - id: 4
+    section: "4.4"
+    title: "Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm"
+    chapter: "Chương 4 – Giao tiếp và hợp tác trong môi trường số"
+    objective: "…"
+    process:
+      - "Bước 1: …"
+    tool: "…"
+    ai_use: "…"
+    product:
+      intro: "Yêu cầu: trình bày cách nhóm dùng công cụ hợp tác trực tuyến, phân công và kết quả dự án."
+      blocks: []
+      gallery: []
+
+  - id: 5
+    section: "5.4"
+    title: "Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung"
+    chapter: "Chương 5 – Sáng tạo nội dung số"
+    objective: "…"
+    process:
+      - "Bước 1: …"
+    tool: "…"
+    ai_use: "…"
+    product:
+      intro: "Yêu cầu: trình bày sản phẩm nội dung số được tạo với sự hỗ trợ của AI tạo sinh."
+      blocks: []
+      gallery: []
+
+  - id: 6
+    section: "6.4"
+    title: "Sử dụng AI có trách nhiệm trong học tập và nghiên cứu"
+    chapter: "Chương 6 – An toàn và liêm chính học thuật trong môi trường số"
+    objective: "…"
+    process:
+      - "Bước 1: …"
+    tool: "…"
+    ai_use: "…"
+    product:
+      intro: "Yêu cầu: trình bày bộ nguyên tắc cá nhân về sử dụng AI có trách nhiệm dựa trên các nghiên cứu đã thực hiện."
+      blocks: []
+      gallery: []
+
+# ⚠ Theo đề: phần cảm nhận, tự đánh giá phải do sinh viên TỰ VIẾT.
+conclusion:
+  experience: "…"
+  key_skills:
+    - "…"
+  highlight: "…"
+  challenge: "…"
+  future: "…"

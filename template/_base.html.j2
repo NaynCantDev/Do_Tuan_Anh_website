@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Portfolio{% endblock %} – {{ name }}</title>
+<meta name="description" content="{{ short_bio }}">
+<meta name="theme-color" content="#0c0a1e">
+<link rel="preload" href="assets/fonts/big-shoulders-display-vietnamese-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230c0a1e'/><rect x='24' y='10' width='16' height='28' rx='8' fill='%23e84cb0'/><path d='M18 30a14 14 0 0 0 28 0' fill='none' stroke='%23f3f0ff' stroke-width='4'/><rect x='30' y='44' width='4' height='10' fill='%23f3f0ff'/></svg>">
+</head>
+<body class="p-{{ page }}">
+<a class="skip" href="#main">Bỏ qua đến nội dung</a>
+<div class="spot" aria-hidden="true"></div>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a href="index.html" class="brand" aria-label="Trang chủ">
+      <span class="tally" aria-hidden="true"></span>
+      <span class="brand-name">{{ name.split(' ')[-2:]|join(' ') }}</span>
+      <span class="brand-tag">live</span>
+    </a>
+    <nav class="menu" aria-label="Chính">
+      <a href="index.html"{{ ' aria-current="page"' if page == 'home' }}>Giới thiệu</a>
+      <div class="has-sub">
+        <a href="projects.html"{{ ' aria-current="page"' if page == 'projects' }}>Dự án</a>
+        <button class="sub-btn" type="button" aria-expanded="false" aria-controls="subnav" aria-label="Mở danh sách 6 bài tập"><svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5l5 5 5-5"/></svg></button>
+        <ul class="subnav" id="subnav">
+          {% for pp in projects %}<li><a href="project-{{ pp.id }}.html"{{ ' aria-current="page"' if project is defined and project.id == pp.id }}><span>{{ '%02d'|format(pp.id) }}</span>{{ pp.title }}</a></li>{% endfor %}
+        </ul>
+      </div>
+      <a href="conclusion.html"{{ ' aria-current="page"' if page == 'conclusion' }}>Tổng kết</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+{% block content %}{% endblock %}
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-sign">
+      <p class="foot-big">Cảm ơn đã<br>nghe hết set!</p>
+      <div class="vu" aria-hidden="true">{% for i in range(24) %}<i style="--i:{{ i }}"></i>{% endfor %}</div>
+    </div>
+    <dl class="foot-info">
+      <div><dt>Sinh viên</dt><dd>{{ name }}</dd></div>
+      <div><dt>Mã sinh viên</dt><dd>{{ student_id or 'đang cập nhật' }}</dd></div>
+      <div><dt>Lớp</dt><dd>{{ class or 'đang cập nhật' }}</dd></div>
+      <div><dt>Ngành</dt><dd>{{ major }}</dd></div>
+      <div><dt>Học phần</dt><dd>{{ subject }}</dd></div>
+      {% if email %}<div><dt>Liên hệ</dt><dd><a href="mailto:{{ email }}">{{ email }}</a></dd></div>{% endif %}
+    </dl>
+  </div>
+  <div class="wrap foot-end"><span>{{ school }}</span><span class="mono">INF2501 · Portfolio</span></div>
+</footer>
+<script src="assets/main.js"></script>
+</body>
+</html>

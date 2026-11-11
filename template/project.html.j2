@@ -1,0 +1,59 @@
+{% extends "_base.html.j2" %}
+{% block title %}Bài {{ project.id }}: {{ project.title }}{% endblock %}
+{% block content %}
+{% set p = project %}
+{% set prod = p.product or {} %}
+{% macro tbd() %}<span class="tbd mono">Nội dung đang được cập nhật</span>{% endmacro %}
+
+<section class="page-head proj-head">
+  <div class="wrap">
+    <p class="kicker mono">Track {{ '%02d'|format(p.id) }} / {{ '%02d'|format(projects|length) }} · Bài {{ p.section }}</p>
+    <h1 class="h1 h1-proj">{{ p.title }}</h1>
+    <p class="sec-sub">{{ p.chapter }}</p>
+  </div>
+</section>
+
+<div class="wrap proj">
+  <aside class="track-info">
+    <dl>
+      <div><dt>Chương</dt><dd>{{ p.chapter }}</dd></div>
+      <div><dt>Bài</dt><dd>{{ p.section }}</dd></div>
+      <div><dt>Công cụ</dt><dd>{% if p.tool is blank %}—{% else %}{{ p.tool }}{% endif %}</dd></div>
+      <div><dt>Sử dụng AI</dt><dd>{% if p.ai_use is blank %}—{% else %}{{ p.ai_use }}{% endif %}</dd></div>
+    </dl>
+    <nav class="transport" aria-label="Chuyển bài">
+      {% if prev_p %}<a href="project-{{ prev_p.id }}.html" aria-label="Bài trước: {{ prev_p.title }}"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 4v12M16 4 7 10l9 6z"/></svg></a>{% else %}<span></span>{% endif %}
+      <a href="projects.html" aria-label="Tất cả dự án"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 4h3v3H3zM8.5 4h3v3h-3zM14 4h3v3h-3zM3 13h3v3H3zM8.5 13h3v3h-3zM14 13h3v3h-3z"/></svg></a>
+      {% if next_p %}<a href="project-{{ next_p.id }}.html" aria-label="Bài sau: {{ next_p.title }}"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16 4v12M4 4l9 6-9 6z"/></svg></a>{% else %}<span></span>{% endif %}
+    </nav>
+  </aside>
+
+  <article class="proj-body">
+    <section class="part reveal">
+      <h2 class="h3"><span class="mono">A</span>Mục tiêu</h2>
+      {% if p.objective is blank %}{{ tbd() }}{% else %}<p class="lead">{{ p.objective }}</p>{% endif %}
+    </section>
+
+    <section class="part reveal">
+      <h2 class="h3"><span class="mono">B</span>Quá trình thực hiện</h2>
+      {% if p.process is blank %}{{ tbd() }}{% else %}
+      <ol class="steps">
+        {% for s in p.process if not (s is blank) %}<li class="st st-{{ s|step_kind }}">{{ s }}</li>{% endfor %}
+      </ol>
+      {% endif %}
+    </section>
+
+    <section class="part reveal">
+      <h2 class="h3"><span class="mono">C</span>Sản phẩm</h2>
+      {% if prod.intro %}<p class="req">{{ prod.intro }}</p>{% endif %}
+      {% if prod.gallery %}
+      <div class="gallery">
+        {% for g in prod.gallery %}<figure><img src="{{ g.src }}" alt="{{ g.caption or p.title }}" loading="lazy">{% if g.caption %}<figcaption>{{ g.caption }}</figcaption>{% endif %}</figure>{% endfor %}
+      </div>
+      {% endif %}
+      {% if not prod.gallery and not prod.blocks %}{{ tbd() }}{% endif %}
+      {% if p.source_url %}<p class="src mono">Bản gốc: <a href="{{ p.source_url }}" target="_blank" rel="noopener">{{ p.source_label or 'Google Docs' }}</a></p>{% endif %}
+    </section>
+  </article>
+</div>
+{% endblock %}
