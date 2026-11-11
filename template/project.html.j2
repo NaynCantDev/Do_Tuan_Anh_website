@@ -52,6 +52,7 @@
       </div>
       {% endif %}
       {% if not prod.gallery and not prod.blocks %}{{ tbd() }}{% endif %}
+      {% if prod.blocks %}{% include "_blocks.html.j2" %}{% endif %}
       {% if p.source_url %}<p class="src mono">Bản gốc: <a href="{{ p.source_url }}" target="_blank" rel="noopener">{{ p.source_label or 'Google Docs' }}</a></p>{% endif %}
     </section>
   </article>

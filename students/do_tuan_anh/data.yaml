@@ -104,14 +104,204 @@ projects:
     section: "3.4"
     title: "Viết Prompt hiệu quả cho các tác vụ học tập"
     chapter: "Chương 3 – Tổng quan về trí tuệ nhân tạo"
-    objective: "…"
+    objective: "Phát triển kỹ năng viết prompt hiệu quả để khai thác tốt mô hình ngôn ngữ lớn trong học tập. Mình chọn ba tác vụ học tập gắn với ngành Sư phạm Âm nhạc, viết cho mỗi tác vụ ba phiên bản prompt (cơ bản, cải tiến, nâng cao), chạy thử cả 9 prompt trên Gemini, rồi tự đối chiếu kết quả với tài liệu gốc và kiến thức chuyên ngành để tìm ra vì sao prompt này hiệu quả hơn prompt kia. Kỹ năng rèn được: phân tích yêu cầu tác vụ, các kỹ thuật prompt engineering (role prompting, chain-of-thought, few-shot) và thói quen kiểm chứng câu trả lời của AI."
     process:
-      - "Bước 1: …"
-    tool: "…"
-    ai_use: "…"
+      - "Bước 1: Chọn 3 tác vụ theo đề, nhưng lấy nội dung từ chính ngành học: tóm tắt một bài báo khoa học về phương pháp giáo dục âm nhạc, giải thích khái niệm “hòa âm chức năng”, và tạo bộ câu hỏi ôn tập về kỹ thuật hơi thở trong ca hát. Với mỗi tác vụ, mình xác định trước “thế nào là một câu trả lời tốt” để có tiêu chí chấm."
+      - "Bước 2: Viết 9 prompt. Prompt cơ bản chỉ có một câu lệnh; prompt cải tiến thêm đối tượng, cấu trúc đầu ra đánh số và độ dài; prompt nâng cao kết hợp role prompting, few-shot (một ví dụ mẫu) và chain-of-thought (làm từng bước, tự rà soát), cùng các ràng buộc về nguồn và độ chắc chắn."
+      - "Bước 3: Chạy cả 9 prompt trên Gemini (gemini.google.com, chế độ không đăng nhập), ngày 12/11/2026. Mỗi prompt mở trong một cuộc trò chuyện mới để câu trả lời trước không ảnh hưởng câu sau; chụp màn hình phần prompt và các đoạn quan trọng của câu trả lời."
+      - "Bước 4: Kiểm chứng. Tác vụ 1: mở bài báo gốc, đối chiếu từng mục. Tác vụ 2: so thuật ngữ với giáo trình hòa âm. Tác vụ 3: tự đếm lại đáp án và soi từng phương án nhiễu."
+      - "Bước 5: Chấm mỗi phiên bản theo 4 tiêu chí (thang 1–5), so sánh, phân tích nguyên nhân và tổng hợp thành bộ nguyên tắc viết prompt."
+      - "Khó khăn: Câu trả lời của AI trông rất “chuyên nghiệp” nên dễ tin ngay, nhất là khi AI tự gắn nguồn hoặc tự rà soát. – giải quyết bằng cách luôn đối chiếu với tài liệu gốc và tự đếm lại; chính bước này phát hiện ra những lỗi quan trọng nhất của bài."
+      - "Khó khăn: Prompt nâng cao không phải lúc nào cũng thắng ở mọi tiêu chí. – giải quyết bằng cách chấm theo từng tiêu chí thay vì cho một điểm chung, để thấy rõ chỗ được và chỗ mất."
+    tool: "Gemini (gemini.google.com, chế độ không đăng nhập), bài báo trên Tạp chí Khoa học Trường ĐHSP TP.HCM"
+    ai_use: "Gemini là đối tượng thử nghiệm của 9 prompt; việc đối chiếu, chấm điểm, phân tích và rút nguyên tắc do mình thực hiện"
     product:
-      intro: "Yêu cầu: trình bày các prompt đã xây dựng, so sánh kết quả giữa các phiên bản và rút ra nguyên tắc viết prompt."
-      blocks: []
+      intro: "Yêu cầu: chọn 3 tác vụ học tập, viết 3 phiên bản prompt cho mỗi tác vụ, thử nghiệm và so sánh kết quả, phân tích vì sao prompt này hiệu quả hơn, tổng hợp nguyên tắc viết prompt."
+      blocks:
+        - type: tasks
+          title: "Ba tác vụ đã chọn"
+          items:
+            - name: "Tóm tắt tài liệu học thuật"
+              topic: "Bài báo “Một số phương pháp giáo dục âm nhạc phổ thông hiện đại” (Nguyễn Thị Ngọc Dung, Nguyễn Đăng Bửu – Tạp chí Khoa học Trường ĐHSP TP.HCM, tập 18, số 2), dài khoảng 14 trang."
+              why: "Đây là tài liệu nền cho môn Phương pháp dạy học âm nhạc mà sinh viên năm nhất phải đọc."
+              challenge: "Bài dài và có cấu trúc nhiều tầng (Pestalozzi, Dalcroze, Kodály, Orff-Schulwerk, điểm chung). Tóm tắt tốt phải đủ các phần, đúng chi tiết của bài chứ không phải kiến thức chung trên mạng."
+            - name: "Giải thích khái niệm phức tạp"
+              topic: "Hòa âm chức năng: ba chức năng Chủ (T), Hạ át (S), Át (D)."
+              why: "Khái niệm trừu tượng mà sinh viên mới học hay nhầm, lại là nền tảng để đệm đàn và dạy hát sau này."
+              challenge: "Phải dùng đúng thuật ngữ tiếng Việt theo giáo trình, giải thích được “vì sao”, và đủ dễ hiểu cho người chưa học hòa âm."
+            - name: "Tạo bộ câu hỏi ôn tập"
+              topic: "Kỹ thuật hơi thở trong ca hát."
+              why: "Gắn với sở thích ca hát của mình và với việc dạy hát cho học sinh sau này."
+              challenge: "Một đề trắc nghiệm tốt cần phương án nhiễu hợp lý, không lộ đáp án qua độ dài, đáp án rải đều và có phân hóa mức độ. Đây là những thứ AI hay làm hời hợt."
+
+        - type: lab
+          num: 1
+          title: "Tóm tắt bài báo về phương pháp giáo dục âm nhạc"
+          criteria: ["Bám sát tài liệu gốc", "Đầy đủ các phần", "Cấu trúc dễ đọc", "Hữu ích cho người học"]
+          versions:
+            - label: "Cơ bản"
+              techniques: ["Một câu lệnh"]
+              prompt: "Tóm tắt bài báo này: https://journal.hcmue.edu.vn/index.php/hcmuejos/article/download/2993/2820/4647"
+              result: "Gemini đọc được link, nêu đúng tên bài, tác giả, tạp chí và trình bày Dalcroze, Orff-Schulwerk khá đúng chi tiết. Nhưng câu trả lời bỏ sót hoàn toàn phương pháp Kodály, một trong ba phương pháp chính của bài."
+              good: ["Đúng thông tin xuất bản", "Tiến trình 4 bước của Dalcroze và 4 giai đoạn của Orff đúng với bài"]
+              bad: ["Bỏ sót phương pháp Kodály", "Mục “nguyên tắc cốt lõi” thực ra là 7 nguyên tắc của Pestalozzi nhưng bị trình bày như kết luận chung của bài", "Nhãn nguồn hiển thị tên một bài báo toán học không liên quan"]
+              scores: [2, 2, 3, 2]
+              shots:
+                - { file: "images/bai3/t1_v1_a.jpg", caption: "Prompt cơ bản và phần mở đầu câu trả lời" }
+                - { file: "images/bai3/t1_v1_b.jpg", caption: "Chỉ có Dalcroze và Orff-Schulwerk, không có Kodály; nhãn nguồn lạ" }
+                - { file: "images/bai3/t1_v1_c.jpg", caption: "Mục 3 thực chất là nguyên tắc của Pestalozzi" }
+            - label: "Cải tiến"
+              techniques: ["Cấu trúc đánh số", "Giới hạn độ dài", "Yêu cầu “TỪNG phương pháp”"]
+              prompt: "Hãy tóm tắt bài báo khoa học tại link: https://journal.hcmue.edu.vn/index.php/hcmuejos/article/download/2993/2820/4647 . Yêu cầu trình bày theo cấu trúc sau: (1) Tổng quan 3–4 câu về mục đích và phạm vi nghiên cứu; (2) Với TỪNG phương pháp được bài báo trình bày, nêu: triết lí giáo dục, tiến trình sư phạm, công cụ dạy học chính – mỗi ý tối đa 2 câu; (3) Những điểm chung giữa các phương pháp; (4) Kết luận chính của tác giả. Dùng tiêu đề và gạch đầu dòng, tổng độ dài khoảng 400 từ, viết bằng tiếng Việt."
+              result: "Câu trả lời đúng khung 4 phần và đủ cả ba phương pháp, kể cả Kodály. Nhưng khi đối chiếu bài gốc thì phần “tiến trình sư phạm” của cả ba phương pháp là mô tả chung chung lấy từ nguồn khác (Scribd, thư viện tỉnh…), không phải tiến trình mà bài báo trình bày."
+              good: ["Đủ 3 phương pháp, đúng khung yêu cầu", "Công cụ của Kodály đúng (ký hiệu bàn tay, âm tiết tiết tấu, Đô di động)"]
+              bad: ["Tiến trình sư phạm không khớp bài gốc (bài nêu 4 bước của Dalcroze, 3 bước Chuẩn bị – Giới thiệu – Luyện tập của Kodály, 4 giai đoạn của Orff)", "Trộn nguồn ngoài mà không báo", "Phần điểm chung chung chung, thiếu các ý của mục 2.5"]
+              scores: [2, 4, 4, 3]
+              shots:
+                - { file: "images/bai3/t1_v2_a.jpg", caption: "Đúng cấu trúc 4 phần" }
+                - { file: "images/bai3/t1_v2_b.jpg", caption: "Đủ 3 phương pháp nhưng gắn nguồn Scribd, thư viện tỉnh" }
+            - label: "Nâng cao"
+              techniques: ["Role prompting", "Chain-of-thought (5 bước)", "Bảng so sánh", "Ràng buộc nguồn", "Tự kiểm tra"]
+              prompt: "Bạn là giảng viên môn Phương pháp dạy học âm nhạc, đang hướng dẫn sinh viên năm nhất ngành Sư phạm Âm nhạc đọc tài liệu chuyên ngành. Tài liệu: bài báo \"Một số phương pháp giáo dục âm nhạc phổ thông hiện đại\" tại https://journal.hcmue.edu.vn/index.php/hcmuejos/article/download/2993/2820/4647 . Hãy làm lần lượt từng bước và trình bày kết quả của mỗi bước. Bước 1: Xác định mục đích nghiên cứu và liệt kê các mục chính của bài theo đúng thứ tự xuất hiện. Bước 2: Lập BẢNG so sánh các phương pháp được trình bày theo 3 cột: triết lí giáo dục, tiến trình sư phạm, công cụ dạy học. Bước 3: Nêu các điểm chung mà tác giả rút ra. Bước 4: Gợi ý 2 cách một giáo viên âm nhạc THCS có thể vận dụng ngay trong một tiết học hát. Bước 5: Tự kiểm tra – chỉ rõ ý nào lấy trực tiếp từ bài báo và ý nào là suy luận thêm của bạn. Ràng buộc: Bước 1–3 CHỈ dùng thông tin trong bài báo này, không lấy từ nguồn khác; nếu không chắc một chi tiết thì ghi \"không thấy trong bài\". Giọng văn dễ hiểu với sinh viên năm nhất, khoảng 500–600 từ."
+              result: "Bảng so sánh bám sát bài hơn hẳn: tiến trình 4 bước của Dalcroze và 4 giai đoạn Orff gắn với thang Bloom đều đúng với bài gốc, có thêm 2 gợi ý dạy hát cho THCS (bộ gõ cơ thể, ký hiệu bàn tay) và phần tách bạch “ý từ bài” với “ý suy luận”. Tuy vậy, dàn ý ở bước 1 vẫn thiếu mục Pestalozzi và mục Điểm chung, dù prompt yêu cầu liệt kê “theo đúng thứ tự”."
+              good: ["Tiến trình Dalcroze và Orff đúng bài gốc", "Bảng 3 cột dễ ôn tập", "Gợi ý vận dụng sát thực tế dạy hát", "Có bước tự phân loại nguồn ý"]
+              bad: ["Dàn ý bỏ sót mục 2.1 (Pestalozzi) và 2.5 (Điểm chung)", "Công cụ của Kodály thiếu Đô di động và âm tiết tiết tấu (bản cải tiến lại có)", "Vẫn gắn nguồn ngoài dù đã ràng buộc"]
+              scores: [4, 4, 5, 5]
+              shots:
+                - { file: "images/bai3/t1_v3_a.jpg", caption: "Vai giảng viên, làm theo từng bước; dàn ý bước 1 thiếu 2 mục" }
+                - { file: "images/bai3/t1_v3_b.jpg", caption: "Bảng so sánh 3 phương pháp – phần tốt nhất trong 3 phiên bản" }
+          verdict: "Prompt nâng cao thắng rõ nhờ ràng buộc “chỉ dùng thông tin trong bài” và yêu cầu lập bảng. Nhưng không phiên bản nào đủ 100%: muốn tóm tắt tài liệu học thuật chính xác thì vẫn phải tự mở bài gốc ra soát lại."
+
+        - type: lab
+          num: 2
+          title: "Giải thích khái niệm “hòa âm chức năng”"
+          criteria: ["Chính xác thuật ngữ", "Đủ ý cốt lõi", "Dễ hiểu với người mới", "Có ví dụ và tự kiểm tra"]
+          versions:
+            - label: "Cơ bản"
+              techniques: ["Một câu hỏi"]
+              prompt: "Hòa âm chức năng là gì?"
+              result: "Câu trả lời dài, có ví dụ C – F – G7 – C và nhắc tới Riemann, nhưng dịch thuật ngữ sai: gọi Subdominant là “Trực chuẩn / Kẻ trung gian”, trong khi giáo trình hòa âm Việt Nam gọi là Hạ át. Viết cho người đọc chung chung, nghiêng về nhạc pop/jazz."
+              good: ["Có đủ ba nhóm chức năng và hợp âm phụ (II, III, VI, VII)", "Có tiến trình ví dụ"]
+              bad: ["Sai thuật ngữ “Trực chuẩn / Kẻ trung gian”", "Không xác định người học nên độ khó không phù hợp", "Không có câu hỏi tự kiểm tra"]
+              scores: [2, 4, 3, 3]
+              shots:
+                - { file: "images/bai3/t2_v1_a.jpg", caption: "Prompt một câu – câu trả lời chung chung" }
+                - { file: "images/bai3/t2_v1_b.jpg", caption: "Lỗi thuật ngữ: “Trực chuẩn / Kẻ trung gian” thay cho Hạ át" }
+            - label: "Cải tiến"
+              techniques: ["Xác định người học", "Cấu trúc 5 phần", "Cho sẵn thuật ngữ chuẩn", "Giới hạn độ dài"]
+              prompt: "Giải thích khái niệm \"hòa âm chức năng\" cho sinh viên năm nhất ngành Sư phạm Âm nhạc. Trình bày theo cấu trúc: (1) Định nghĩa ngắn trong 2 câu; (2) Ba nhóm chức năng chính: Chủ (T), Hạ át (S), Át (D) – mỗi nhóm nêu vai trò và các hợp âm tiêu biểu trong giọng Đô trưởng; (3) Giải thích vì sao hợp âm Át có xu hướng giải quyết về hợp âm Chủ; (4) Một ví dụ tiến trình hợp âm cụ thể; (5) Tóm tắt 3 ý cần nhớ. Độ dài khoảng 300–400 từ, dùng thuật ngữ tiếng Việt chuẩn theo giáo trình hòa âm."
+              result: "Thuật ngữ chuẩn (Tonika, Subdominanta, Dominanta, ký hiệu T₅³, S₅³, D₅³, D₇ như giáo trình), giải thích đúng cơ chế âm dẫn (bậc VII đi lên nửa cung về bậc I, âm bảy đi xuống). Gọn, đúng khung, nhưng khô và chưa có gì giúp người mới “cảm” được khái niệm."
+              good: ["Thuật ngữ và ký hiệu đúng giáo trình", "Giải thích được “vì sao” D về T bằng âm dẫn", "Đúng độ dài"]
+              bad: ["Chỉ nêu hợp âm chính, bỏ hợp âm phụ", "Thiếu hình ảnh, ví dụ nghe được, câu hỏi kiểm tra"]
+              scores: [5, 4, 3, 3]
+              shots:
+                - { file: "images/bai3/t2_v2_a.jpg", caption: "Thuật ngữ đúng nhờ prompt cho sẵn “Chủ – Hạ át – Át”" }
+            - label: "Nâng cao"
+              techniques: ["Role prompting", "Few-shot (mẫu giải thích “Quãng”)", "Chain-of-thought (dàn ý trước)", "Yêu cầu nêu độ chắc chắn"]
+              prompt: "Bạn là giảng viên Hòa âm nổi tiếng vì cách giải thích bằng hình ảnh đời thường. Người học: sinh viên năm nhất Sư phạm Âm nhạc, đã biết đọc nốt và hợp âm ba nhưng chưa học hòa âm. Đây là MỘT VÍ DỤ về phong cách mình muốn – [Khái niệm: Quãng] Hình ảnh: \"Quãng giống khoảng cách giữa hai bậc cầu thang – đếm số bậc từ nốt dưới lên nốt trên.\" Ý chính: quãng được gọi tên theo số bậc (2, 3, 4…) và tính chất (đúng, trưởng, thứ…). Nghe thử: hai nốt đầu của bài \"Happy Birthday\" (Sol–Sol) là quãng 1 đúng. Câu hỏi tự kiểm tra: Đô–Mi là quãng mấy? (Đáp án: quãng 3 trưởng). – Hết ví dụ. Nhiệm vụ: giải thích khái niệm \"Hòa âm chức năng\" theo đúng khuôn trên (Hình ảnh → Ý chính → Nghe thử → Câu hỏi tự kiểm tra). Trước khi viết, hãy suy nghĩ từng bước: người học cần biết gì trước, rồi xây dựng giải thích từ dễ đến khó; ghi ngắn gọn dàn ý suy nghĩ đó ở đầu câu trả lời. Bắt buộc có: (a) một hình ảnh so sánh đời thường xuyên suốt cho cả ba chức năng Chủ (T) – Hạ át (S) – Át (D); (b) tiến trình I–IV–V–I ở Đô trưởng kèm tên nốt của từng hợp âm; (c) gợi ý một bài hát thiếu nhi Việt Nam quen thuộc để nghe minh họa – nếu không chắc chắn về hợp âm của bài đó thì phải nói rõ là chưa kiểm chứng; (d) 3 câu hỏi tự kiểm tra có đáp án. Dùng thuật ngữ tiếng Việt chuẩn, khoảng 400–500 từ."
+              result: "Làm đúng khuôn của ví dụ mẫu: có dàn ý, hình ảnh “ngôi nhà” (phòng khách = Chủ, nhà bếp = Hạ át, cổng nhà = Át), tiến trình I–IV–V–I kèm tên nốt đúng, gợi ý bài “Cả tuần đều ngoan” và tự ghi chú là hợp âm chưa được kiểm chứng, đủ 3 câu hỏi có đáp án."
+              good: ["Dễ hiểu nhất, đúng đối tượng", "Bắt chước chính xác cấu trúc của ví dụ mẫu", "AI tự nói rõ phần nó không chắc chắn"]
+              bad: ["Mất phần giải thích âm dẫn mà bản cải tiến có", "Hình ảnh hơi lẫn (mở đầu nói “chuyến đi chơi” rồi chuyển sang các phòng trong nhà)", "Câu hỏi 3 quá dễ"]
+              scores: [5, 3, 5, 5]
+              shots:
+                - { file: "images/bai3/t2_v3_a.jpg", caption: "Dàn ý suy nghĩ ở đầu – kết quả của chain-of-thought" }
+                - { file: "images/bai3/t2_v3_b.jpg", caption: "Tiến trình kèm tên nốt, gợi ý bài hát có ghi chú “chưa kiểm chứng”, 3 câu hỏi" }
+          verdict: "Chỉ cần cho sẵn thuật ngữ chuẩn (bản cải tiến) là sửa được lỗi nặng nhất của bản cơ bản. Few-shot ở bản nâng cao quyết định “giọng” và độ dễ hiểu, nhưng đổi lại mất bớt chiều sâu. Bài giảng tốt nhất là ghép phần “vì sao” của bản 2 vào khung của bản 3."
+
+        - type: lab
+          num: 3
+          title: "Bộ câu hỏi ôn tập kỹ thuật hơi thở"
+          criteria: ["Đúng yêu cầu định dạng", "Chất lượng phương án nhiễu", "Phân hóa mức độ", "Độ tin cậy đáp án"]
+          versions:
+            - label: "Cơ bản"
+              techniques: ["Một câu lệnh"]
+              prompt: "Tạo câu hỏi ôn tập về kỹ thuật hơi thở trong ca hát."
+              result: "AI tự quyết: 4 câu trắc nghiệm và 3 câu tự luận. Đề lộ đáp án vì phương án đúng luôn dài và “đầy đủ” nhất; câu 1 có hai phương án nhiễu thực chất là một (thở ngực và thở bằng đỉnh phổi); thuật ngữ bị lỗi chính tả “H supporto”."
+              good: ["Nội dung cơ bản đúng (thở hoành cách mô, appoggio, bài tập xì hơi)", "Có gợi ý trả lời cho phần tự luận"]
+              bad: ["Số câu, dạng câu do AI tự chọn", "Đáp án luôn là phương án dài nhất", "Phương án nhiễu trùng nhau", "Lỗi thuật ngữ “H supporto”"]
+              scores: [2, 1, 2, 3]
+              shots:
+                - { file: "images/bai3/t3_v1_a.jpg", caption: "Câu 1: phương án A (thở ngực) và D (thở đỉnh phổi) là một" }
+                - { file: "images/bai3/t3_v1_b.jpg", caption: "Câu 3: lỗi thuật ngữ “H supporto”, đáp án đúng dài hơn hẳn" }
+            - label: "Cải tiến"
+              techniques: ["Số lượng cố định", "Ma trận 4–4–2", "Phạm vi nội dung", "Bảng đáp án có giải thích"]
+              prompt: "Tạo bộ 10 câu hỏi trắc nghiệm ôn tập chủ đề \"Kỹ thuật hơi thở trong ca hát\" dành cho sinh viên năm nhất ngành Sư phạm Âm nhạc. Yêu cầu: (1) Mỗi câu có 4 phương án A–D, chỉ 1 đáp án đúng; (2) Phân bố mức độ: 4 câu nhận biết, 4 câu thông hiểu, 2 câu vận dụng – ghi rõ mức độ sau mỗi câu; (3) Nội dung bao quát: các kiểu thở, cơ hoành, cách lấy hơi, giữ hơi, xả hơi, bài tập luyện hơi; (4) Cuối bộ đề có bảng đáp án kèm giải thích ngắn 1 câu cho mỗi câu."
+              result: "Đúng 10 câu, đúng ma trận 4–4–2, có bảng đáp án. Nhưng 6/10 câu có đáp án B, phương án đúng thường dài nhất, và có những phương án nhiễu vô lý như “chạy nhanh tại chỗ rồi hát ngay” hay “nín thở 2 phút”. Người làm bài đoán được đáp án mà không cần hiểu kỹ thuật."
+              good: ["Tuân thủ mọi yêu cầu đo được: số câu, ma trận, bảng đáp án", "Bao quát đủ nội dung"]
+              bad: ["Đáp án dồn vào B (6/10)", "Phương án nhiễu vô lý, quá dễ loại", "Lỗi chữ “đức tính cao vai”"]
+              scores: [5, 2, 4, 3]
+              shots:
+                - { file: "images/bai3/t3_v2_a.jpg", caption: "Đúng ma trận, ghi mức độ từng câu" }
+                - { file: "images/bai3/t3_v2_b.jpg", caption: "Bảng đáp án – B xuất hiện 6/10 lần" }
+            - label: "Nâng cao"
+              techniques: ["Role prompting", "Few-shot (một câu mẫu đạt chuẩn)", "Quy tắc đo được", "Chain-of-thought tự rà soát"]
+              prompt: "Bạn là giảng viên Thanh nhạc có 15 năm kinh nghiệm ra đề thi cho sinh viên Sư phạm Âm nhạc. Nhiệm vụ: soạn 10 câu trắc nghiệm ôn tập chủ đề \"Kỹ thuật hơi thở trong ca hát\" cho sinh viên năm nhất. Đây là MỘT CÂU MẪU đạt chuẩn: \"Câu: Khi hít vào để chuẩn bị hát một câu dài, việc nào sau đây là đúng? A. Hít thật nhanh qua miệng cho đầy ngực. B. Mở rộng vùng sườn dưới và bụng, vai giữ yên. C. Hóp bụng lại để đẩy hơi lên ngực. D. Nâng vai để phổi có thêm chỗ. – Đáp án: B. Mức độ: Nhận biết. Vì sao các phương án khác sai: A, C, D đều là lỗi thường gặp của người mới học hát.\" Quy tắc bắt buộc: (1) Đúng 10 câu, phân bố 4 nhận biết – 4 thông hiểu – 2 vận dụng; câu vận dụng phải là tình huống dạy hát cho học sinh THCS; (2) Phương án nhiễu phải là lỗi sai hoặc ngộ nhận có thật của người mới học, không dùng phương án vô lý; (3) Bốn phương án có độ dài tương đương nhau để không lộ đáp án; (4) Đáp án đúng rải đều, mỗi chữ cái A/B/C/D đúng 2–3 lần; (5) Dùng thuật ngữ tiếng Việt chuẩn. Trình bày mỗi câu theo đúng định dạng câu mẫu. Sau khi soạn xong, hãy tự rà soát từng bước: đếm số lần mỗi chữ cái là đáp án, kiểm tra câu nào có hơn một đáp án có thể đúng, câu nào có phương án đúng dài hơn hẳn; sửa nếu cần và ghi lại kết quả rà soát ở cuối."
+              result: "Câu 1–8 tốt lên rõ: phương án nhiễu là lỗi thật của người mới học (nâng vai, hóp bụng, xả hơi ào ạt), độ dài các phương án đều nhau, có giải thích “vì sao sai”. Câu 9–10 đúng là tình huống dạy học sinh THCS. Nhưng câu 9–10 lại dùng phương án nhiễu vô lý (“đứng phạt góc lớp”, “đấm mạnh vào ngực”), và quan trọng nhất là bảng tự rà soát sai: Gemini báo đáp án rải đều 2–3–3–2, trong khi đếm lại thực tế là 3–4–2–1."
+              good: ["Phương án nhiễu câu 1–8 hợp lý, cân độ dài", "Có giải thích vì sao các phương án khác sai (học từ câu mẫu)", "Tình huống vận dụng sát nghề dạy hát"]
+              bad: ["Bảng tự rà soát báo sai – vi phạm quy tắc 4 mà vẫn tự chấm “đạt”", "Câu 9–10 vi phạm quy tắc 2 và 3", "Câu 4 xếp mức nhận biết nhưng thực chất là thông hiểu"]
+              scores: [4, 4, 4, 2]
+              shots:
+                - { file: "images/bai3/t3_v3_a.jpg", caption: "Định dạng theo đúng câu mẫu" }
+                - { file: "images/bai3/t3_v3_b.jpg", caption: "Câu 9–10: tình huống THCS nhưng phương án nhiễu vô lý" }
+                - { file: "images/bai3/t3_v3_c.jpg", caption: "Bảng tự rà soát của Gemini – sai so với đáp án thật" }
+          verdict: "Few-shot và quy tắc cụ thể nâng chất lượng phương án nhiễu rõ rệt. Nhưng bước “tự rà soát” cho kết quả sai mà vẫn tự tin là đạt, nên với đề kiểm tra thì người soạn phải tự đếm lại."
+
+        - type: recount
+          title: "Mình tự đếm lại đáp án bản nâng cao (tác vụ 3)"
+          intro: "Yêu cầu trong prompt: mỗi chữ cái A/B/C/D là đáp án 2–3 lần. Gemini tự rà soát và báo “đạt”. Đối chiếu từng câu:"
+          real: ["C", "A", "B", "D", "A", "B", "C", "A", "B", "B"]
+          claimed: ["A", "C", "B", "D", "D", "A", "C", "B", "C", "B"]
+          note: "Chỉ 4/10 câu khớp giữa bảng tự rà soát và đáp án thật. Thực tế: A = 3, B = 4, C = 2, D = 1, tức là vi phạm quy tắc. Kết luận: chain-of-thought giúp AI trình bày có hệ thống, nhưng “tự kiểm tra” của AI không thay được việc người dùng tự kiểm chứng."
+
+        - type: analysis
+          title: "Vì sao prompt này hiệu quả hơn prompt kia"
+          items:
+            - title: "Prompt mơ hồ thì AI tự chọn phạm vi"
+              text: "Với một câu lệnh ngắn, AI tự quyết độ dài, đối tượng và cả thuật ngữ. Kết quả trông đầy đủ nhưng bỏ sót ý quan trọng (thiếu Kodály), dịch thuật ngữ theo kiểu tự nghĩ ra (“Trực chuẩn”), hoặc trộn dạng câu hỏi tùy ý. Lỗi nằm đúng ở những chỗ prompt không nói gì."
+            - title: "Cấu trúc trong prompt ánh xạ 1–1 sang cấu trúc câu trả lời"
+              text: "Cả ba bản cải tiến đều trả lời đúng từng mục đã đánh số: đủ 3 phương pháp, đủ 5 phần, đúng ma trận 4–4–2. Đánh số biến yêu cầu thành một checklist mà AI làm theo rất tốt."
+            - title: "Nhưng cấu trúc chỉ kiểm soát hình thức, không kiểm soát chất lượng"
+              text: "Bản cải tiến của tác vụ 3 đúng mọi con số mà phương án nhiễu vẫn vô lý; bản cải tiến của tác vụ 1 đủ mục nhưng nội dung lấy từ nguồn ngoài. Muốn có chất lượng, prompt phải mô tả “thế nào là tốt”, bằng quy tắc hoặc tốt nhất là bằng một ví dụ mẫu."
+            - title: "Few-shot định nghĩa chất lượng tốt hơn lời mô tả"
+              text: "Một câu mẫu với phương án nhiễu là lỗi thật của người học đã khiến câu 1–8 của bản nâng cao tốt lên rõ. Một đoạn giải thích mẫu về “Quãng” khiến Gemini sao chép đúng khuôn Hình ảnh → Ý chính → Nghe thử → Câu hỏi. AI bắt chước ví dụ chính xác hơn là làm theo tính từ (“hay”, “dễ hiểu”)."
+            - title: "Vai và người học quyết định giọng văn, ràng buộc nguồn quyết định độ trung thực"
+              text: "Role prompting kèm mô tả người học cho ra lời giải thích vừa tầm sinh viên năm nhất. Ràng buộc “chỉ dùng thông tin trong bài” cùng quyền trả lời “không thấy trong bài” làm bản nâng cao của tác vụ 1 bám bài gốc nhất; yêu cầu nói rõ phần chưa chắc chắn khiến Gemini tự ghi chú khi gợi ý bài hát."
+            - title: "Prompt dài hơn không thắng ở mọi tiêu chí"
+              text: "Bản nâng cao của tác vụ 2 mất phần giải thích âm dẫn mà bản cải tiến có; bản nâng cao của tác vụ 1 liệt kê công cụ Kodály ít hơn bản cải tiến. Khi prompt dồn nhiều yêu cầu, AI phải ưu tiên và có thể bỏ ý mà không báo. Vì vậy nên chấm theo từng tiêu chí và sẵn sàng hỏi tiếp để bổ sung."
+
+        - type: principles
+          title: "Bộ nguyên tắc viết prompt của mình"
+          items:
+            - title: "Nói rõ AI là ai và đang nói với ai"
+              text: "Giao vai chuyên môn và mô tả người học (đã biết gì, chưa biết gì)."
+              example: "“Giảng viên Hòa âm… người học đã biết hợp âm ba nhưng chưa học hòa âm” → lời giải thích bằng hình ảnh ngôi nhà, vừa tầm."
+            - title: "Cho sẵn thuật ngữ và khung kiến thức chuẩn"
+              text: "Với kiến thức chuyên ngành tiếng Việt, đưa luôn thuật ngữ đúng vào prompt."
+              example: "Thêm “Chủ (T), Hạ át (S), Át (D)” vào prompt là hết lỗi “Trực chuẩn / Kẻ trung gian”."
+            - title: "Đánh số cấu trúc đầu ra"
+              text: "Mỗi ý cần có trong câu trả lời là một mục đánh số, kèm độ dài."
+              example: "“Với TỪNG phương pháp…” → bản cải tiến không còn bỏ sót Kodály."
+            - title: "Dùng ví dụ mẫu để định nghĩa “tốt”"
+              text: "Một ví dụ đạt chuẩn hiệu quả hơn nhiều tính từ."
+              example: "Câu trắc nghiệm mẫu có phương án nhiễu là lỗi thật → câu 1–8 của đề nâng cao có phương án nhiễu hợp lý."
+            - title: "Đặt quy tắc đo được và giới hạn nguồn"
+              text: "Quy tắc phải kiểm tra được (số lần, độ dài, nguồn nào). Cho phép AI trả lời “không biết/không thấy”."
+              example: "“Chỉ dùng thông tin trong bài… nếu không chắc thì ghi ‘không thấy trong bài’” → tóm tắt bám bài gốc hơn hẳn."
+            - title: "Bắt AI nói rõ mức độ chắc chắn"
+              text: "Yêu cầu tách phần chắc chắn và phần suy luận hoặc chưa kiểm chứng."
+              example: "Gemini tự ghi chú hợp âm bài “Cả tuần đều ngoan” là chưa kiểm chứng; bản tóm tắt nâng cao tách “ý từ bài” và “ý suy luận”."
+            - title: "Không tin vào “tự rà soát” của AI"
+              text: "Chain-of-thought giúp câu trả lời có hệ thống, nhưng việc kiểm chứng cuối cùng là của người dùng."
+              example: "Bảng tự rà soát báo đáp án rải đều 2–3–3–2, đếm lại thực tế là 3–4–2–1."
+            - title: "Chấm theo tiêu chí, rồi lặp lại"
+              text: "So sánh từng tiêu chí để biết bản nào mạnh ở đâu, rồi hỏi tiếp hoặc ghép điểm mạnh."
+              example: "Lời giải thích tốt nhất = khung hình ảnh của bản nâng cao + phần “vì sao” về âm dẫn của bản cải tiến."
+
+        - type: refs
+          title: "Tài liệu và công cụ"
+          items:
+            - { text: "Nguyễn Thị Ngọc Dung, Nguyễn Đăng Bửu. Một số phương pháp giáo dục âm nhạc phổ thông hiện đại. Tạp chí Khoa học Trường ĐHSP TP.HCM, tập 18, số 2, tr. 271–284.", url: "https://journal.hcmue.edu.vn/index.php/hcmuejos/article/download/2993/2820/4647" }
+            - { text: "Google Gemini (gemini.google.com), chế độ không đăng nhập, thử nghiệm ngày 12/11/2026.", url: "https://gemini.google.com" }
       gallery: []
 
   - id: 4

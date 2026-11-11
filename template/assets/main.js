@@ -279,4 +279,57 @@
     });
     refBtn && refBtn.addEventListener('click', () => { tone(440, 1.6, { type: 'sine', vol: 0.9 }); if (!stream) show(440); });
   }
+
+  /* ---------- Trang bài: tab Take 1/2/3 ---------- */
+  $$('.takes').forEach(list => {
+    const tabs = $$('.take', list);
+    const select = (t, focus) => {
+      tabs.forEach(x => {
+        const on = x === t;
+        x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1;
+        const pn = document.getElementById(x.getAttribute('aria-controls'));
+        if (pn) pn.hidden = !on;
+      });
+      if (focus) t.focus();
+    };
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => { select(t); tone([392, 493.88, 587.33][i % 3], 0.25, { type: 'triangle', vol: 0.5 }); });
+      t.addEventListener('keydown', e => {
+        const k = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (k) { e.preventDefault(); select(tabs[(i + k + tabs.length) % tabs.length], true); }
+      });
+    });
+  });
+
+  /* ---------- Sao chép prompt ---------- */
+  $$('.copy').forEach(b => b.addEventListener('click', async () => {
+    const el = document.getElementById(b.dataset.copy); if (!el) return;
+    try { await navigator.clipboard.writeText(el.textContent.trim()); b.textContent = 'Đã chép'; b.classList.add('done'); }
+    catch (e) { const r = document.createRange(); r.selectNodeContents(el); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); b.textContent = 'Đã chọn'; }
+    setTimeout(() => { b.textContent = 'Sao chép'; b.classList.remove('done'); }, 1800);
+  }));
+
+  /* ---------- Lightbox ảnh chụp màn hình ---------- */
+  const lb = $('#lightbox');
+  if (lb) {
+    document.body.appendChild(lb);
+    const img = $('img', lb), cap = $('figcaption', lb);
+    let group = [], idx = 0, opener = null;
+    const show = i => { idx = (i + group.length) % group.length; img.src = group[idx].dataset.lb; img.alt = group[idx].dataset.cap; cap.textContent = group[idx].dataset.cap + '  (' + (idx + 1) + '/' + group.length + ')'; };
+    const close = () => { lb.hidden = true; document.body.style.overflow = ''; opener && opener.focus(); };
+    $$('.shot').forEach(b => b.addEventListener('click', () => {
+      group = $$('.shot', b.closest('.take-panel') || document); opener = b;
+      show(group.indexOf(b)); lb.hidden = false; document.body.style.overflow = 'hidden'; $('.lb-close', lb).focus();
+    }));
+    $('.lb-close', lb).addEventListener('click', close);
+    $('.lb-prev', lb).addEventListener('click', () => show(idx - 1));
+    $('.lb-next', lb).addEventListener('click', () => show(idx + 1));
+    lb.addEventListener('click', e => { if (e.target === lb) close(); });
+    document.addEventListener('keydown', e => {
+      if (lb.hidden) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowRight') show(idx + 1);
+      if (e.key === 'ArrowLeft') show(idx - 1);
+    });
+  }
 })();

@@ -111,6 +111,19 @@ def render_student(env, student_id):
                 print(f"  [WARN] bài {p['id']}: không thấy {src} → bỏ qua")
         if prod:
             prod["gallery"] = kept
+        # Ảnh chụp từng phiên bản prompt (khối lab): versions[].shots[].file
+        for blk in (prod.get("blocks") or []):
+            if blk.get("type") != "lab":
+                continue
+            for v in blk.get("versions") or []:
+                for sh in v.get("shots") or []:
+                    src = STUDENTS_DIR / student_id / sh["file"]
+                    if src.exists():
+                        img_dir.mkdir(parents=True, exist_ok=True)
+                        shutil.copy(src, img_dir / src.name)
+                        sh["src"] = f"assets/img/{src.name}"
+                    else:
+                        print(f"  [WARN] bài {p['id']}: không thấy ảnh {src}")
         # Ảnh chụp từng phiên bản prompt (khối prompt_lab): versions[].shot
         for blk in (prod.get("blocks") or []):
             if blk.get("type") != "prompt_lab":

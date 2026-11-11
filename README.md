@@ -5,7 +5,8 @@ Portfolio học phần **Nhập môn Công nghệ số và ứng dụng AI (INF2
 ## Trạng thái
 - ✅ Giao diện riêng + trang Giới thiệu (thông tin, sở thích, 4 mục tiêu học tập, định hướng phát triển, mục tiêu portfolio)
 - ✅ Trang Dự án / chi tiết bài / Tổng kết đã dựng sẵn; ô nào còn `…` hiện nhãn "đang cập nhật"
-- ⏳ Nội dung 6 bài tập & phần Tổng kết: **chưa điền**
+- ✅ Bài 3 (Viết prompt hiệu quả): 3 tác vụ × 3 prompt chạy thật trên Gemini, 19 ảnh chụp màn hình, bảng chấm theo tiêu chí, đối chiếu đáp án, phân tích và bộ nguyên tắc
+- ⏳ Bài 1, 2, 4, 5, 6 & phần Tổng kết: **chưa điền**
 - ⏳ Mã sinh viên, lớp, email: chưa có
 
 ## Giao diện — "Live Session"
@@ -19,6 +20,7 @@ Lấy cảm hứng từ ảnh Tuấn Anh biểu diễn dưới ánh đèn sân k
 - **Mic check**: bật micro, ngân một nốt → web dò cao độ (autocorrelation), gọi tên nốt C–D–E / Đô–Rê–Mi, kim lệch cent và vẽ đường cao độ. Xử lý hoàn toàn trên máy, không ghi âm
 - Dự án = **6 pad sampler** 3×2, rê chuột/chạm để nghe, đèn LED báo bài đã xong hay đang cập nhật
 - Trang chi tiết: bảng "track info" dính bên trái + nút transport ⏮ ▦ ⏭
+- Khối "phòng thu" cho bài prompt: mỗi tác vụ là một *Session*, 3 phiên bản prompt là *Take 1/2/3* (tab), bảng *Mixdown* chấm điểm bằng đèn LED, lightbox xem ảnh chụp, bảng tự đếm lại đáp án
 - Âm thanh tổng hợp bằng Web Audio, không cần file; tôn trọng *prefers-reduced-motion*
 
 ## Cấu trúc

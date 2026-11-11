@@ -1,0 +1,145 @@
+{# Khối sản phẩm cho trang chi tiết bài – phong cách "phòng thu" #}
+{% set takes = ['Take 1', 'Take 2', 'Take 3', 'Take 4'] %}
+
+{% for b in prod.blocks %}
+{% if b.type == 'tasks' %}
+<div class="blk tasks reveal">
+  <h3 class="blk-h">{{ b.title }}</h3>
+  <ol class="task-cards">
+    {% for t in b['items'] %}
+    <li class="task-card">
+      <span class="mono tc-no">Session {{ '%02d'|format(loop.index) }}</span>
+      <strong>{{ t.name }}</strong>
+      <p class="tc-topic">{{ t.topic }}</p>
+      <dl>
+        <div><dt>Vì sao chọn</dt><dd>{{ t.why }}</dd></div>
+        <div><dt>Thách thức</dt><dd>{{ t.challenge }}</dd></div>
+      </dl>
+    </li>
+    {% endfor %}
+  </ol>
+</div>
+
+{% elif b.type == 'lab' %}
+{% set lid = 'lab' ~ b.num %}
+<div class="blk lab reveal" id="{{ lid }}">
+  <div class="lab-head">
+    <span class="mono lab-no">Session {{ '%02d'|format(b.num) }}</span>
+    <h3 class="blk-h">{{ b.title }}</h3>
+  </div>
+
+  <div class="takes" role="tablist" aria-label="Các phiên bản prompt">
+    {% for v in b.versions %}
+    <button class="take" role="tab" type="button" id="{{ lid }}-t{{ loop.index }}" aria-controls="{{ lid }}-p{{ loop.index }}" aria-selected="{{ 'true' if loop.first else 'false' }}" tabindex="{{ '0' if loop.first else '-1' }}">
+      <span class="mono">{{ takes[loop.index0] }}</span>{{ v.label }}
+    </button>
+    {% endfor %}
+  </div>
+
+  {% for v in b.versions %}
+  <div class="take-panel" role="tabpanel" id="{{ lid }}-p{{ loop.index }}" aria-labelledby="{{ lid }}-t{{ loop.index }}"{{ ' hidden' if not loop.first }}>
+    <div class="sheet">
+      <div class="sheet-bar mono"><span>Prompt · {{ v.label }}</span><button type="button" class="copy" data-copy="{{ lid }}-pr{{ loop.index }}">Sao chép</button></div>
+      <p class="sheet-txt" id="{{ lid }}-pr{{ loop.index }}">{{ v.prompt }}</p>
+      <ul class="chips">{% for t in v.techniques %}<li>{{ t }}</li>{% endfor %}</ul>
+    </div>
+    <p class="take-result">{{ v.result }}</p>
+    <div class="pros-cons">
+      <div class="pc pc-good"><h4 class="mono">Được</h4><ul>{% for x in v.good %}<li>{{ x }}</li>{% endfor %}</ul></div>
+      <div class="pc pc-bad"><h4 class="mono">Chưa được</h4><ul>{% for x in v.bad %}<li>{{ x }}</li>{% endfor %}</ul></div>
+    </div>
+    {% if v.shots %}
+    <div class="shots">
+      {% for sh in v.shots if sh.src %}
+      <button type="button" class="shot" data-lb="{{ sh.src }}" data-cap="{{ b.title }} · {{ v.label }} — {{ sh.caption }}">
+        <img src="{{ sh.src }}" alt="Ảnh chụp màn hình Gemini: {{ sh.caption }}" loading="lazy" width="800" height="858">
+        <span>{{ sh.caption }}</span>
+      </button>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  {% endfor %}
+
+  <div class="mixdown">
+    <p class="mono mix-h">Mixdown · chấm theo tiêu chí (1–5)</p>
+    <div class="mix-table" role="table" aria-label="Bảng so sánh các phiên bản">
+      <div class="mix-row mix-th" role="row">
+        <span role="columnheader">Tiêu chí</span>
+        {% for v in b.versions %}<span role="columnheader">{{ takes[loop.index0] }} · {{ v.label }}</span>{% endfor %}
+      </div>
+      {% for c in b.criteria %}
+      {% set ci = loop.index0 %}
+      <div class="mix-row" role="row">
+        <span role="rowheader">{{ c }}</span>
+        {% for v in b.versions %}
+        {% set sc = v.scores[ci] %}
+        <span role="cell" class="cell" data-score="{{ sc }}"><i class="leds" aria-hidden="true">{% for k in range(5) %}<b class="{{ 'on' if k < sc }}"></b>{% endfor %}</i><em>{{ sc }}</em></span>
+        {% endfor %}
+      </div>
+      {% endfor %}
+      <div class="mix-row mix-total" role="row">
+        <span role="rowheader">Tổng / {{ b.criteria|length * 5 }}</span>
+        {% set best = namespace(v=0) %}
+        {% for v in b.versions %}{% if v.scores|sum > best.v %}{% set best.v = v.scores|sum %}{% endif %}{% endfor %}
+        {% for v in b.versions %}<span role="cell" class="{{ 'best' if v.scores|sum == best.v }}">{{ v.scores|sum }}</span>{% endfor %}
+      </div>
+    </div>
+    <blockquote class="verdict"><p>{{ b.verdict }}</p></blockquote>
+  </div>
+</div>
+
+{% elif b.type == 'recount' %}
+<div class="blk recount reveal">
+  <h3 class="blk-h">{{ b.title }}</h3>
+  <p class="blk-intro">{{ b.intro }}</p>
+  <div class="rc-grid" role="table" aria-label="Đối chiếu đáp án">
+    <div class="rc-row rc-th" role="row"><span role="columnheader">Câu</span>{% for x in b.real %}<span role="columnheader">{{ loop.index }}</span>{% endfor %}</div>
+    <div class="rc-row" role="row"><span role="rowheader">Đáp án thật</span>{% for x in b.real %}<span role="cell" class="{{ 'miss' if x != b.claimed[loop.index0] else 'hit' }}">{{ x }}</span>{% endfor %}</div>
+    <div class="rc-row" role="row"><span role="rowheader">Gemini tự báo</span>{% for x in b.claimed %}<span role="cell" class="{{ 'miss' if x != b.real[loop.index0] else 'hit' }}">{{ x }}</span>{% endfor %}</div>
+  </div>
+  <div class="tally">
+    {% for L in ['A','B','C','D'] %}
+    {% set n = b.real|select('equalto', L)|list|length %}
+    {% set m = b.claimed|select('equalto', L)|list|length %}
+    <div class="tl{{ ' bad' if n < 2 or n > 3 }}"><span class="mono">{{ L }}</span><b>{{ n }}</b><small>Gemini báo {{ m }}</small></div>
+    {% endfor %}
+  </div>
+  <p class="blk-note">{{ b.numte }}</p>
+</div>
+
+{% elif b.type == 'analysis' %}
+<div class="blk analysis reveal">
+  <h3 class="blk-h">{{ b.title }}</h3>
+  <ol class="an-list">
+    {% for a in b['items'] %}<li><strong>{{ a.title }}</strong><p>{{ a.text }}</p></li>{% endfor %}
+  </ol>
+</div>
+
+{% elif b.type == 'principles' %}
+<div class="blk principles reveal">
+  <h3 class="blk-h">{{ b.title }}</h3>
+  <ol class="pr-list">
+    {% for a in b['items'] %}
+    <li>
+      <span class="mono pr-no">{{ '%02d'|format(loop.index) }}</span>
+      <div><strong>{{ a.title }}</strong><p>{{ a.text }}</p><p class="pr-ex"><span class="mono">Từ thử nghiệm</span>{{ a.example }}</p></div>
+    </li>
+    {% endfor %}
+  </ol>
+</div>
+
+{% elif b.type == 'refs' %}
+<div class="blk refs reveal">
+  <h3 class="blk-h">{{ b.title }}</h3>
+  <ul>{% for r in b['items'] %}<li>{{ r.text }}{% if r.url %} <a href="{{ r.url }}" target="_blank" rel="noopener">Mở liên kết</a>{% endif %}</li>{% endfor %}</ul>
+</div>
+{% endif %}
+{% endfor %}
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-close" type="button" aria-label="Đóng ảnh">✕</button>
+  <button class="lb-nav lb-prev" type="button" aria-label="Ảnh trước">‹</button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <button class="lb-nav lb-next" type="button" aria-label="Ảnh sau">›</button>
+</div>
