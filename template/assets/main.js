@@ -63,7 +63,7 @@
   /* ---------- Reveal on scroll ---------- */
   const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => {
     es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.18 }) : null;
+  }, { threshold: 0, rootMargin: '0px 0px -8% 0px' }) : null;
   $$('.reveal').forEach(el => io ? io.observe(el) : el.classList.add('in'));
 
   /* ---------- Sóng âm ở hero (idle) ---------- */
