@@ -98,14 +98,15 @@
     <div class="rc-row" role="row"><span role="rowheader">Đáp án thật</span>{% for x in b.real %}<span role="cell" class="{{ 'miss' if x != b.claimed[loop.index0] else 'hit' }}">{{ x }}</span>{% endfor %}</div>
     <div class="rc-row" role="row"><span role="rowheader">Gemini tự báo</span>{% for x in b.claimed %}<span role="cell" class="{{ 'miss' if x != b.real[loop.index0] else 'hit' }}">{{ x }}</span>{% endfor %}</div>
   </div>
-  <div class="tally">
+  <p class="mono rc-cap">Số lần mỗi chữ cái là đáp án đúng — ô đỏ: vi phạm quy tắc 2–3 lần</p>
+  <div class="rc-tally">
     {% for L in ['A','B','C','D'] %}
     {% set n = b.real|select('equalto', L)|list|length %}
     {% set m = b.claimed|select('equalto', L)|list|length %}
     <div class="tl{{ ' bad' if n < 2 or n > 3 }}"><span class="mono">{{ L }}</span><b>{{ n }}</b><small>Gemini báo {{ m }}</small></div>
     {% endfor %}
   </div>
-  <p class="blk-note">{{ b.numte }}</p>
+  <p class="blk-note">{{ b.note }}</p>
 </div>
 
 {% elif b.type == 'analysis' %}
