@@ -332,4 +332,71 @@
       if (e.key === 'ArrowLeft') show(idx - 1);
     });
   }
+
+  /* ---------- Bài 5: nghe nốt mẫu cho bài tập luyện cao độ ---------- */
+  // seq "C4:1.2,_:0.5,E4:1" → nốt:giây ("_" là nghỉ); data-click → thêm gõ nhịp 60 BPM
+  const NOTE = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
+  const hz = (n, shift) => {
+    const m = /^([A-G])(#?)(\d)$/.exec(n); if (!m) return 0;
+    const midi = 12 * (+m[3] + 1) + NOTE[m[1]] + (m[2] ? 1 : 0) + shift;
+    return 440 * Math.pow(2, (midi - 69) / 12);
+  };
+  // giọng hát mẫu: tam giác + sine, đường bao mềm, có rung nhẹ
+  const voice = (f, dur, when) => {
+    const c = audio(); if (!c || !f) return;
+    const t = c.currentTime + when, g = c.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(0.42, t + 0.06);
+    g.gain.setValueAtTime(0.42, t + Math.max(0.07, dur - 0.12));
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    const lfo = c.createOscillator(), lg = c.createGain();
+    lfo.frequency.value = 5.2; lg.gain.value = dur > 1.5 ? f * 0.004 : 0;
+    lfo.connect(lg);
+    [['triangle', 1], ['sine', 2]].forEach(([type, mul]) => {
+      const o = c.createOscillator(); o.type = type; o.frequency.value = f * mul;
+      lg.connect(o.frequency);
+      const og = c.createGain(); og.gain.value = mul === 1 ? 1 : 0.18;
+      o.connect(og).connect(g); o.start(t); o.stop(t + dur + 0.05);
+    });
+    lfo.start(t); lfo.stop(t + dur + 0.05);
+    g.connect(master);
+  };
+  const tick = (when, accent) => {
+    const c = audio(); if (!c) return;
+    const t = c.currentTime + when, o = c.createOscillator(), g = c.createGain();
+    o.frequency.value = accent ? 1600 : 1100;
+    g.gain.setValueAtTime(0.25, t); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.05);
+    o.connect(g).connect(master); o.start(t); o.stop(t + 0.06);
+  };
+  let vshift = 0;
+  $$('.voice-pick button').forEach(b => b.addEventListener('click', () => {
+    vshift = +b.dataset.voice;
+    $$('.voice-pick button').forEach(x => x.setAttribute('aria-checked', String(x === b)));
+  }));
+  $$('.ex-play').forEach(btn => btn.addEventListener('click', () => {
+    if (!audio()) return;
+    let at = 0.05;
+    if (btn.dataset.click) { for (let k = 0; k < 4; k++) tick(at + k, k === 0); at += 4; }
+    const start = at;
+    btn.dataset.seq.split(',').forEach(it => {
+      const [n, d] = it.split(':'); const dur = parseFloat(d) || 1;
+      if (n !== '_') voice(hz(n, vshift), dur * 0.95, at);
+      at += dur;
+    });
+    if (btn.dataset.click) for (let k = 0; start + k < at - 0.01; k++) tick(start + k, k % 4 === 0);
+    btn.classList.add('on');
+    clearTimeout(btn._t); btn._t = setTimeout(() => btn.classList.remove('on'), at * 1000);
+  }));
+
+  /* ---------- Bài 6: danh sách tự kiểm tra ---------- */
+  $$('[data-checklist]').forEach(list => {
+    const out = list.parentElement.querySelector('.ck-state');
+    const boxes = $$('input', list);
+    const upd = () => {
+      const n = boxes.filter(b => b.checked).length, all = n === boxes.length;
+      out.textContent = `${n}/${boxes.length} · ${all ? 'sẵn sàng nộp bài' : 'chưa sẵn sàng nộp'}`;
+      out.classList.toggle('ok', all);
+    };
+    boxes.forEach(b => b.addEventListener('change', upd));
+  });
 })();

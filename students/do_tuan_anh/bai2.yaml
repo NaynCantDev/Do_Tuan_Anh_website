@@ -1,0 +1,163 @@
+# Bài 2 – ghi đè lên projects[id=2] trong data.yaml (render.py tự gộp).
+# Tìm kiếm thực hiện ngày 14/11/2026 trên trình duyệt; mọi nguồn đã mở và đối chiếu.
+objective: "Rèn kỹ năng tìm kiếm thông tin học thuật bằng toán tử nâng cao và đánh giá độ tin cậy của nguồn tin. Mình chọn một chủ đề gắn với sở thích ca hát và việc học Thanh nhạc: công nghệ phản hồi hình ảnh thời gian thực (real-time visual feedback – phần mềm hiện cao độ, phổ âm lên màn hình khi hát) có giúp người học hát chuẩn hơn không, và dạy thanh nhạc trong môi trường số đang gặp những thách thức gì. Kết quả là một danh sách 11 nguồn đã đánh giá theo bộ tiêu chí CRAAP, trong đó 9 nguồn được dùng, 1 nguồn chỉ dùng có điều kiện và 1 nguồn bị loại."
+process:
+  - "Bước 1: Đặt câu hỏi tìm kiếm và tách thành từ khóa song ngữ: phản hồi hình ảnh / real-time visual feedback, cao độ / pitch accuracy, thanh nhạc / singing, voice pedagogy, dạy học trực tuyến / virtual teaching. Giới hạn thời gian ưu tiên 2014–2026."
+  - "Bước 2: Tìm trên 3 nơi: Semantic Scholar (cơ sở dữ liệu học thuật quốc tế), VJOL – Tạp chí Giáo dục Nghệ thuật của trường (tạp chí chuyên ngành trong nước), và thư mục sách/thư viện (Open Library) để xác minh sách chuyên khảo."
+  - "Bước 3: Dùng toán tử: dấu ngoặc kép để tìm đúng cụm, AND/OR để ghép và mở rộng, bộ lọc năm thay cho before/after, và thu hẹp dần khi kết quả quá nhiều. Mỗi lượt tìm được chụp màn hình làm minh chứng."
+  - "Bước 4: Mở từng nguồn, kiểm tra tác giả, nơi đăng, năm, phương pháp và số liệu; chấm theo 5 tiêu chí CRAAP (Currency – tính cập nhật, Relevance – liên quan, Authority – thẩm quyền, Accuracy – chính xác, Purpose – mục đích)."
+  - "Bước 5: Ghi tài liệu tham khảo theo chuẩn Harvard và tổng hợp: các nguồn nói giống nhau ở đâu, mâu thuẫn ở đâu."
+  - "Khó khăn: Google Scholar và Bing chặn trình duyệt, báo “lưu lượng bất thường” và đòi xác minh. – giải quyết bằng cách chuyển sang Semantic Scholar và ô tìm kiếm riêng của VJOL; với Google, mình ghi lại cú pháp toán tử để dùng khi có thể tìm bình thường."
+  - "Khó khăn: Từ khóa “voice pedagogy” technology online teaching survey trả về khoảng 4.460 kết quả, phần lớn về dạy STEM, không phải thanh nhạc. – giải quyết bằng cách thay từ chung bằng cụm đặc thù trong ngoặc kép (“singing voice”, “virtual teaching”), còn đúng 2 kết quả và kết quả đầu là nghiên cứu cần tìm."
+  - "Khó khăn: Hai blog về ứng dụng luyện hát nói ngược nhau về cùng một ứng dụng. – giải quyết bằng cách không dùng blog làm bằng chứng, chỉ dùng nghiên cứu có phương pháp rõ ràng."
+tool: "Semantic Scholar, VJOL (Tạp chí Giáo dục Nghệ thuật), Open Library; thử Google Scholar và Bing nhưng bị chặn"
+ai_use: "Không dùng AI để tìm hay đánh giá nguồn. Mọi nguồn được mở trực tiếp và đối chiếu thông tin xuất bản"
+product:
+  intro: "Yêu cầu: trình bày kết quả tìm kiếm học thuật bằng các toán tử nâng cao và bảng đánh giá nguồn tin đã thực hiện."
+  blocks:
+    - type: brief
+      title: "Câu hỏi tìm kiếm"
+      question: "Phản hồi hình ảnh thời gian thực có giúp người học hát chuẩn cao độ hơn không, và dạy thanh nhạc trong môi trường số đang gặp những thách thức gì?"
+      facts:
+        - ["Vì sao chọn", "Mình thích hát và đang học Thanh nhạc. Trang chủ portfolio cũng có một máy đo cao độ bằng micro, nên mình muốn biết loại công cụ này có cơ sở khoa học hay không."]
+        - ["Từ khóa tiếng Việt", "thanh nhạc, công nghệ số, ứng dụng công nghệ thông tin, dạy học trực tuyến"]
+        - ["Từ khóa tiếng Anh", "real-time visual feedback, singing, pitch accuracy, voice pedagogy, virtual teaching"]
+        - ["Thời gian", "Ưu tiên 2014–2026; giữ lại vài nguồn cũ hơn nếu là nghiên cứu nền tảng"]
+        - ["Ngày tìm", "14/11/2026"]
+
+    - type: table
+      title: "Toán tử đã dùng"
+      head: ["Toán tử", "Tác dụng", "Truy vấn mình dùng"]
+      rows:
+        - ["\"…\" (ngoặc kép)", "Tìm đúng cả cụm, không tách từ", "\"real-time visual feedback\" singing \"pitch accuracy\""]
+        - ["AND", "Bắt buộc có đủ các ý", "\"thanh nhạc\" AND \"công nghệ\""]
+        - ["OR", "Chấp nhận một trong các từ đồng nghĩa", "(singing OR vocal) – dùng trong truy vấn mở rộng"]
+        - ["Lọc năm (Date Range)", "Thay cho after:/before: của Google", "2014–2026 và 2020–2026 trên Semantic Scholar"]
+        - ["Thu hẹp bằng cụm đặc thù", "Bớt kết quả lạc đề", "\"singing voice\" pedagogues \"virtual teaching\" COVID-19"]
+        - ["site: và filetype:pdf", "Chỉ lấy tệp PDF trên một trang (dự định dùng với Google)", "\"thanh nhạc\" \"công nghệ số\" site:vjol.info.vn filetype:pdf – bị Bing chặn, thay bằng ô tìm kiếm của VJOL"]
+
+    - type: searchlog
+      title: "Nhật ký tìm kiếm"
+      rounds:
+        - db: "Google Scholar"
+          query: "\"real-time visual feedback\" singing \"pitch accuracy\" · từ 2014"
+          result: "Bị chặn"
+          note: "Google trả về trang “We're sorry…”, nghi lưu lượng tự động. Mình không cố vượt qua mà chuyển sang cơ sở dữ liệu khác."
+          shots: [{ file: "images/bai2/s0_blocked.jpg", caption: "Google Scholar chặn truy vấn" }]
+        - db: "Semantic Scholar"
+          query: "\"real-time visual feedback\" singing pitch accuracy · lọc 2014–2026"
+          result: "311 kết quả"
+          note: "Ngay trang đầu có 3 nguồn dùng được: Leong & Cheng (2014), luận văn của Zaki-Azat (2016) và bài tổng quan của Lã & Fiuza (2022)."
+          shots: [{ file: "images/bai2/s1_semantic.jpg", caption: "Cụm trong ngoặc kép + lọc năm" }]
+        - db: "VJOL – Tạp chí Giáo dục Nghệ thuật"
+          query: "thanh nhạc công nghệ"
+          result: "Có bài của chính trường"
+          note: "Tìm thấy bài đánh giá việc ứng dụng CNTT trong giảng dạy thanh nhạc cho ngành Sư phạm Âm nhạc của Trường ĐHSP Nghệ thuật TW – đúng ngành của mình."
+          shots: [{ file: "images/bai2/s2_vjol.jpg", caption: "Ô tìm kiếm riêng của tạp chí" }]
+        - db: "Semantic Scholar"
+          query: "\"voice pedagogy\" technology online teaching survey · 2020–2026"
+          result: "≈ 4.460 kết quả – nhiễu"
+          note: "Từ khóa quá chung: các kết quả đầu về dạy STEM và dạy toán, không phải thanh nhạc. Bài học: thêm từ không giúp thu hẹp nếu từ đó quá phổ biến."
+          shots: [{ file: "images/bai2/s3_noise.jpg", caption: "Truy vấn quá rộng, kết quả lạc đề" }]
+        - db: "Semantic Scholar"
+          query: "\"singing voice\" pedagogues \"virtual teaching\" COVID-19 · 2020–2026"
+          result: "2 kết quả – trúng đích"
+          note: "Thay từ chung bằng hai cụm đặc thù trong ngoặc kép, còn đúng 2 kết quả. Kết quả đầu là khảo sát 387 giáo viên thanh nhạc trên Journal of Voice."
+          shots: [{ file: "images/bai2/s4_refined.jpg", caption: "Sau khi thu hẹp: từ ~4.460 xuống 2" }]
+
+    - type: sources
+      title: "Bảng đánh giá nguồn tin"
+      intro: "Mỗi nguồn được chấm theo 5 tiêu chí CRAAP: cập nhật, liên quan, thẩm quyền, chính xác, mục đích."
+      crit: ["Cập nhật", "Liên quan", "Thẩm quyền", "Chính xác", "Mục đích"]
+      items:
+        - kind: "Bài báo · tạp chí trong nước"
+          year: 2023
+          ref: "Nguyễn Thị Thu Hằng (2023) 'Đánh giá hoạt động ứng dụng công nghệ thông tin trong giảng dạy thanh nhạc cho ngành Sư phạm Âm nhạc, Trường Đại học Sư phạm Nghệ thuật Trung ương', Tạp chí Giáo dục Nghệ thuật, số 45."
+          url: "https://vjol.info.vn/tcgiaoducnghethuat/en/article/view/82385"
+          marks: [2, 2, 2, 1, 2]
+          verdict: use
+          review: "Viết đúng về ngành và trường của mình, đăng trên tạp chí của trường. Bài nặng về đánh giá thực trạng và đề xuất, ít số liệu đo lường nên mình dùng để hiểu bối cảnh, không dùng làm bằng chứng về hiệu quả."
+        - kind: "Bài báo · tạp chí trong nước"
+          year: 2025
+          ref: "Hoàng Quốc Tuấn (2025) 'Giảng dạy thanh nhạc trong kỷ nguyên số: xu hướng mới', Tạp chí Khoa học Trường ĐHSP Hà Nội 2, số 04, tập 01, tr. 231–239."
+          url: "https://sjsh.hpu2.edu.vn/index.php/journal/article/download/630/261/2309"
+          marks: [2, 2, 2, 1, 2]
+          verdict: use
+          review: "Tác giả là giảng viên Trường ĐHSP Nghệ thuật TW; bài tổng hợp lợi ích, thách thức và hướng giảng dạy thanh nhạc trong môi trường số. Là bài luận tổng quan, không có thực nghiệm."
+        - kind: "Bài báo · tạp chí trong nước"
+          year: 2026
+          ref: "Hà Thị Lý và Nguyễn Thị Huyền (2026) 'Ứng dụng công nghệ số trong đào tạo Thanh nhạc: xu hướng và thách thức', Tạp chí Giáo dục và Xã hội, tháng 1/2026 (kì 2), tr. 50–55."
+          url: "https://giaoducvaxahoi.vn/pic/Service/ha_thi_ly_nguyen_thi_huyen_pages_50_55_2070.pdf"
+          marks: [2, 2, 2, 1, 2]
+          verdict: use
+          review: "Mới nhất trong danh sách. Kết hợp nghiên cứu tài liệu với phỏng vấn sâu giảng viên và sinh viên Thanh nhạc; chỉ ra thách thức về hạ tầng, năng lực số và bản quyền. Phương pháp định tính nên không khái quát được bằng con số."
+        - kind: "Bài báo · tạp chí quốc tế có bình duyệt"
+          year: 2014
+          ref: "Leong, S. and Cheng, L. (2014) 'Effects of real-time visual feedback on pre-service teachers' singing', Journal of Computer Assisted Learning, 30(3), pp. 285–296. doi:10.1111/jcal.12046."
+          url: "https://doi.org/10.1111/jcal.12046"
+          marks: [1, 2, 2, 2, 2]
+          verdict: use
+          review: "Rất gần với mình: 40 sinh viên sư phạm âm nhạc, chia nhóm thực nghiệm dùng phần mềm Sing & See trong 12 tuần và nhóm đối chứng; nhóm thực nghiệm cải thiện rõ về âm sắc. Mẫu nhỏ và là nghiên cứu thử nghiệm (pilot)."
+        - kind: "Bài báo · tạp chí quốc tế có bình duyệt"
+          year: 2022
+          ref: "Berglin, J., Pfordresher, P.Q. and Demorest, S. (2022) 'The effect of visual and auditory feedback on adult poor-pitch remediation', Psychology of Music, 50(4), pp. 1077–1090. doi:10.1177/03057356211026730."
+          url: "https://doi.org/10.1177/03057356211026730"
+          marks: [2, 2, 2, 2, 2]
+          verdict: use
+          review: "Thiết kế chặt: kiểm tra trước–sau, chia ngẫu nhiên 3 nhóm. Chỉ nhóm có phản hồi hình ảnh tiến bộ có ý nghĩa, rõ nhất khi hát giai điệu 4 nốt. Đối tượng là người lớn hát lệch cao độ, nên chưa chắc đúng với người đã học hát."
+        - kind: "Bài tổng quan · tạp chí quốc tế, truy cập mở"
+          year: 2022
+          ref: "Lã, F.M.B. and Fiuza, M.B. (2022) 'Real-time visual feedback in singing pedagogy: current trends and future directions', Applied Sciences, 12(21), 10781. doi:10.3390/app122110781."
+          url: "https://www.mdpi.com/2076-3417/12/21/10781"
+          marks: [2, 2, 2, 2, 2]
+          verdict: use
+          review: "Tổng quan các công cụ phản hồi hình ảnh cho hơi thở, thanh quản và cộng hưởng; danh mục tài liệu dày giúp mình tra ngược thêm nguồn gốc (Welch và cộng sự, 2005). Có công khai báo cáo bình duyệt."
+        - kind: "Bài báo · tạp chí quốc tế có bình duyệt"
+          year: 2022
+          ref: "Murdaugh, K., Bainac Hausknecht, J. and Herbst, C.T. (2022) 'In-person or virtual? Assessing the impact of COVID-19 on the teaching habits of voice pedagogues', Journal of Voice, 36(5), pp. 735.e19–735.e25. doi:10.1016/j.jvoice.2020.08.027."
+          url: "https://doi.org/10.1016/j.jvoice.2020.08.027"
+          marks: [2, 2, 2, 2, 2]
+          verdict: use
+          review: "Khảo sát 387 giáo viên thanh nhạc toàn cầu: dạy online chỉ được hài lòng ở mức vừa phải, khó đánh giá những phẩm chất giọng hát thuần âm học. Trả lời trực tiếp nửa sau câu hỏi của mình."
+        - kind: "Luận văn thạc sĩ · truy cập mở"
+          year: 2006
+          ref: "Wilson, P.H. (2006) Does real-time visual feedback improve pitch accuracy in singing? Luận văn thạc sĩ. The University of Sydney."
+          url: "https://ses.library.usyd.edu.au/handle/2123/1526"
+          marks: [0, 2, 1, 2, 2]
+          verdict: use
+          review: "Nguồn cũ nhưng là thực nghiệm có nhóm đối chứng, phân tích âm học từng bài hát. Phát hiện quan trọng: màn hình phức tạp làm tăng tải nhận thức, người đã học hát tiến bộ hơn với giao diện đơn giản. Luận văn chưa qua bình duyệt như bài báo."
+        - kind: "Luận văn thạc sĩ · truy cập mở"
+          year: 2016
+          ref: "Zaki-Azat, J.N. (2016) The influence of real-time visual feedback training on vocal control. Luận văn thạc sĩ. Wilfrid Laurier University."
+          url: "https://scholars.wlu.ca/etd/1812"
+          marks: [1, 2, 1, 2, 2]
+          verdict: use
+          review: "Mình giữ nguồn này vì nó cho kết quả ngược lại: không thấy hiệu quả của phản hồi hình ảnh lên khả năng kiểm soát giọng. Có bằng chứng trái chiều giúp kết luận của mình không bị một chiều."
+        - kind: "Sách chuyên khảo"
+          year: 1999
+          ref: "Nair, G. (1999) Voice – Tradition and Technology: A State-of-the-Art Studio. San Diego: Singular Publishing Group."
+          url: "https://openlibrary.org/works/OL8528829W"
+          marks: [0, 2, 2, 1, 2]
+          verdict: partial
+          review: "Sách nền tảng về dùng phổ âm (spectrogram) trong phòng dạy hát, được nhiều nghiên cứu sau trích dẫn. Mình chưa tiếp cận được toàn văn, chỉ xác minh qua thư mục và mô tả của nhà xuất bản, nên chỉ dùng để biết lịch sử vấn đề, không trích nội dung."
+        - kind: "Blog của công ty bán ứng dụng"
+          year: 2026
+          ref: "Singing Carrots (2026) Best app to learn singing 2026: 7 apps compared by learning style. Blog."
+          url: "https://blog.singingcarrots.com/?p=4806"
+          marks: [2, 1, 0, 0, 0]
+          verdict: reject
+          review: "Bài xếp chính sản phẩm của công ty đứng đầu: xung đột lợi ích. Bài này nói một ứng dụng đã ngừng hoạt động, trong khi một blog khác lại khuyên dùng chính ứng dụng đó. Không có phương pháp, không trích nguồn, nên mình loại."
+
+    - type: analysis
+      title: "Tổng hợp: các nguồn nói gì"
+      items:
+        - title: "Phản hồi hình ảnh có ích, nhất là với người mới"
+          text: "Ba thực nghiệm (Wilson, 2006; Leong và Cheng, 2014; Berglin và cộng sự, 2022) đều thấy người học tiến bộ khi được nhìn cao độ hoặc âm sắc của mình trên màn hình. Hiệu quả rõ nhất ở người hát chưa chuẩn và ở giai điệu nhiều nốt."
+        - title: "Nhưng không phải lúc nào cũng có tác dụng"
+          text: "Zaki-Azat (2016) không thấy khác biệt. Wilson (2006) chỉ ra rằng màn hình quá nhiều thông tin làm người hát bị quá tải. Vì vậy giao diện nên đơn giản và chỉ là công cụ phụ trợ."
+        - title: "Công nghệ hỗ trợ, không thay giáo viên"
+          text: "Lã và Fiuza (2022), Nair (1999) và các tác giả trong nước cùng đề xuất kết hợp phản hồi hình ảnh với cách dạy truyền thống. Khảo sát của Murdaugh và cộng sự (2022) cho thấy dạy online chưa thay được buổi học trực tiếp."
+        - title: "Ở Việt Nam, rào cản là hạ tầng và năng lực số"
+          text: "Ba bài trong nước cùng nêu thiếu thiết bị, năng lực công nghệ không đều giữa giảng viên và sinh viên, cùng vấn đề bản quyền và dữ liệu (Nguyễn Thị Thu Hằng, 2023; Hoàng Quốc Tuấn, 2025; Hà Thị Lý và Nguyễn Thị Huyền, 2026)."
+        - title: "Áp dụng cho bản thân"
+          text: "Khi luyện hát ở nhà, mình có thể dùng một công cụ hiện cao độ đơn giản để tự kiểm tra những đoạn hay phô, ghi âm lại để nghe, nhưng vẫn cần giáo viên chỉnh kỹ thuật thở và âm sắc. Những thứ đó màn hình không thể hiện hết."

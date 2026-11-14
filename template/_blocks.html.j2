@@ -153,7 +153,7 @@
 </div>
 
 {% elif b.type == 'table' %}
-<div class="blk tbl reveal">
+<div class="blk tbl{{ " hl" if b.hl_last }} reveal">
   {% if b.title %}<h3 class="blk-h">{{ b.title }}</h3>{% endif %}
   <div class="tbl-wrap"><table>
     <thead><tr>{% for h in b.head %}<th scope="col">{{ h }}</th>{% endfor %}</tr></thead>
@@ -189,6 +189,178 @@
     {% endfor %}
   </ol>
 </div>
+
+{% elif b.type == 'brief' %}
+<div class="blk brief reveal">
+  <h3 class="blk-h">{{ b.title }}</h3>
+  <p class="brief-q">{{ b.question }}</p>
+  <dl class="brief-facts">{% for f in b.facts %}<div><dt class="mono">{{ f[0] }}</dt><dd>{{ f[1] }}</dd></div>{% endfor %}</dl>
+</div>
+
+{% elif b.type == 'searchlog' %}
+<div class="blk slog reveal">
+  <h3 class="blk-h">{{ b.title }}</h3>
+  <ol class="slog-list">
+    {% for r in b.rounds %}
+    <li class="slog-item">
+      <div class="slog-meta"><span class="mono slog-n">Lượt {{ loop.index }}</span><span class="slog-db">{{ r.db }}</span><span class="slog-res mono">{{ r.result }}</span></div>
+      <code class="slog-q">{{ r.query }}</code>
+      <div class="slog-body{{ ' no-shot' if not r.shots }}">
+        <p>{{ r.note }}</p>
+        {% if r.shots %}<div class="slog-shots">{% for sh in r.shots if sh.src %}
+          <button type="button" class="shot" data-lb="{{ sh.src }}" data-cap="Lượt {{ loop.index }} · {{ r.db }} — {{ sh.caption }}"><img src="{{ sh.src }}" alt="Ảnh chụp màn hình: {{ sh.caption }}" loading="lazy" width="800" height="540"><span>{{ sh.caption }}</span></button>
+        {% endfor %}</div>{% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</div>
+
+{% elif b.type == 'sources' %}
+{% set vlabel = {'use': 'Dùng', 'partial': 'Dùng có điều kiện', 'reject': 'Loại'} %}
+{% set marks = ['○', '◐', '●'] %}
+<div class="blk srcs reveal">
+  <h3 class="blk-h">{{ b.title }}</h3>
+  {% if b.intro %}<p class="blk-intro">{{ b.intro }}</p>{% endif %}
+  <ul class="crap crap-key" aria-label="Chú thích"><li class="m2"><b aria-hidden="true"></b>Đạt</li><li class="m1"><b aria-hidden="true"></b>Đạt một phần</li><li class="m0"><b aria-hidden="true"></b>Không đạt</li></ul>
+  <div class="src-sum mono">
+    {% for k in ['use', 'partial', 'reject'] %}<span class="v-{{ k }}">{{ vlabel[k] }}: {{ b['items']|selectattr('verdict', 'equalto', k)|list|length }}</span>{% endfor %}
+    <span>Tổng: {{ b['items']|length }}</span>
+  </div>
+  <ol class="src-list">
+    {% for s in b['items'] %}
+    <li class="src v-{{ s.verdict }}">
+      <div class="src-top"><span class="mono src-n">{{ '%02d'|format(loop.index) }}</span><span class="src-kind">{{ s.kind }} · {{ s.year }}</span><span class="src-v mono">{{ vlabel[s.verdict] }}</span></div>
+      <p class="src-ref">{{ s.ref }}{% if s.url %} <a href="{{ s.url }}" target="_blank" rel="noopener">Mở nguồn</a>{% endif %}</p>
+      <ul class="crap" aria-label="Chấm theo CRAAP">
+        {% for c in b.crit %}<li class="m{{ s.marks[loop.index0] }}"><b aria-hidden="true"></b>{{ c }}<span class="sr">: {{ ['không đạt', 'đạt một phần', 'đạt'][s.marks[loop.index0]] }}</span></li>{% endfor %}
+      </ul>
+      <p class="src-rev">{{ s.review }}</p>
+    </li>
+    {% endfor %}
+  </ol>
+</div>
+
+{% elif b.type == 'board' %}
+{% set stl = {'done': 'Đã xong', 'dropped': 'Không thực hiện', 'open': 'Đang làm'} %}
+<div class="blk board reveal">
+  <h3 class="blk-h">{{ b.title }}</h3>
+  {% if b.intro %}<p class="blk-intro">{{ b.intro }}</p>{% endif %}
+  {% set all = namespace(n=0, d=0) %}
+  {% for col in b.cols %}{% for cd in col.cards %}{% set all.n = all.n + 1 %}{% if cd.state != 'open' %}{% set all.d = all.d + 1 %}{% endif %}{% endfor %}{% endfor %}
+  <div class="bd-prog"><span class="mono">Milestone · {{ all.d }}/{{ all.n }} việc đã đóng</span><i style="--p:{{ (all.d / all.n * 100)|round|int }}%"></i></div>
+  <div class="bd-cols">
+    {% for col in b.cols %}
+    <section class="bd-col">
+      <h4 class="mono">{{ col.name }} <em>{{ col.cards|length }}</em></h4>
+      {% for cd in col.cards %}
+      <a class="bd-card st-{{ cd.state }}" href="https://github.com/NaynCantDev/Do_Tuan_Anh_website/issues/{{ cd.n }}" target="_blank" rel="noopener">
+        <span class="mono bd-n">#{{ cd.n }}</span>
+        <strong>{{ cd.t }}</strong>
+        <span class="bd-foot"><em class="mono lb-{{ cd.label }}">{{ cd.label }}</em><small>{{ stl[cd.state] }}</small></span>
+      </a>
+      {% endfor %}
+    </section>
+    {% endfor %}
+  </div>
+  {% if b.shots %}<div class="shots">{% for sh in b.shots if sh.src %}
+    <button type="button" class="shot" data-lb="{{ sh.src }}" data-cap="{{ sh.caption }}"><img src="{{ sh.src }}" alt="Ảnh chụp màn hình: {{ sh.caption }}" loading="lazy" width="800" height="540"><span>{{ sh.caption }}</span></button>
+  {% endfor %}</div>{% endif %}
+  {% if b.url %}<p class="bd-link"><a class="btn btn-ghost" href="{{ b.url }}" target="_blank" rel="noopener">Mở milestone trên GitHub ↗</a></p>{% endif %}
+</div>
+
+{% elif b.type == 'qa' %}
+<div class="blk qa reveal">
+  <h3 class="blk-h">{{ b.title }}</h3>
+  {% if b.intro %}<p class="blk-intro">{{ b.intro }}</p>{% endif %}
+  {% set tot = namespace(a=[0, 0]) %}
+  {% for it in b['items'] %}{% set tot.a = [tot.a[0] + it.res[0].scores|sum, tot.a[1] + it.res[1].scores|sum] %}{% endfor %}
+  {% set maxs = b['items']|length * b.crit|length * 5 %}
+  <div class="qa-total">
+    {% for t in b.tools %}<div class="qt{{ ' win' if tot.a[loop.index0] == tot.a|max }}"><span class="mono">{{ t }}</span><b>{{ tot.a[loop.index0] }}</b><small>/ {{ maxs }}</small><i style="--p:{{ (tot.a[loop.index0] / maxs * 100)|round|int }}%"></i></div>{% endfor %}
+  </div>
+  {% for it in b['items'] %}
+  <details class="qa-item"{{ ' open' if loop.first }}>
+    <summary><span class="mono qa-n">Câu {{ loop.index }}</span><span class="qa-k">{{ it.kind }}</span>
+      <span class="qa-sc mono">{% for r in it.res %}{{ b.tools[loop.index0] }} {{ r.scores|sum }}{{ ' · ' if not loop.last }}{% endfor %}</span></summary>
+    <p class="qa-q">{{ it.q }}</p>
+    <p class="qa-key"><span class="mono">Đáp án / cách chấm</span>{{ it.answer }}</p>
+    <div class="qa-res">
+      {% for r in it.res %}
+      <div class="qa-tool">
+        <h4 class="mono">{{ b.tools[loop.index0] }} · {{ r.scores|sum }}/{{ b.crit|length * 5 }}</h4>
+        <ul class="qa-bars">{% for c in b.crit %}<li><span>{{ c }}</span><i class="leds" aria-hidden="true">{% for k in range(5) %}<b class="{{ 'on' if k < r.scores[loop.index0] }}"></b>{% endfor %}</i><em>{{ r.scores[loop.index0] }}</em></li>{% endfor %}</ul>
+        <p>{{ r.note }}</p>
+        {% if r.shots %}<div class="shots">{% for sh in r.shots if sh.src %}
+          <button type="button" class="shot" data-lb="{{ sh.src }}" data-cap="Câu {{ loop.index }} · {{ sh.caption }}"><img src="{{ sh.src }}" alt="Ảnh chụp màn hình: {{ sh.caption }}" loading="lazy" width="800" height="560"><span>{{ sh.caption }}</span></button>
+        {% endfor %}</div>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </details>
+  {% endfor %}
+</div>
+
+{% elif b.type == 'zones' %}
+<div class="blk zones reveal">
+  <h3 class="blk-h">{{ b.title }}</h3>
+  {% if b.intro %}<p class="blk-intro">{{ b.intro }}</p>{% endif %}
+  <div class="zn-grid">
+    {% for z in b.zones %}
+    <section class="zn zn-{{ z.key }}"><h4 class="mono"><i aria-hidden="true"></i>{{ z.label }}</h4><ul>{% for x in z['items'] %}<li>{{ x }}</li>{% endfor %}</ul></section>
+    {% endfor %}
+  </div>
+</div>
+
+{% elif b.type == 'cite' %}
+<div class="blk cite reveal">
+  <h3 class="blk-h">{{ b.title }}</h3>
+  <dl class="cite-list">{% for c in b['items'] %}<div><dt class="mono">{{ c.label }}</dt><dd>{{ c.text }}</dd></div>{% endfor %}</dl>
+</div>
+
+{% elif b.type == 'checklist' %}
+<div class="blk checklist reveal">
+  <h3 class="blk-h">{{ b.title }}</h3>
+  {% if b.intro %}<p class="blk-intro">{{ b.intro }}</p>{% endif %}
+  <ul class="ck-list" data-checklist>
+    {% for x in b['items'] %}<li><label><input type="checkbox"><span>{{ x }}</span></label></li>{% endfor %}
+  </ul>
+  <p class="ck-state mono" aria-live="polite">0/{{ b['items']|length }} · chưa sẵn sàng nộp</p>
+</div>
+
+{% elif b.type == 'article' %}
+<article class="blk post reveal">
+  <header class="post-head">
+    <p class="mono post-kicker">Sản phẩm · bài viết</p>
+    <h3 class="post-title">{{ b.title }}</h3>
+    <p class="post-by">{{ b.byline }}</p>
+  </header>
+  <p class="post-lead">{{ b.lead }}</p>
+  <div class="post-warm">
+    <p>{{ b.warmup }}</p>
+    <div class="voice-pick" role="radiogroup" aria-label="Chọn giọng mẫu">
+      <span class="mono">Giọng mẫu</span>
+      <button type="button" role="radio" aria-checked="true" data-voice="0">Nữ</button>
+      <button type="button" role="radio" aria-checked="false" data-voice="-12">Nam</button>
+    </div>
+  </div>
+  <ol class="ex-list">
+    {% for e in b.exercises %}
+    <li class="ex">
+      <div class="ex-head"><span class="mono ex-n">{{ loop.index }}</span><h4>{{ e.name }}</h4><span class="mono ex-t">{{ e.time }}</span></div>
+      <p><strong>Mục tiêu:</strong> {{ e.goal }}</p>
+      <p><strong>Cách làm:</strong> {{ e.how }}</p>
+      <button type="button" class="ex-play" data-seq="{{ e.seq }}"{% if e.click %} data-click="1"{% endif %}><span aria-hidden="true">▶</span> {{ e.label }}</button>
+    </li>
+    {% endfor %}
+  </ol>
+  <h4 class="post-h">{{ b.app_title }}</h4>
+  <ul class="post-app">{% for x in b.app %}<li>{{ x }}</li>{% endfor %}</ul>
+  {% if b.tuner_link %}<p><a class="btn btn-ghost" href="{{ b.tuner_link }}">Thử máy đo cao độ bằng micro ở trang chủ →</a></p>{% endif %}
+  <h4 class="post-h">Giữ gìn giọng</h4>
+  <p>{{ b.care }}</p>
+  <footer class="post-refs"><p class="mono">Tài liệu</p><ul>{% for r in b.refs %}<li>{{ r }}</li>{% endfor %}</ul></footer>
+</article>
 
 {% elif b.type == 'refs' %}
 <div class="blk refs reveal">

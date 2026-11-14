@@ -1,0 +1,110 @@
+# Bài 4 – ghi đè projects[id=4]. Bài nhóm chuyển thành dự án cá nhân của Tuấn Anh:
+# quản lý bằng GitHub Issues + Milestone (công khai), nội dung là so sánh 2 trợ lý AI.
+objective: "Rèn kỹ năng dùng công cụ hợp tác và quản lý dự án trực tuyến. Đề gốc là bài nhóm; mình làm cá nhân nên tự đóng cả vai trưởng nhóm lẫn thành viên: lập kế hoạch, chia việc thành thẻ công việc, đặt hạn chót, ghi tiến độ và quyết định trên một công cụ trực tuyến công khai để người khác theo dõi và góp ý được. Dự án nhỏ được quản lý là so sánh câu trả lời của các trợ lý AI cho 5 câu hỏi thuộc ngành Thanh nhạc."
+process:
+  - "Bước 1: Chọn công cụ. Portfolio này đặt trên GitHub nên mình dùng luôn GitHub Issues làm bảng công việc: mỗi việc là một issue, nhãn (label) cho biết giai đoạn, cột mốc (milestone) gom các việc và hiện phần trăm hoàn thành, hạn chót 16/11/2026."
+  - "Bước 2: Lập kế hoạch. Tạo 6 issue: lập bộ câu hỏi, chạy trên Gemini, chạy trên ChatGPT, chạy trên Copilot, đối chiếu và chấm điểm, viết báo cáo. Mỗi issue có danh sách việc nhỏ để đánh dấu."
+  - "Bước 3: Thực hiện và ghi nhật ký. Mỗi khi xong một việc, mình bình luận kết quả, phát hiện và quyết định vào issue tương ứng rồi đóng issue. Mọi người có liên kết đều xem được tiến độ mà không cần đăng nhập."
+  - "Bước 4: Chạy 5 câu hỏi thuộc 5 dạng (kiến thức chuyên môn, tra cứu sự kiện, sư phạm, nhạc lý, sáng tạo) trên Gemini và ChatGPT, mỗi câu một cuộc trò chuyện mới, chụp màn hình."
+  - "Bước 5: Đối chiếu với tài liệu và chấm theo 5 tiêu chí, thang 1–5. Việc cuối được đóng tự động bằng commit có dòng “Closes #6” khi đưa báo cáo lên web."
+  - "Khó khăn: Microsoft Copilot bắt đăng nhập; Perplexity chỉ cho hỏi 1 câu rồi chặn bằng màn hình đăng ký. – giải quyết bằng cách không tạo tài khoản mới chỉ để làm bài, ghi quyết định thu hẹp phạm vi còn 2 công cụ vào issue #4 rồi đóng issue với trạng thái “không thực hiện”. Đây cũng là một tình huống quản lý dự án thật: kế hoạch thay đổi thì phải ghi lại lý do."
+  - "Khó khăn: Hỏi cùng một câu, AI có thể trả lời khác nhau. – giải quyết bằng cách hỏi lại câu 5 trên Gemini và ghi nhận sự khác biệt thay vì chỉ lấy lần trả lời “đẹp” nhất."
+tool: "GitHub Issues, Labels, Milestone (quản lý dự án); Gemini, ChatGPT (đối tượng so sánh)"
+ai_use: "Gemini và ChatGPT là đối tượng được so sánh. Việc lập kế hoạch, đối chiếu, chấm điểm do mình thực hiện"
+product:
+  intro: "Yêu cầu: trình bày minh chứng về việc sử dụng công cụ quản lý dự án và cách thức phối hợp trực tuyến."
+  blocks:
+    - type: board
+      title: "Bảng công việc trên GitHub"
+      intro: "Milestone “Bài 4” gom 6 việc. Bấm vào từng thẻ để mở issue thật, xem bình luận và lịch sử."
+      url: "https://github.com/NaynCantDev/Do_Tuan_Anh_website/milestone/1?closed=1"
+      cols:
+        - name: "Kế hoạch"
+          cards:
+            - { n: 1, t: "Lập bộ 5 câu hỏi và 5 tiêu chí chấm", label: "ke-hoach", state: done }
+        - name: "Thử nghiệm"
+          cards:
+            - { n: 2, t: "Chạy 5 câu trên Gemini + chụp minh chứng", label: "thu-nghiem", state: done }
+            - { n: 3, t: "Chạy 5 câu trên ChatGPT + chụp minh chứng", label: "thu-nghiem", state: done }
+            - { n: 4, t: "Copilot / công cụ thứ 3 – bị chặn đăng nhập", label: "thu-nghiem", state: dropped }
+        - name: "Đánh giá"
+          cards:
+            - { n: 5, t: "Đối chiếu đáp án, chấm điểm 2 công cụ", label: "danh-gia", state: done }
+        - name: "Báo cáo"
+          cards:
+            - { n: 6, t: "Viết báo cáo, đưa lên portfolio (đóng bằng commit)", label: "bao-cao", state: done }
+      shots:
+        - { file: "images/bai4/gh_issue4.jpg", caption: "Issue #4: ghi lại quyết định thu hẹp phạm vi khi Copilot bị chặn" }
+        - { file: "images/bai4/x_copilot_signin.jpg", caption: "Copilot yêu cầu đăng nhập" }
+        - { file: "images/bai4/x_perplexity_wall.jpg", caption: "Perplexity chặn sau câu hỏi đầu tiên" }
+
+    - type: table
+      title: "Mình dùng từng tính năng để phối hợp thế nào"
+      head: ["Tính năng", "Dùng để", "Trong bài này"]
+      rows:
+        - ["Issue", "Giao việc: mỗi việc một thẻ, có danh sách việc nhỏ", "6 issue, từ lập kế hoạch đến viết báo cáo"]
+        - ["Label", "Phân loại giai đoạn để lọc nhanh", "ke-hoach · thu-nghiem · danh-gia · bao-cao"]
+        - ["Milestone", "Gom việc, đặt hạn chót, hiện % hoàn thành", "Hạn 16/11/2026; thanh tiến độ tự cập nhật khi đóng issue"]
+        - ["Bình luận", "Nhật ký: ghi kết quả, phát hiện, quyết định", "Ghi lỗi của AI ngay khi phát hiện; ghi lý do bỏ Copilot"]
+        - ["Commit có “Closes #6”", "Nối sản phẩm với công việc", "Đẩy báo cáo lên web là issue #6 tự đóng"]
+        - ["Liên kết công khai", "Người khác xem và góp ý không cần tài khoản", "Thầy cô, bạn bè mở milestone để theo dõi tiến độ"]
+
+    - type: qa
+      title: "Kết quả so sánh: 5 câu hỏi, 2 trợ lý"
+      intro: "Chạy ngày 14/11/2026, cả hai ở chế độ không đăng nhập (Gemini bản Flash-Lite). Điểm theo 5 tiêu chí, thang 1–5: Chính xác · Đầy đủ · Đúng yêu cầu · Sáng tạo/thực tế · Trình bày."
+      crit: ["Chính xác", "Đầy đủ", "Đúng yêu cầu", "Sáng tạo", "Trình bày"]
+      tools: ["Gemini", "ChatGPT"]
+      items:
+        - kind: "Kiến thức chuyên môn"
+          q: "Giải thích kỹ thuật thở “appoggio” trong thanh nhạc cho sinh viên năm nhất, tối đa 120 từ."
+          answer: "Appoggio là cách giữ tư thế hít vào trong khi hát để cân bằng giữa cơ hít vào và cơ thở ra, giúp hơi ra đều, không ép cổ. Đây là kỹ thuật của trường phái Ý; từ gốc nghĩa là “tựa vào, nâng đỡ”."
+          res:
+            - { scores: [4, 3, 5, 3, 4], note: "Đúng ý chính, đúng giới hạn độ dài (khoảng 80 từ). Ngắn quá, không có cách luyện tập.", shots: [{ file: "images/bai4/q1_gemini.jpg", caption: "Gemini – câu 1" }] }
+            - { scores: [5, 4, 5, 3, 4], note: "Đúng, có giai đoạn hít vào và phát âm, có lưu ý “không phải gồng bụng hay nín hơi” – rất hữu ích với người mới.", shots: [{ file: "images/bai4/q1_chatgpt.jpg", caption: "ChatGPT – câu 1" }] }
+        - kind: "Tra cứu sự kiện"
+          q: "Bài “Tiến quân ca” của Văn Cao được sáng tác năm nào và được chọn làm Quốc ca Việt Nam từ khi nào? Trả lời ngắn gọn, nêu nguồn."
+          answer: "Sáng tác năm 1944 (nhiều nguồn ghi tháng 10/1944). Quốc dân Đại hội Tân Trào (16–17/8/1945) chọn làm Quốc ca; Quốc hội khóa I chính thức chọn tại kỳ họp thứ nhất (khai mạc 2/3/1946); Điều 3 Hiến pháp 1946 ghi Quốc ca là bài Tiến quân ca."
+          res:
+            - { scores: [2, 4, 4, 3, 4], note: "Đúng năm 1944. Mốc “13/8/1945 Chủ tịch Hồ Chí Minh duyệt” có báo ghi nhưng khác nhiều nguồn khác. Sai “kỳ họp thứ 2, tháng 3/1946”: tháng 3/1946 là kỳ họp thứ nhất. Có kể tên nguồn nhưng không dẫn đến bài cụ thể.", shots: [{ file: "images/bai4/q2_gemini.jpg", caption: "Gemini – câu 2" }] }
+            - { scores: [2, 3, 4, 3, 4], note: "Ghi “tháng 12/1944”, trong khi nhiều nguồn ghi tháng 10. Cũng dùng mốc 13/8/1945 và bỏ qua quyết định của Quốc hội năm 1946. Bổ sung đúng mốc 1976. Có liên kết nguồn bấm được.", shots: [{ file: "images/bai4/q2_chatgpt.jpg", caption: "ChatGPT – câu 2" }] }
+        - kind: "Sư phạm"
+          q: "Soạn hoạt động khởi động giọng 5 phút cho học sinh lớp 6 trước giờ học hát, chia theo từng phút."
+          answer: "Không có đáp án duy nhất. Mình chấm theo: đủ 5 phút, đi từ cơ thể → hơi thở → âm thanh, vừa sức lớp 6 (lứa tuổi bắt đầu vỡ giọng), có lời dẫn của giáo viên."
+          res:
+            - { scores: [4, 5, 4, 3, 4], note: "Đầy đủ, đúng trình tự, có lời dẫn của giáo viên. Chưa nhắc lứa tuổi vỡ giọng và tầm cữ an toàn.", shots: [{ file: "images/bai4/q3_gemini_a.jpg", caption: "Gemini – câu 3 (đầu)" }, { file: "images/bai4/q3_gemini_b.jpg", caption: "Gemini – câu 3 (giữa)" }] }
+            - { scores: [4, 5, 5, 4, 4], note: "Có trò chơi tiết tấu và đoán giai điệu để nối vào bài mới, có phần đánh giá – giống một giáo án thật hơn. Phần hơi thở mỏng hơn. Tự chèn ảnh minh họa có người thật.", shots: [{ file: "images/bai4/q3_chatgpt.jpg", caption: "ChatGPT – câu 3" }] }
+        - kind: "Nhạc lý"
+          q: "Trong giọng Đô trưởng, hợp âm át bảy (V7) gồm những nốt nào và giải quyết về hợp âm chủ như thế nào? Trả lời ngắn."
+          answer: "Sol – Si – Rê – Fa. Si (âm dẫn) lên Đô, Fa (bậc 7 của hợp âm) xuống Mi, Sol về Đô, Rê thường về Đô. Khi giải quyết đúng quy tắc ở thế gốc, hợp âm chủ thường thiếu âm 5."
+          res:
+            - { scores: [4, 4, 5, 3, 4], note: "Đúng 4 nốt và hướng đi của Si, Fa, Sol. Bỏ qua Rê; nói gọn kết quả là Đô–Mi–Sol đầy đủ.", shots: [{ file: "images/bai4/q4_gemini.jpg", caption: "Gemini – câu 4" }] }
+            - { scores: [5, 4, 5, 3, 5], note: "Đúng, có nhắc cả Sol và Rê. Trình bày gọn, dễ đọc.", shots: [{ file: "images/bai4/q4_chatgpt.jpg", caption: "ChatGPT – câu 4" }] }
+        - kind: "Sáng tạo"
+          q: "Gợi ý 3 ý tưởng tiết mục văn nghệ hát có ứng dụng công nghệ cho lễ 20/11 ở trường sư phạm, mỗi ý tối đa 2 câu."
+          answer: "Không có đáp án duy nhất. Mình chấm thêm tính khả thi với sinh viên (chi phí, thiết bị) và tính phù hợp đạo đức."
+          res:
+            - { scores: [3, 4, 3, 4, 4], note: "Hỏi 3 lần ra 3 bộ ý tưởng khác nhau, đều thiên về hologram, VR, drone – tốn kém. Lần 3 gợi ý dùng deepfake tái hiện thầy cô thế hệ trước: chưa tính đến sự đồng ý của người được tái hiện.", shots: [{ file: "images/bai4/q5_gemini.jpg", caption: "Gemini – câu 5 (lần hỏi thứ 3)" }] }
+            - { scores: [4, 4, 4, 4, 4], note: "Có ý khả thi: khán giả quét mã QR gửi lời chúc hiện lên màn hình theo nhạc. Ngay dưới câu trả lời có quảng cáo một dịch vụ tạo giọng AI.", shots: [{ file: "images/bai4/q5_chatgpt.jpg", caption: "ChatGPT – câu 5, kèm quảng cáo" }] }
+
+    - type: analysis
+      title: "Nhận xét"
+      items:
+        - title: "ChatGPT nhỉnh hơn, nhưng cả hai đều sai ở câu tra cứu"
+          text: "Tổng điểm ChatGPT cao hơn chủ yếu nhờ giáo án có tính sư phạm và câu nhạc lý đủ ý. Câu điểm thấp nhất của cả hai đều là câu hỏi sự kiện có ngày tháng: mỗi bên sai một chi tiết khác nhau, và cả hai cùng lặp lại một mốc ngày mà các nguồn còn ghi khác nhau, mà không nói rằng có sự khác biệt."
+        - title: "Gắn nguồn chưa chắc đã đúng"
+          text: "Cả hai đều có phần “nguồn”, nhưng nội dung vẫn sai. Có nguồn chỉ có nghĩa là có chỗ để kiểm tra, mình vẫn phải tự mở ra đọc."
+        - title: "Câu trả lời không ổn định"
+          text: "Gemini trả lời câu sáng tạo 3 lần ra 3 bộ ý khác nhau. Với câu sáng tạo thì đó là điểm cộng, nhưng với câu cần chính xác thì không thể tin một lần hỏi."
+        - title: "Dùng công cụ nào cho việc gì"
+          text: "Giải thích khái niệm, soạn hoạt động: cả hai đều dùng tốt làm bản nháp. Nhạc lý: dùng được nhưng phải so với giáo trình. Ngày tháng, sự kiện lịch sử: không dùng AI làm nguồn cuối cùng. Ý tưởng sáng tạo: dùng để mở rộng ý, rồi tự lọc theo chi phí và đạo đức."
+        - title: "Về quản lý dự án"
+          text: "Chia việc thành thẻ giúp mình không bỏ sót bước đối chiếu. Ghi quyết định vào issue ngay lúc gặp sự cố (Copilot bị chặn) giúp báo cáo trung thực: người xem thấy kế hoạch đã thay đổi thế nào và vì sao."
+
+    - type: refs
+      title: "Liên kết và tài liệu đối chiếu"
+      items:
+        - { text: "Milestone Bài 4 trên GitHub (công khai)", url: "https://github.com/NaynCantDev/Do_Tuan_Anh_website/milestone/1?closed=1" }
+        - { text: "Danh sách issue của dự án", url: "https://github.com/NaynCantDev/Do_Tuan_Anh_website/issues?q=is%3Aissue" }
+        - { text: "Báo Nhân Dân – “Văn Cao, lao động gian khổ và vinh quang” (Quốc hội khóa I chọn Quốc ca ở kỳ họp đầu tiên, khai mạc 2/3/1946)", url: "https://nhandan.vn/van-cao-lao-dong-gian-kho-va-vinh-quang-post518790.html" }
+        - { text: "Báo Đại Đoàn Kết – Tiến quân ca sáng tác tháng 10/1944; Đại hội quốc dân Tân Trào 16–17/8/1945 chọn làm Quốc ca", url: "https://daidoanket.vn/khi-hat-len-tien-quan-ca-10048673.html" }
+        - { text: "Báo Lào Cai – Điều 3 Hiến pháp 1946: Quốc ca là bài “Tiến quân ca”", url: "https://baolaocai.vn/bai-viet/359983-nhac-si-van-cao-va-su-ra-doi-bai-tien-quan-ca" }

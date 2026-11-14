@@ -37,5 +37,13 @@
   <ol class="mini-set">
     {% for p in projects %}<li><a href="project-{{ p.id }}.html"><span class="mono">{{ '%02d'|format(p.id) }}</span>{{ p.title }}</a></li>{% endfor %}
   </ol>
+
+  {% if c.ai_tools %}
+  <h2 class="h3 conc-list-h">Công cụ AI đã dùng</h2>
+  <div class="blk tbl"><div class="tbl-wrap"><table>
+    <thead><tr><th scope="col">Công cụ</th><th scope="col">Ở đâu</th><th scope="col">Dùng để làm gì</th></tr></thead>
+    <tbody>{% for r in c.ai_tools %}<tr><th scope="row">{{ r[0] }}</th><td>{{ r[1] }}</td><td>{{ r[2] }}</td></tr>{% endfor %}</tbody>
+  </table></div></div>
+  {% endif %}
 </section>
 {% endblock %}

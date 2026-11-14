@@ -1,0 +1,19 @@
+# ⚠ BẢN NHÁP. Theo đề thi, phần cảm nhận và tự đánh giá phải do sinh viên TỰ VIẾT.
+# Tuấn Anh cần đọc và viết lại các mục experience / highlight / challenge / future
+# bằng lời của mình trước khi nộp. Bảng ai_tools giữ nguyên để minh bạch.
+experience: "Sáu bài tập đưa mình đi từ việc nhỏ nhất là sắp xếp thư mục cho gọn, đến tìm và đánh giá tài liệu, viết prompt, quản lý một dự án trên mạng, làm một bài viết có AI hỗ trợ và tự đặt nguyên tắc dùng AI. Mình chọn chủ đề nào cũng quay về ca hát và Thanh nhạc, nên công nghệ không còn là môn học bên cạnh mà trở thành công cụ để mình học hát tốt hơn. Điều mình nhớ nhất là AI trả lời rất tự tin, kể cả lúc sai."
+key_skills:
+  - "Tổ chức tệp và thư mục rõ ràng, phân biệt Copy với Cut, Delete với Shift + Delete."
+  - "Tìm tài liệu học thuật bằng toán tử nâng cao, thu hẹp truy vấn khi kết quả nhiễu, đánh giá nguồn theo tiêu chí CRAAP và trích dẫn theo chuẩn Harvard."
+  - "Viết prompt có vai, người đọc, cấu trúc đánh số, ví dụ mẫu và ràng buộc về nguồn."
+  - "Quản lý công việc trên GitHub Issues: chia việc, đặt hạn, ghi nhật ký, ghi lại quyết định khi kế hoạch thay đổi."
+  - "Biên tập nội dung do AI viết: phát hiện chỗ sai, chỗ không an toàn, thay bằng thông tin có nguồn."
+  - "Dùng AI minh bạch: ghi rõ công cụ, mục đích, và luôn tự kiểm chứng."
+highlight: "Bài tâm đắc nhất là Bài 3 và Bài 4, khi mình tự đếm lại đáp án và tự tra lại ngày tháng. Gemini tự rà soát đề trắc nghiệm và báo “đạt” trong khi chỉ 4/10 câu khớp; câu hỏi về Quốc ca thì cả Gemini và ChatGPT đều sai một chi tiết. Những phát hiện đó trở thành nền cho bộ nguyên tắc ở Bài 6."
+challenge: "Khó nhất là giữ thói quen kiểm chứng khi câu trả lời của AI trông rất chuyên nghiệp. Ngoài ra, nhiều công cụ chặn khi chưa đăng nhập: Google Scholar và Bing đòi xác minh, Copilot và Perplexity đòi tài khoản. Mình chuyển sang công cụ khác, ghi lại lý do, và thu hẹp phạm vi bài làm thay vì tạo tài khoản chỉ để làm bài."
+future: "Mình muốn tiếp tục dùng công cụ hiện cao độ và ghi âm để tự luyện hát, nhưng luôn có giáo viên chỉnh kỹ thuật. Khi đi dạy, mình sẽ dùng AI để soạn bản nháp giáo án và câu hỏi ôn tập, rồi tự kiểm tra lại, và không cho học sinh nhỏ tự dùng chatbot."
+ai_tools:
+  - ["Gemini (Google)", "Bài 3, 4, 5", "Đối tượng thử nghiệm prompt; đối tượng so sánh; viết bản nháp bài viết Bài 5"]
+  - ["ChatGPT (OpenAI)", "Bài 4", "Đối tượng so sánh"]
+  - ["Perplexity", "Bài 4", "Thử 1 câu, bị chặn đăng ký nên không đưa vào so sánh"]
+  - ["Claude (Anthropic)", "Toàn bộ website", "Hỗ trợ lập trình giao diện và phần tương tác (máy đo cao độ, nghe mẫu), hỗ trợ biên tập cách trình bày nội dung"]

@@ -1,0 +1,117 @@
+# Bài 6 – ghi đè projects[id=6]. Bộ nguyên tắc dựa trên (1) những lỗi AI mình đã gặp ở
+# Bài 2–5 và (2) các văn bản/nghiên cứu: UNESCO 2023, Luật BVDLCN 2025, Luật AI 2025.
+objective: "Xây dựng bộ nguyên tắc cá nhân về sử dụng AI có trách nhiệm trong học tập và nghiên cứu. Bộ nguyên tắc không chép lại từ một bộ khung có sẵn: mỗi nguyên tắc dựa trên một lỗi hoặc rủi ro mà mình đã tận mắt gặp khi làm Bài 2–5, rồi được đối chiếu với hướng dẫn của UNESCO và luật Việt Nam. Kỹ năng rèn luyện: nhận diện rủi ro của AI tạo sinh (ảo giác, tự đánh giá sai, câu trả lời không ổn định, quyền riêng tư, bản quyền), trích dẫn nội dung do AI tạo và tự đặt ranh giới cho việc dùng AI."
+process:
+  - "Bước 1: Xem lại nhật ký của Bài 2, 3, 4, 5 và liệt kê mọi lần AI trả lời sai, tự tin sai hoặc trả lời khác nhau cho cùng một câu hỏi. Mỗi trường hợp ghi rõ: AI nào, sai ở đâu, mình phát hiện bằng cách nào."
+  - "Bước 2: Đọc các tài liệu nền: hướng dẫn của UNESCO về AI tạo sinh trong giáo dục và nghiên cứu (2023), Luật Bảo vệ dữ liệu cá nhân 2025, Luật Trí tuệ nhân tạo 2025, phần quy định về AI và liêm chính học thuật trong đề thi học phần."
+  - "Bước 3: Ghép mỗi rủi ro đã gặp với nguyên tắc tương ứng trong tài liệu, viết thành 7 nguyên tắc cá nhân. Mỗi nguyên tắc có một cam kết và một hành động kiểm tra được."
+  - "Bước 4: Chuyển nguyên tắc thành công cụ dùng hằng ngày: bảng “được làm, cần cân nhắc, không làm” cho sinh viên Sư phạm Âm nhạc, mẫu trích dẫn AI theo chuẩn Harvard và danh sách tự kiểm tra trước khi nộp bài."
+  - "Khó khăn: Các bộ nguyên tắc trên mạng rất giống nhau và dễ chép lại. – giải quyết bằng cách bắt buộc mỗi nguyên tắc phải gắn với một ví dụ thật từ bài làm của chính mình."
+  - "Khó khăn: Ranh giới giữa “AI hỗ trợ” và “AI làm thay” không rõ. – giải quyết bằng một câu hỏi kiểm tra: nếu thầy cô hỏi vấn đáp về phần này, mình có tự giải thích được không."
+tool: "Tài liệu UNESCO, văn bản luật trên Thư viện Pháp luật; nhật ký thử nghiệm Gemini, ChatGPT, Copilot ở Bài 3–5"
+ai_use: "Không dùng AI để viết bộ nguyên tắc. Các ví dụ trong bài là kết quả thử nghiệm AI ở những bài trước"
+product:
+  intro: "Yêu cầu: trình bày bộ nguyên tắc cá nhân về sử dụng AI có trách nhiệm dựa trên các nghiên cứu đã thực hiện."
+  blocks:
+    - type: table
+      title: "Những gì mình đã tận mắt thấy ở AI"
+      head: ["Ở bài", "Chuyện gì xảy ra", "Rủi ro", "Mình phát hiện bằng cách"]
+      rows:
+        - ["Bài 3", "Gemini tự rà soát đề trắc nghiệm, báo đáp án rải đều 2–3–3–2 và “đạt”; đếm lại thực tế là 3–4–2–1, chỉ 4/10 câu khớp", "AI tự kiểm tra sai mà vẫn tự tin", "Tự đếm lại từng câu"]
+        - ["Bài 3", "Bản tóm tắt cơ bản bỏ sót phương pháp Kodály; bản giải thích cơ bản dịch sai thuật ngữ thành “Trực chuẩn” thay vì Hạ át", "Thiếu ý, sai thuật ngữ chuyên ngành", "Đối chiếu với bài báo gốc và giáo trình Hòa âm"]
+        - ["Bài 4", "Hỏi về Quốc ca: Gemini ghi “kỳ họp thứ 2, tháng 3/1946” (tháng 3/1946 là kỳ họp thứ nhất); ChatGPT ghi sáng tác “tháng 12/1944” (nhiều nguồn ghi tháng 10). Cả hai cùng lặp lại một mốc ngày mà các nguồn còn ghi khác nhau, không nói có sự khác biệt", "Sai ngày tháng, sự kiện; trình bày điều còn tranh cãi như điều chắc chắn", "Tra nhiều báo chính thống và Hiến pháp 1946"]
+        - ["Bài 4", "Cùng một câu hỏi về ý tưởng văn nghệ, Gemini cho 3 bộ ý tưởng khác nhau sau 3 lần hỏi; lần thứ 3 gợi ý dùng deepfake tái hiện thầy cô thế hệ trước", "Câu trả lời không ổn định; gợi ý thiếu cân nhắc về sự đồng ý của người bị tái hiện", "Hỏi lại nhiều lần và tự đọc kỹ từng ý"]
+        - ["Bài 4", "ChatGPT (không đăng nhập) chèn quảng cáo dịch vụ tạo giọng AI ngay dưới câu trả lời", "Nội dung thương mại lẫn vào câu trả lời", "Đọc kỹ phần dưới câu trả lời"]
+        - ["Bài 5", "Khi mình chỉ ra lỗi trong bài viết, Gemini khen “góc nhìn rất tinh tế và sắc sảo” rồi đồng ý ngay", "AI dễ chiều theo người hỏi, kể cả khi người hỏi sai", "Tự kiểm tra lại lập luận của mình bằng tài liệu, không coi lời đồng ý của AI là bằng chứng"]
+        - ["Bài 2", "Blog bán ứng dụng xếp sản phẩm của chính công ty đứng đầu", "Thông tin thiên lệch, xung đột lợi ích", "Đọc phần “về chúng tôi”, so với blog khác"]
+    - type: table
+      title: "Cơ sở từ tài liệu"
+      head: ["Tài liệu", "Điều mình rút ra"]
+      rows:
+        - ["UNESCO (2023), hướng dẫn về AI tạo sinh trong giáo dục và nghiên cứu", "Đặt con người làm trung tâm: AI không được thay năng lực và quyền tự quyết của người học; bảo vệ dữ liệu cá nhân; đề xuất giới hạn tuổi tối thiểu 13 cho việc tự trò chuyện với AI. Với mình, là giáo viên tương lai: không giao học sinh nhỏ tự dùng chatbot."]
+        - ["Luật Bảo vệ dữ liệu cá nhân 2025 (số 91/2025/QH15, hiệu lực 01/01/2026)", "Xử lý dữ liệu của người khác cần sự đồng ý của họ. Giọng hát, hình ảnh, tên học sinh đều là dữ liệu cá nhân: không đưa lên AI khi chưa xin phép."]
+        - ["Luật Trí tuệ nhân tạo 2025 (số 134/2025/QH15, thông qua 10/12/2025)", "Đề cao minh bạch và trách nhiệm giải trình, cấm dùng AI để lừa dối hoặc thao túng. Với mình: luôn ghi rõ phần nào có AI tham gia."]
+        - ["Đề thi học phần INF2501, mục quy định về AI và liêm chính học thuật", "Được dùng AI để hỗ trợ nhưng phải ghi rõ công cụ và mục đích; phần cảm nhận, tự đánh giá phải tự viết; hình ảnh, tư liệu của người khác phải ghi nguồn."]
+
+    - type: principles
+      title: "Bảy nguyên tắc dùng AI của mình"
+      example_label: "Hành động"
+      items:
+        - title: "AI là bạn tập, không phải người hát thay"
+          text: "Mình dùng AI để hỏi lại, gợi ý, luyện tập; phần suy nghĩ, kết luận và bài cảm nhận phải là của mình."
+          example: "Trước khi nộp, tự hỏi: nếu thầy cô hỏi vấn đáp phần này, mình có giải thích được không? Nếu không, viết lại."
+        - title: "Không tin vào việc AI tự kiểm tra"
+          text: "Câu trả lời tự tin, có bảng rà soát, có gắn nguồn vẫn có thể sai."
+          example: "Mọi con số, ngày tháng, đáp án trắc nghiệm do AI tạo đều được đếm hoặc tra lại bằng tay."
+        - title: "Thuật ngữ chuyên ngành phải qua giáo trình"
+          text: "AI dễ dịch thuật ngữ âm nhạc tiếng Việt theo cách tự nghĩ ra."
+          example: "Đưa sẵn thuật ngữ đúng vào prompt và so kết quả với giáo trình Hòa âm, Nhạc lý của trường."
+        - title: "Minh bạch: ghi rõ AI nào, làm gì, phần nào"
+          text: "Mỗi bài có dòng “Sử dụng AI” nói rõ công cụ và mục đích; nội dung lấy từ AI được trích dẫn."
+          example: "Dùng mẫu trích dẫn Harvard bên dưới; ảnh do AI tạo ghi rõ “ảnh tạo bằng AI” ngay dưới ảnh."
+        - title: "Không đưa dữ liệu của người khác lên AI"
+          text: "Bản ghi âm giọng hát, ảnh, tên, điểm số của bạn học hay học sinh là dữ liệu cá nhân."
+          example: "Muốn nhờ AI nhận xét một bản thu, chỉ dùng giọng của chính mình hoặc phải có sự đồng ý của người hát."
+        - title: "Tôn trọng bản quyền âm nhạc"
+          text: "Lời bài hát, bản phối, bản thu của người khác có tác quyền; AI tạo ra không có nghĩa là được dùng tự do."
+          example: "Không nhờ AI chép lại lời ca, không dùng giọng AI giả giọng ca sĩ thật; nhạc nền dùng nguồn có giấy phép rõ ràng."
+        - title: "Hỏi lại và so sánh nhiều nguồn"
+          text: "Cùng một câu hỏi, AI có thể trả lời khác nhau; các AI khác nhau càng khác."
+          example: "Với nội dung quan trọng: hỏi lại, hỏi một AI khác, rồi tra ít nhất một nguồn có tác giả và nơi đăng rõ ràng."
+
+    - type: zones
+      title: "Được làm, cần cân nhắc, không làm"
+      intro: "Áp dụng bảy nguyên tắc vào việc học của sinh viên Sư phạm Âm nhạc."
+      zones:
+        - key: go
+          label: "Được làm"
+          items:
+            - "Nhờ AI giải thích một khái niệm nhạc lý rồi đối chiếu giáo trình"
+            - "Nhờ AI gợi ý bài khởi động giọng, sau đó tự chọn lọc theo độ tuổi học sinh"
+            - "Nhờ AI soạn câu hỏi ôn tập để tự luyện, có đếm lại đáp án"
+            - "Nhờ AI sửa chính tả, gợi ý bố cục cho bài viết của mình"
+        - key: wait
+          label: "Cần cân nhắc"
+          items:
+            - "Dùng AI tạo nhạc nền, bản phối: kiểm tra điều khoản sử dụng và ghi rõ nguồn"
+            - "Dùng ảnh do AI tạo trong bài giảng: ghi chú là ảnh AI, tránh hình người thật"
+            - "Dùng AI tóm tắt tài liệu dài: đọc lại phần gốc trước khi trích"
+            - "Cho học sinh dưới 13 tuổi tiếp xúc với chatbot: chỉ khi giáo viên điều khiển"
+        - key: stop
+          label: "Không làm"
+          items:
+            - "Nhờ AI viết bài cảm nhận, tự đánh giá hay bài thi thay mình"
+            - "Đưa bản thu giọng, ảnh, tên học sinh lên AI khi chưa xin phép"
+            - "Dùng AI giả giọng ca sĩ thật hoặc chép lại lời bài hát có bản quyền"
+            - "Trích dẫn tài liệu mà AI đưa ra khi chưa tự mở và kiểm tra tài liệu đó"
+
+    - type: cite
+      title: "Mẫu trích dẫn nội dung do AI tạo (Harvard)"
+      items:
+        - label: "Mẫu chung"
+          text: "Tên nhà phát triển (Năm) Tên công cụ AI: phản hồi cho [Tên người dùng], ngày tháng. Có tại: URL (nếu có)."
+        - label: "Ví dụ từ Bài 3"
+          text: "Google (2026) Gemini: phản hồi cho Đỗ Tuấn Anh, 12 tháng 11. Chế độ không đăng nhập, không có đường dẫn chia sẻ."
+        - label: "Ảnh do AI tạo"
+          text: "Tên nhà phát triển (Năm) [Mô tả ngắn prompt đã dùng]. [Ảnh số]. Ghi kèm “ảnh tạo bằng AI” ngay dưới ảnh."
+
+    - type: checklist
+      title: "Tự kiểm tra trước khi nộp bài"
+      intro: "Đánh dấu từng ô. Còn ô trống nào là chưa nộp."
+      items:
+        - "Mình tự giải thích được mọi phần trong bài nếu bị hỏi vấn đáp"
+        - "Mọi con số, ngày tháng, đáp án từ AI đã được kiểm tra lại"
+        - "Thuật ngữ chuyên ngành đã đối chiếu với giáo trình"
+        - "Đã ghi rõ AI nào, dùng vào việc gì"
+        - "Nội dung, hình ảnh từ AI và từ người khác đều có trích dẫn"
+        - "Không có dữ liệu cá nhân của người khác trong phần đưa lên AI"
+        - "Phần cảm nhận, tự đánh giá do chính mình viết"
+
+    - type: refs
+      title: "Tài liệu tham khảo"
+      items:
+        - { text: "Miao, F. and Holmes, W. (2023) Guidance for generative AI in education and research. Paris: UNESCO.", url: "https://unesdoc.unesco.org/ark:/48223/pf0000386693" }
+        - { text: "Quốc hội (2025) Luật Bảo vệ dữ liệu cá nhân, số 91/2025/QH15, ngày 26/6/2025.", url: "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Luat-Bao-ve-du-lieu-ca-nhan-2025-91-2025-QH15-625628.aspx" }
+        - { text: "Quốc hội (2025) Luật Trí tuệ nhân tạo, số 134/2025/QH15, ngày 10/12/2025.", url: "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Luat-Tri-tue-nhan-tao-2025-so-134-2025-QH15-679013.aspx" }
+        - { text: "Báo Nhân Dân, “Văn Cao, lao động gian khổ và vinh quang” – dùng để kiểm tra câu trả lời về Quốc ca ở Bài 4.", url: "https://nhandan.vn/van-cao-lao-dong-gian-kho-va-vinh-quang-post518790.html" }
+        - { text: "Nhật ký thử nghiệm Gemini (Bài 3), Gemini, ChatGPT, Copilot (Bài 4) và nguồn tin đã đánh giá (Bài 2) trên portfolio này." }

@@ -1,0 +1,98 @@
+# Bài 5 – ghi đè projects[id=5]. Sản phẩm: bài viết hướng dẫn có phần nghe mẫu tương tác.
+# Bản nháp do Gemini viết (14/11/2026, không đăng nhập); biên tập, kiểm chứng ở bảng "edits".
+objective: "Dùng AI tạo sinh để hỗ trợ sáng tạo một sản phẩm nội dung số hoàn chỉnh, đồng thời giữ vai trò người biên tập và chịu trách nhiệm cuối cùng. Sản phẩm là bài viết hướng dẫn “Hát đúng cao độ: 4 bài tập tự luyện ở nhà” dành cho sinh viên năm nhất Sư phạm Âm nhạc, có nút nghe nốt mẫu cho từng bài tập (giọng nam hoặc nữ). Bài nối tiếp hai bài trước: dùng nguyên tắc viết prompt của Bài 3 và kết quả nghiên cứu ở Bài 2 để kiểm chứng phần AI viết."
+process:
+  - "Bước 1: Xác định sản phẩm và người đọc: bài viết ngắn, thực hành được ngay, cho bạn cùng khóa đã biết đọc nốt nhưng hát còn chênh – cũng là vấn đề của chính mình."
+  - "Bước 2: Viết prompt theo nguyên tắc ở Bài 3: giao vai giảng viên Thanh nhạc, mô tả người đọc, đánh số cấu trúc 4 phần, giới hạn độ dài, yêu cầu ghi [cần kiểm tra] ở chỗ chưa chắc và cấm bịa số liệu."
+  - "Bước 3: Gemini viết bản nháp. Mình đọc từng câu và đối chiếu với giáo trình, với các nguồn ở Bài 2; ghi lại 6 vấn đề cần sửa."
+  - "Bước 4: Hỏi tiếp Gemini để sửa hai bài tập có vấn đề. Gemini sửa hợp lý, nhưng mở đầu bằng lời khen và đồng ý ngay, nên mình vẫn tự kiểm tra lại thay vì coi đó là xác nhận."
+  - "Bước 5: Biên tập bản cuối: viết lại mở bài, rút gọn, thay câu [cần kiểm tra] bằng thông tin có nguồn từ Bài 2, bổ sung lưu ý an toàn giọng."
+  - "Bước 6: Thêm phần nghe mẫu: mỗi bài tập có nút phát nốt chuẩn bằng âm thanh tổng hợp trên trình duyệt, chọn được giọng nam hoặc nữ; liên kết sang máy đo cao độ ở trang chủ để tự kiểm tra."
+  - "Khó khăn: Gemini không đăng nhập không tạo được ảnh minh họa. – giải quyết bằng cách chọn dạng sản phẩm là bài viết có âm thanh tương tác, hợp với chủ đề luyện cao độ hơn là một bức ảnh."
+  - "Khó khăn: Bản nháp trông rất chuyên nghiệp, có thuật ngữ tiếng Ý, tiếng Anh nên dễ tin. – giải quyết bằng cách kiểm tra từng bài tập theo câu hỏi “người mới làm theo có an toàn và đúng mục tiêu không”; nhờ vậy phát hiện bài 3 tự mâu thuẫn."
+tool: "Gemini (viết bản nháp, sửa 2 bài tập); Web Audio API (âm thanh nghe mẫu); tài liệu ở Bài 2 (kiểm chứng)"
+ai_use: "Gemini viết bản nháp và sửa 2 bài tập theo yêu cầu. Phần nghe mẫu được lập trình với sự hỗ trợ của Claude (Anthropic). Mình chịu trách nhiệm biên tập, kiểm chứng và bản cuối"
+product:
+  intro: "Yêu cầu: trưng bày sản phẩm nội dung số hoàn thiện (hình ảnh, video hoặc bài viết) được hỗ trợ bởi AI."
+  blocks:
+    - type: article
+      title: "Hát đúng cao độ: 4 bài tập tự luyện ở nhà"
+      byline: "Đỗ Tuấn Anh · bài viết có AI hỗ trợ (Gemini viết nháp, tác giả biên tập và kiểm chứng)"
+      lead: "Hát chênh thường không phải do “tai kém” bẩm sinh, mà do tai, hơi thở và giọng chưa phối hợp nhịp nhàng. Đây là kỹ năng luyện được: trong một thí nghiệm, chỉ sau 20 phút luyện có phản hồi hình ảnh, những người hay hát chênh đã tiến bộ rõ (Berglin và cộng sự, 2022)."
+      warmup: "Trước khi tập, khởi động 2–3 phút: rung môi “brr” lên xuống nhẹ nhàng, rồi ngân “m” ở quãng giọng thoải mái. Chọn giọng mẫu ở ô bên dưới cho hợp với giọng của bạn."
+      exercises:
+        - name: "Giữ dài một nốt"
+          goal: "Giữ cao độ ổn định trên một nốt."
+          how: "Nghe nốt mẫu, hít vào nhẹ nhàng, ngân “mê” ở âm lượng vừa phải và giữ đều 4–6 giây. Chưa tăng giảm âm lượng; khi đã giữ vững, mới thử ngân nhỏ – to – nhỏ (messa di voce)."
+          time: "5 phút"
+          seq: "C4:5"
+          label: "Nghe nốt Đô (5 giây)"
+        - name: "Nghe rồi nhại"
+          goal: "Nối tai với giọng."
+          how: "Nghe nốt mẫu, hát thầm trong đầu một lần, rồi ngân “m” và mở dần sang “a”. Tăng dần: một nốt, rồi quãng 2 (Đô–Rê), rồi quãng 3 (Đô–Mi)."
+          time: "7 phút"
+          seq: "C4:1.2,_:1.6,C4:0.8,D4:1.2,_:1.6,C4:0.8,E4:1.2"
+          label: "Nghe: Đô · Đô–Rê · Đô–Mi"
+        - name: "Nhảy quãng rời"
+          goal: "Chuyển nốt dứt khoát, không lê giọng qua các nốt ở giữa."
+          how: "Hát Đô – Mi – Sol – Mi – Đô, mỗi nốt ngắn và gọn, ngắt hơi giữa các nốt. Không nối liền, không trượt."
+          time: "5 phút"
+          seq: "C4:0.3,_:0.25,E4:0.3,_:0.25,G4:0.3,_:0.25,E4:0.3,_:0.25,C4:0.3"
+          label: "Nghe: Đô – Mi – Sol – Mi – Đô"
+        - name: "Hát chậm theo nhịp"
+          goal: "Giữ cao độ trong cả một câu nhạc."
+          how: "Hát câu mẫu 4 nhịp ở tốc độ 60 (một phách một giây) cùng tiếng gõ nhịp. Gặp nốt hay bị chênh thì dừng 2 giây, so với nốt đàn rồi hát tiếp."
+          time: "8 phút"
+          seq: "C4:1,D4:1,E4:1,C4:1,E4:1,F4:1,G4:2,G4:0.5,A4:0.5,G4:0.5,F4:0.5,E4:1,C4:1,D4:1,G3:1,C4:2"
+          click: true
+          label: "Nghe câu mẫu 4 nhịp kèm gõ nhịp"
+      app_title: "Dùng ứng dụng hiện cao độ cho đúng"
+      app:
+        - "Chọn giao diện đơn giản. Màn hình quá nhiều thông tin dễ làm người hát bị quá tải; người đã học hát tiến bộ hơn với giao diện đơn giản (Wilson, 2006)."
+        - "Nhìn để tìm xu hướng – mình hay thấp hay hay cao – rồi tắt màn hình, hát lại bằng tai. Ứng dụng là công cụ phụ trợ, không thay giáo viên (Lã và Fiuza, 2022)."
+        - "Ghi âm cả câu để nghe tổng thể. Máy đo chỉ cho biết từng nốt, còn câu nhạc hay hay dở phải nghe mới biết."
+      tuner_link: "index.html#mic"
+      care: "Tổng 4 bài khoảng 25 phút, có thể chia hai buổi. Dừng ngay khi giọng khàn hoặc cổ rát; không tập khi đang ốm, viêm họng; uống nước thường xuyên trong ngày."
+      refs:
+        - "Berglin, J., Pfordresher, P.Q. and Demorest, S. (2022) Psychology of Music, 50(4), pp. 1077–1090."
+        - "Lã, F.M.B. and Fiuza, M.B. (2022) Applied Sciences, 12(21), 10781."
+        - "Wilson, P.H. (2006) Luận văn thạc sĩ, The University of Sydney."
+        - "Google (2026) Gemini: phản hồi cho Đỗ Tuấn Anh, 14 tháng 11. Bản nháp ban đầu của bài viết."
+
+    - type: lab
+      title: "Quá trình làm việc với AI"
+      num: 5
+      task: "Viết bài hướng dẫn luyện cao độ với Gemini"
+      criteria: ["Chính xác", "An toàn với người mới", "Đúng yêu cầu", "Dễ làm theo"]
+      versions:
+        - label: "Prompt ban đầu"
+          techniques: ["Vai chuyên môn", "Mô tả người đọc", "Cấu trúc đánh số", "Ghi [cần kiểm tra]"]
+          prompt: "Bạn là giảng viên Thanh nhạc. Viết một bài blog khoảng 350 từ cho sinh viên năm nhất ngành Sư phạm Âm nhạc, tiêu đề “Hát đúng cao độ: 4 bài tập tự luyện ở nhà”. Người đọc đã biết đọc nốt nhưng giọng chưa ổn định, hay hát chênh. Cấu trúc: (1) mở bài 2 câu: vì sao hay hát chênh; (2) 4 bài tập đánh số, mỗi bài có mục tiêu, cách làm từng bước, thời lượng; (3) mục “Dùng ứng dụng hiện cao độ thế nào cho đúng” gồm 3 ý; (4) lưu ý giữ gìn giọng. Chỉ dùng thông tin bạn chắc chắn; chỗ nào chưa chắc ghi [cần kiểm tra]. Không bịa số liệu nghiên cứu."
+          result: "Bản nháp đúng cấu trúc 4 phần, giọng văn phù hợp, có một chỗ tự ghi [cần kiểm tra]. Nhưng dài khoảng 450 từ, bài 1 quá khó với người mới và bài 3 tự mâu thuẫn."
+          good: ["Đúng 4 phần, mỗi bài đủ mục tiêu – cách làm – thời lượng", "Tự đánh dấu [cần kiểm tra] thay vì khẳng định bừa", "Không bịa số liệu nghiên cứu"]
+          bad: ["Bài 1 dùng messa di voce – kỹ thuật khó với giọng chưa ổn định", "Bài 3: mục tiêu là tránh lê giọng nhưng cách làm lại là lướt chậm qua từng vi âm", "Dài hơn yêu cầu khoảng 100 từ"]
+          scores: [3, 2, 3, 4]
+          shots:
+            - { file: "images/bai5/g_draft_a.jpg", caption: "Prompt và phần đầu bản nháp" }
+            - { file: "images/bai5/g_draft_b.jpg", caption: "Bài 3 tự mâu thuẫn; mục ứng dụng" }
+        - label: "Hỏi tiếp để sửa"
+          techniques: ["Chỉ đúng lỗi", "Giới hạn độ dài", "Giữ cấu trúc"]
+          prompt: "Bài tập 3 đang mâu thuẫn: mục tiêu là tránh lê giọng qua nốt trung gian, nhưng cách làm lại lướt chậm qua từng vi âm. Còn bài 1 (messa di voce) có quá khó với người giọng chưa ổn định không? Sửa lại hai bài này cho người mới, mỗi bài dưới 70 từ, giữ đúng cấu trúc mục tiêu, cách làm, thời lượng."
+          result: "Gemini thay bài 1 bằng giữ dài một nốt ở âm lượng đều, thay bài 3 bằng nhảy quãng rời (staccato). Cả hai đều hợp lý. Nhưng câu mở đầu là lời khen “góc nhìn rất tinh tế và sắc sảo” và đồng ý ngay."
+          good: ["Sửa đúng hai lỗi, đúng độ dài", "Bài thay thế phù hợp người mới"]
+          bad: ["Đồng ý ngay và khen người hỏi – nếu mình góp ý sai, AI cũng có thể đồng ý", "Vẫn để nguyên câu [cần kiểm tra] ở mục ứng dụng"]
+          scores: [4, 4, 5, 4]
+          shots:
+            - { file: "images/bai5/g_revise.jpg", caption: "Gemini sửa 2 bài, mở đầu bằng lời khen" }
+      verdict: "AI làm bản nháp nhanh và đúng khung, nhưng chính người biên tập mới phát hiện được bài tập không an toàn hoặc tự mâu thuẫn. Sau khi AI sửa, mình vẫn tự kiểm tra lại vì AI dễ chiều theo người hỏi."
+
+    - type: table
+      title: "Mình đã sửa gì so với bản của AI"
+      head: ["Chỗ", "Bản của AI", "Bản cuối", "Vì sao"]
+      rows:
+        - ["Mở bài", "Chênh phô do thiếu liên kết giữa tư duy thính giác, vị trí âm thanh và cột hơi", "Viết lại ngắn gọn và thêm bằng chứng: luyện 20 phút có phản hồi hình ảnh đã tiến bộ (Berglin và cộng sự, 2022)", "Đưa kết quả nghiên cứu đã đọc ở Bài 2 vào, để người đọc tin là luyện được"]
+        - ["Bài 1", "Messa di voce: nhỏ – to – nhỏ mà không đổi cao độ", "Giữ dài một nốt ở âm lượng đều; messa di voce để sau", "Thay đổi âm lượng làm cao độ dễ trôi, khó với người mới"]
+        - ["Bài 3", "Lướt chậm qua từng vi âm giữa Đô và Mi", "Nhảy quãng rời Đô – Mi – Sol, ngắt hơi giữa các nốt", "Bản cũ ngược với chính mục tiêu “tránh lê giọng”"]
+        - ["Mục ứng dụng", "[cần kiểm tra thêm về độ trễ của ứng dụng]", "Thay bằng 3 ý có nguồn: giao diện đơn giản (Wilson, 2006), công cụ chỉ phụ trợ (Lã và Fiuza, 2022), ghi âm cả câu", "Không để chỗ chưa kiểm chứng trong bản công bố"]
+        - ["Giữ gìn giọng", "Khởi động, uống nước ấm, tránh hét, dừng khi rát", "Thêm: tổng thời lượng, chia buổi, không tập khi ốm hay viêm họng", "Cộng thời lượng 4 bài ra 25 phút – cần nói rõ cho người mới"]
+        - ["Độ dài", "Khoảng 450 từ", "Khoảng 380 từ, thêm nút nghe mẫu", "Bám yêu cầu ban đầu, để phần nghe làm thay cho lời giải thích dài"]

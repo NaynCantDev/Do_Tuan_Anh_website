@@ -78,6 +78,17 @@ def load(student_id):
     with open(STUDENTS_DIR / student_id / "data.yaml", encoding="utf-8") as f:
         data = yaml.safe_load(f)
     data["slug"] = student_id
+    # Nội dung chi tiết từng bài có thể tách ra students/<id>/bai<N>.yaml
+    # (ghi đè các khóa tương ứng của projects[id=N]); tương tự conclusion.yaml.
+    for p in data["projects"]:
+        extra = STUDENTS_DIR / student_id / f"bai{p['id']}.yaml"
+        if extra.exists():
+            with open(extra, encoding="utf-8") as f:
+                p.update(yaml.safe_load(f) or {})
+    extra = STUDENTS_DIR / student_id / "conclusion.yaml"
+    if extra.exists():
+        with open(extra, encoding="utf-8") as f:
+            data["conclusion"] = yaml.safe_load(f)
     return data
 
 
@@ -121,19 +132,26 @@ def render_student(env, student_id):
                 print(f"  [WARN] bài {p['id']}: không thấy {src} → bỏ qua")
         if prod:
             prod["gallery"] = kept
-        # Ảnh chụp từng phiên bản prompt (khối lab): versions[].shots[].file
-        for blk in (prod.get("blocks") or []):
-            if blk.get("type") not in ("lab", "walkthrough"):
-                continue
-            for v in (blk.get("versions") or []) + (blk.get("steps") or []):
-                for sh in v.get("shots") or []:
-                    src = STUDENTS_DIR / student_id / sh["file"]
+        # Mọi ảnh nằm trong khối (shots[].file, img.file, …): duyệt đệ quy,
+        # dict nào có khóa "file" là ảnh → chép vào dist/assets/img/, gán "src".
+        def walk(node):
+            if isinstance(node, dict):
+                f = node.get("file")
+                if isinstance(f, str) and f.startswith("images/"):
+                    src = STUDENTS_DIR / student_id / f
                     if src.exists():
                         img_dir.mkdir(parents=True, exist_ok=True)
-                        shutil.copy(src, img_dir / src.name)
-                        sh["src"] = f"assets/img/{src.name}"
+                        name = f"{src.parent.name}_{src.name}"
+                        shutil.copy(src, img_dir / name)
+                        node["src"] = f"assets/img/{name}"
                     else:
                         print(f"  [WARN] bài {p['id']}: không thấy ảnh {src}")
+                for v in node.values():
+                    walk(v)
+            elif isinstance(node, list):
+                for v in node:
+                    walk(v)
+        walk(prod.get("blocks") or [])
         # Ảnh chụp từng phiên bản prompt (khối prompt_lab): versions[].shot
         for blk in (prod.get("blocks") or []):
             if blk.get("type") != "prompt_lab":

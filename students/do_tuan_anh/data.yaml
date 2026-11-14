@@ -235,6 +235,7 @@ projects:
                 - "2|f|GhiChuQuanTrong.txt|"
 
         - type: table
+          hl_last: true
           title: "Những cặp thao tác dễ nhầm"
           head: ["", "Copy (Ctrl + C)", "Cut (Ctrl + X)"]
           rows:
@@ -243,6 +244,7 @@ projects:
             - ["Số tệp sau thao tác", "Tăng thêm 1", "Không đổi"]
             - ["Ở bài này", "GhiChuQuanTrong.txt có ở cả hai nơi (bước 8)", "DiChuyen.txt chỉ còn trong TaiLieu (bước 9)"]
         - type: table
+          hl_last: true
           head: ["", "Delete", "Shift + Delete"]
           rows:
             - ["Tệp đi đâu", "Vào Thùng rác (Recycle Bin)", "Bị xóa hẳn khỏi ổ đĩa"]
