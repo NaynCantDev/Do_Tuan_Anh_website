@@ -51,6 +51,15 @@ def is_blank(v):
     return t in ("", "…", "...") or t.endswith(": …") or t.endswith(": ...")
 
 
+def parse_tree(lines):
+    """'2|f|GhiChu.txt|new' -> dict(depth, kind, name, state)"""
+    out = []
+    for ln in lines or []:
+        d, k, n, st = (str(ln).split("|") + ["", "", "", ""])[:4]
+        out.append({"d": int(d or 0), "k": k, "n": n, "s": st})
+    return out
+
+
 def make_env():
     env = Environment(
         loader=FileSystemLoader(str(TEMPLATE_DIR)),
@@ -61,6 +70,7 @@ def make_env():
     env.filters["principles"] = split_principles
     env.filters["step_kind"] = classify_step
     env.tests["blank"] = is_blank
+    env.filters["tree"] = parse_tree
     return env
 
 
@@ -113,9 +123,9 @@ def render_student(env, student_id):
             prod["gallery"] = kept
         # Ảnh chụp từng phiên bản prompt (khối lab): versions[].shots[].file
         for blk in (prod.get("blocks") or []):
-            if blk.get("type") != "lab":
+            if blk.get("type") not in ("lab", "walkthrough"):
                 continue
-            for v in blk.get("versions") or []:
+            for v in (blk.get("versions") or []) + (blk.get("steps") or []):
                 for sh in v.get("shots") or []:
                     src = STUDENTS_DIR / student_id / sh["file"]
                     if src.exists():

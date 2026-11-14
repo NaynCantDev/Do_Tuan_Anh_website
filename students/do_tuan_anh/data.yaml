@@ -76,14 +76,213 @@ projects:
     section: "1.4"
     title: "Thao tác cơ bản với tệp tin và thư mục"
     chapter: "Chương 1 – Máy tính và các thiết bị ngoại vi"
-    objective: "…"
+    objective: "Rèn luyện kỹ năng tạo, đổi tên, sao chép, di chuyển và xóa tệp tin, thư mục một cách thành thạo trên Windows bằng File Explorer. Qua bài, mình phân biệt rõ Copy với Cut, xóa vào Thùng rác với xóa vĩnh viễn (Shift + Delete), và biết cách đặt tên tệp, thư mục rõ ràng để quản lý tài liệu học tập."
     process:
-      - "Bước 1: …"
-    tool: "…"
-    ai_use: "…"
+      - "Bước 1: Mở File Explorer từ biểu tượng thư mục vàng trên thanh tác vụ (hoặc Windows + E)."
+      - "Bước 2: Chọn nơi thực hành là thư mục Documents, theo hướng dẫn của đề cho trường hợp không dùng ổ D:/E:."
+      - "Bước 3: Lần lượt làm 11 thao tác bắt buộc của đề: tạo thư mục ThucHanh_DoTuanAnh, tạo và đổi tên tệp, tạo thư mục con TaiLieu, sao chép, di chuyển, xóa vào Thùng rác và xóa vĩnh viễn; chụp màn hình sau mỗi thao tác làm minh chứng."
+      - "Bước 4: Theo dõi cây thư mục sau từng bước để kiểm tra kết quả có đúng như mong đợi (bản gốc còn hay mất, tệp nằm ở đâu)."
+      - "Bước 5: Tổng hợp lại các khác biệt quan trọng, phím tắt và quy tắc đặt tên rút ra từ bài."
+    tool: "Windows 11, File Explorer"
+    ai_use: "Không sử dụng AI khi thực hành thao tác"
     product:
-      intro: "Yêu cầu: trình bày cấu trúc thư mục tối ưu và quy tắc đặt tên tệp đã thiết lập, kèm ảnh chụp minh họa."
-      blocks: []
+      intro: "Yêu cầu: thực hiện 12 thao tác với tệp và thư mục trên Windows, nộp kèm ảnh chụp màn hình từng bước."
+      blocks:
+        - type: walkthrough
+          title: "Thực hiện từng bước"
+          intro: "Mỗi bước gồm yêu cầu của đề, việc mình đã làm, ảnh chụp màn hình và cây thư mục ngay sau bước đó. Chú thích màu trên cây: xanh lá là mới tạo, xanh dương là bản sao, tím là vừa chuyển tới, vàng là vừa đổi tên, đỏ gạch ngang là vừa xóa."
+          steps:
+            - n: 1
+              title: "Mở File Explorer"
+              req: "Nhấn Windows + E hoặc nhấp biểu tượng thư mục màu vàng trên thanh tác vụ."
+              did: "Nhấp biểu tượng thư mục vàng trên thanh tác vụ. File Explorer mở ra ở trang Home với mục Quick access."
+              kb: ["Win + E"]
+              shots:
+                - { file: "images/bai1/b01.jpg", caption: "File Explorer mở ở trang Home" }
+              tree: []
+            - n: 2
+              title: "Truy cập thư mục thực hành"
+              req: "Vào This PC rồi chọn ổ không phải ổ hệ thống (D:, E:). Nếu chỉ có ổ C:, vào thư mục Documents."
+              did: "Chọn Documents ở cột bên trái. Thư mục đang trống, sẵn sàng để thực hành."
+              shots:
+                - { file: "images/bai1/b02.jpg", caption: "Thư mục Documents đang trống" }
+              tree:
+                - "0|d|Documents|"
+            - n: 3
+              title: "Tạo thư mục mới"
+              req: "Chuột phải vào khoảng trống → New → Folder, đặt tên ThucHanh_hotensinhvien, nhấn Enter."
+              did: "Chuột phải → New → Folder, đặt tên ThucHanh_DoTuanAnh (viết liền, không dấu, nối bằng dấu gạch dưới)."
+              kb: ["Ctrl + Shift + N"]
+              shots:
+                - { file: "images/bai1/b03.jpg", caption: "Menu chuột phải → New → Folder" }
+                - { file: "images/bai1/b04.jpg", caption: "Thư mục ThucHanh_DoTuanAnh đã được tạo" }
+              tree:
+                - "0|d|Documents|"
+                - "1|d|ThucHanh_DoTuanAnh|new"
+            - n: 4
+              title: "Vào thư mục vừa tạo"
+              req: "Nhấp đúp vào thư mục ThucHanh_hotensinhvien."
+              did: "Nhấp đúp vào ThucHanh_DoTuanAnh. Thanh địa chỉ hiện Documents › ThucHanh_DoTuanAnh."
+              kb: ["Enter", "Alt + ← (quay lại)"]
+              shots: []
+              tree:
+                - "0|d|Documents|"
+                - "1|d|ThucHanh_DoTuanAnh|here"
+            - n: 5
+              title: "Tạo tệp văn bản"
+              req: "Chuột phải → New → Text Document, đặt tên GhiChu.txt."
+              did: "Tạo tệp văn bản và đặt tên GhiChu.txt. Cột Type hiện TXT File, cột Size là 0 KB vì tệp chưa có nội dung."
+              shots:
+                - { file: "images/bai1/b05.jpg", caption: "GhiChu.txt nằm trong ThucHanh_DoTuanAnh" }
+              tree:
+                - "0|d|Documents|"
+                - "1|d|ThucHanh_DoTuanAnh|"
+                - "2|f|GhiChu.txt|new"
+            - n: 6
+              title: "Đổi tên tệp"
+              req: "Chuột phải vào GhiChu.txt → Rename, đổi thành GhiChuQuanTrong.txt."
+              did: "Đổi tên thành GhiChuQuanTrong.txt, giữ nguyên đuôi .txt để Windows vẫn nhận đúng loại tệp."
+              kb: ["F2"]
+              shots:
+                - { file: "images/bai1/b06.jpg", caption: "Tệp đã đổi tên thành GhiChuQuanTrong.txt" }
+              tree:
+                - "0|d|Documents|"
+                - "1|d|ThucHanh_DoTuanAnh|"
+                - "2|f|GhiChuQuanTrong.txt|renamed"
+            - n: 7
+              title: "Tạo thư mục con"
+              req: "Trong ThucHanh_hotensinhvien, chuột phải → New → Folder, đặt tên TaiLieu."
+              did: "Tạo thư mục con TaiLieu. File Explorer luôn xếp thư mục lên trước tệp khi sắp theo tên."
+              kb: ["Ctrl + Shift + N"]
+              shots:
+                - { file: "images/bai1/b07.jpg", caption: "Thư mục con TaiLieu đứng trên tệp GhiChuQuanTrong.txt" }
+              tree:
+                - "0|d|Documents|"
+                - "1|d|ThucHanh_DoTuanAnh|"
+                - "2|d|TaiLieu|new"
+                - "2|f|GhiChuQuanTrong.txt|"
+            - n: 8
+              title: "Sao chép tệp (Copy & Paste)"
+              req: "Copy GhiChuQuanTrong.txt, vào TaiLieu rồi Paste. Kết quả: có thêm một bản sao trong TaiLieu."
+              did: "Chuột phải → Copy, mở TaiLieu, chuột phải → Paste. Bản gốc vẫn còn ở ThucHanh_DoTuanAnh và có thêm một bản sao trong TaiLieu."
+              kb: ["Ctrl + C", "Ctrl + V"]
+              shots:
+                - { file: "images/bai1/b08.jpg", caption: "Chuột phải vào GhiChuQuanTrong.txt → Copy" }
+                - { file: "images/bai1/b09.jpg", caption: "Trong TaiLieu: chuột phải → Paste" }
+                - { file: "images/bai1/b10.jpg", caption: "Bản sao đã nằm trong TaiLieu" }
+              tree:
+                - "0|d|Documents|"
+                - "1|d|ThucHanh_DoTuanAnh|"
+                - "2|d|TaiLieu|"
+                - "3|f|GhiChuQuanTrong.txt|copy"
+                - "2|f|GhiChuQuanTrong.txt|"
+            - n: 9
+              title: "Di chuyển tệp (Cut & Paste)"
+              req: "Tạo DiChuyen.txt trong ThucHanh_hotensinhvien, Cut rồi Paste vào TaiLieu. Tệp gốc biến mất khỏi vị trí cũ."
+              did: "Tạo DiChuyen.txt, chuột phải → Cut, mở TaiLieu → Paste. Tệp chỉ còn trong TaiLieu, không còn ở thư mục ngoài."
+              kb: ["Ctrl + X", "Ctrl + V"]
+              shots:
+                - { file: "images/bai1/b11.jpg", caption: "Đã tạo DiChuyen.txt ở thư mục ngoài" }
+                - { file: "images/bai1/b12.jpg", caption: "Chuột phải vào DiChuyen.txt → Cut" }
+                - { file: "images/bai1/b13.jpg", caption: "DiChuyen.txt đã sang TaiLieu" }
+              tree:
+                - "0|d|Documents|"
+                - "1|d|ThucHanh_DoTuanAnh|"
+                - "2|d|TaiLieu|"
+                - "3|f|DiChuyen.txt|moved"
+                - "3|f|GhiChuQuanTrong.txt|"
+                - "2|f|DiChuyen.txt|gone"
+                - "2|f|GhiChuQuanTrong.txt|"
+            - n: 10
+              title: "Xóa tệp vào Thùng rác"
+              req: "Trong TaiLieu, chuột phải vào GhiChuQuanTrong.txt → Delete. Tệp được chuyển vào Recycle Bin."
+              did: "Chuột phải → Delete. Tệp biến mất khỏi TaiLieu nhưng vẫn nằm trong Thùng rác nên còn khôi phục được. Bản gốc ở thư mục ngoài không bị ảnh hưởng."
+              kb: ["Delete"]
+              shots:
+                - { file: "images/bai1/b14.jpg", caption: "Chuột phải vào GhiChuQuanTrong.txt trong TaiLieu → Delete" }
+              tree:
+                - "0|d|Documents|"
+                - "1|d|ThucHanh_DoTuanAnh|"
+                - "2|d|TaiLieu|"
+                - "3|f|DiChuyen.txt|"
+                - "3|f|GhiChuQuanTrong.txt|bin"
+                - "2|f|GhiChuQuanTrong.txt|"
+            - n: 11
+              title: "Xóa vĩnh viễn"
+              req: "Chọn DiChuyen.txt, nhấn Shift + Delete, đồng ý ở hộp cảnh báo. Tệp bị xóa hẳn, không qua Thùng rác."
+              did: "Chọn DiChuyen.txt và nhấn Shift + Delete. Windows hỏi “Are you sure you want to permanently delete this file?”, mình chọn Yes. Thư mục TaiLieu trống hoàn toàn."
+              kb: ["Shift + Delete"]
+              shots:
+                - { file: "images/bai1/b15.jpg", caption: "Hộp thoại cảnh báo xóa vĩnh viễn DiChuyen.txt" }
+                - { file: "images/bai1/b16.jpg", caption: "TaiLieu đã trống (This folder is empty)" }
+              tree:
+                - "0|d|Documents|"
+                - "1|d|ThucHanh_DoTuanAnh|"
+                - "2|d|TaiLieu|"
+                - "3|f|DiChuyen.txt|gone"
+                - "2|f|GhiChuQuanTrong.txt|"
+            - n: 12
+              title: "Khôi phục từ Thùng rác (tùy chọn)"
+              req: "Mở Recycle Bin, chuột phải vào GhiChuQuanTrong.txt → Restore để tệp quay lại vị trí cũ."
+              did: "Đây là bước tùy chọn và mình chưa chụp lại. Theo lý thuyết: GhiChuQuanTrong.txt (xóa ở bước 10) còn trong Thùng rác nên Restore được về TaiLieu; còn DiChuyen.txt (xóa ở bước 11) thì không thể khôi phục theo cách này."
+              optional: true
+              shots: []
+              tree:
+                - "0|d|Documents|"
+                - "1|d|ThucHanh_DoTuanAnh|"
+                - "2|d|TaiLieu|"
+                - "3|f|GhiChuQuanTrong.txt|restore"
+                - "2|f|GhiChuQuanTrong.txt|"
+
+        - type: table
+          title: "Những cặp thao tác dễ nhầm"
+          head: ["", "Copy (Ctrl + C)", "Cut (Ctrl + X)"]
+          rows:
+            - ["Vị trí cũ", "Bản gốc vẫn còn", "Tệp biến mất sau khi dán"]
+            - ["Vị trí mới", "Có thêm một bản sao", "Có đúng tệp đó"]
+            - ["Số tệp sau thao tác", "Tăng thêm 1", "Không đổi"]
+            - ["Ở bài này", "GhiChuQuanTrong.txt có ở cả hai nơi (bước 8)", "DiChuyen.txt chỉ còn trong TaiLieu (bước 9)"]
+        - type: table
+          head: ["", "Delete", "Shift + Delete"]
+          rows:
+            - ["Tệp đi đâu", "Vào Thùng rác (Recycle Bin)", "Bị xóa hẳn khỏi ổ đĩa"]
+            - ["Hộp cảnh báo", "Thường không hỏi", "Luôn hỏi “permanently delete”"]
+            - ["Khôi phục", "Restore từ Thùng rác", "Không khôi phục bằng Thùng rác được"]
+            - ["Ở bài này", "GhiChuQuanTrong.txt trong TaiLieu (bước 10)", "DiChuyen.txt (bước 11)"]
+
+        - type: keys
+          title: "Phím tắt File Explorer mình dùng và nên nhớ"
+          items:
+            - ["Win + E", "Mở File Explorer"]
+            - ["Ctrl + Shift + N", "Tạo thư mục mới"]
+            - ["F2", "Đổi tên"]
+            - ["Ctrl + C / Ctrl + V", "Sao chép / Dán"]
+            - ["Ctrl + X", "Cắt để di chuyển"]
+            - ["Ctrl + Z", "Hoàn tác thao tác vừa làm"]
+            - ["Delete", "Xóa vào Thùng rác"]
+            - ["Shift + Delete", "Xóa vĩnh viễn"]
+            - ["Alt + ← / Alt + ↑", "Quay lại / Lên thư mục cha"]
+            - ["Ctrl + A", "Chọn tất cả"]
+
+        - type: principles
+          title: "Rút ra cho việc quản lý tài liệu học tập"
+          example_label: "Áp dụng"
+          items:
+            - title: "Đặt tên không dấu, không khoảng trắng"
+              text: "Dùng chữ Latinh không dấu, nối bằng gạch dưới hoặc viết hoa đầu từ, để tên tệp không lỗi khi gửi qua email, nén hay tải lên mạng."
+              example: "ThucHanh_DoTuanAnh, GhiChuQuanTrong.txt"
+            - title: "Tên tệp nói được nội dung và thời điểm"
+              text: "Thêm môn học, nội dung và ngày theo dạng năm-tháng-ngày để tệp tự xếp đúng thứ tự thời gian."
+              example: "2026-11-14_HoaAm_BaiGiang_TSD.pdf, 2026-11-14_ThanhNhac_LuyenHoi.mp3"
+            - title: "Luôn bật hiện đuôi tệp"
+              text: "Bật View → Show → File name extensions để thấy đuôi .txt, .docx, .mp3. Nếu đuôi bị ẩn, rất dễ đặt nhầm thành “GhiChu.txt.txt”."
+              example: "Ở bài này cột Type hiện TXT File và tên hiện đủ đuôi .txt."
+            - title: "Cấu trúc thư mục theo môn học"
+              text: "Mỗi môn một thư mục, bên trong chia thành TaiLieu, BaiTap, SanPham giống như cách bài thực hành tạo thư mục con TaiLieu."
+              example: "HocTap › NhapMonCNS › TaiLieu | BaiTap | Portfolio; HocTap › ThanhNhac › BaiHat | BanThu"
+            - title: "Cân nhắc trước khi Shift + Delete"
+              text: "Xóa vĩnh viễn là thao tác không có đường lui. Với tài liệu học tập, nên xóa thường để còn Thùng rác làm “lưới an toàn”, và sao lưu bài quan trọng lên Google Drive hoặc OneDrive."
+              example: "Bản thu âm luyện hát, bài giảng đã soạn nên có ít nhất một bản sao trên đám mây."
       gallery: []
 
   - id: 2

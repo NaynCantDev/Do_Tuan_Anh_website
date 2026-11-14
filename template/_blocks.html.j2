@@ -109,6 +109,66 @@
   <p class="blk-note">{{ b.note }}</p>
 </div>
 
+{% elif b.type == 'walkthrough' %}
+{% set stl = {'new':'mới tạo','copy':'bản sao','moved':'vừa chuyển tới','renamed':'vừa đổi tên','gone':'đã biến mất','bin':'vào Thùng rác','restore':'khôi phục được','here':'đang mở'} %}
+<div class="blk walk reveal">
+  <h3 class="blk-h">{{ b.title }}</h3>
+  {% if b.intro %}<p class="blk-intro">{{ b.intro }}</p>{% endif %}
+  <ol class="wt-list">
+    {% for s in b.steps %}
+    <li class="wt-step{{ ' wt-opt' if s.optional }}" id="buoc-{{ s.n }}">
+      <div class="wt-rail" aria-hidden="true"><span class="wt-n mono">{{ '%02d'|format(s.n) }}</span></div>
+      <div class="wt-main">
+        <h4 class="wt-t">{{ s.title }}{% if s.optional %} <em class="wt-tag mono">tùy chọn</em>{% endif %}</h4>
+        <p class="wt-req"><span class="mono">Đề yêu cầu</span>{{ s.req }}</p>
+        <p class="wt-did"><span class="mono">Mình đã làm</span>{{ s.did }}</p>
+        {% if s.kb %}<p class="wt-keys">{% for k in s.kb %}<kbd>{{ k }}</kbd>{% endfor %}</p>{% endif %}
+        <div class="wt-body{{ ' no-shot' if not s.shots }}">
+          {% if s.shots %}
+          <div class="wt-shots">
+            {% for sh in s.shots if sh.src %}
+            <button type="button" class="shot" data-lb="{{ sh.src }}" data-cap="Bước {{ s.n }} · {{ s.title }} — {{ sh.caption }}">
+              <img src="{{ sh.src }}" alt="Ảnh chụp màn hình bước {{ s.n }}: {{ sh.caption }}" loading="lazy" width="1400" height="710">
+              <span>{{ sh.caption }}</span>
+            </button>
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% set tr = s.tree|tree %}
+          {% if tr %}
+          <div class="ftree" aria-label="Cây thư mục sau bước {{ s.n }}">
+            <p class="mono ft-h">Cây thư mục sau bước {{ s.n }}</p>
+            <ul>
+              {% for it in tr %}
+              <li class="ft-{{ it.k }} st-{{ it.s or 'none' }}" style="--d:{{ it.d }}"><i aria-hidden="true"></i><span>{{ it.n }}</span>{% if it.s %}<em>{{ stl.get(it.s, it.s) }}</em>{% endif %}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</div>
+
+{% elif b.type == 'table' %}
+<div class="blk tbl reveal">
+  {% if b.title %}<h3 class="blk-h">{{ b.title }}</h3>{% endif %}
+  <div class="tbl-wrap"><table>
+    <thead><tr>{% for h in b.head %}<th scope="col">{{ h }}</th>{% endfor %}</tr></thead>
+    <tbody>{% for r in b.rows %}<tr>{% for c in r %}{% if loop.first %}<th scope="row">{{ c }}</th>{% else %}<td>{{ c }}</td>{% endif %}{% endfor %}</tr>{% endfor %}</tbody>
+  </table></div>
+</div>
+
+{% elif b.type == 'keys' %}
+<div class="blk keysb reveal">
+  <h3 class="blk-h">{{ b.title }}</h3>
+  <ul class="key-grid">
+    {% for k in b['items'] %}<li><kbd>{{ k[0] }}</kbd><span>{{ k[1] }}</span></li>{% endfor %}
+  </ul>
+</div>
+
 {% elif b.type == 'analysis' %}
 <div class="blk analysis reveal">
   <h3 class="blk-h">{{ b.title }}</h3>
@@ -124,7 +184,7 @@
     {% for a in b['items'] %}
     <li>
       <span class="mono pr-no">{{ '%02d'|format(loop.index) }}</span>
-      <div><strong>{{ a.title }}</strong><p>{{ a.text }}</p><p class="pr-ex"><span class="mono">Từ thử nghiệm</span>{{ a.example }}</p></div>
+      <div><strong>{{ a.title }}</strong><p>{{ a.text }}</p><p class="pr-ex"><span class="mono">{{ b.example_label or "Từ thử nghiệm" }}</span>{{ a.example }}</p></div>
     </li>
     {% endfor %}
   </ol>

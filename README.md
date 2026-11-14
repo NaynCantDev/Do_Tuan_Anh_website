@@ -5,8 +5,9 @@ Portfolio học phần **Nhập môn Công nghệ số và ứng dụng AI (INF2
 ## Trạng thái
 - ✅ Giao diện riêng + trang Giới thiệu (thông tin, sở thích, 4 mục tiêu học tập, định hướng phát triển, mục tiêu portfolio)
 - ✅ Trang Dự án / chi tiết bài / Tổng kết đã dựng sẵn; ô nào còn `…` hiện nhãn "đang cập nhật"
+- ✅ Bài 1 (Thao tác tệp, thư mục): 12 bước kèm 16 ảnh chụp, cây thư mục sau từng bước, bảng Copy/Cut – Delete/Shift+Delete, phím tắt, quy tắc đặt tên
 - ✅ Bài 3 (Viết prompt hiệu quả): 3 tác vụ × 3 prompt chạy thật trên Gemini, 19 ảnh chụp màn hình, bảng chấm theo tiêu chí, đối chiếu đáp án, phân tích và bộ nguyên tắc
-- ⏳ Bài 1, 2, 4, 5, 6 & phần Tổng kết: **chưa điền**
+- ⏳ Bài 2, 4, 5, 6 & phần Tổng kết: **chưa điền**
 - ⏳ Mã sinh viên, lớp, email: chưa có
 
 ## Giao diện — "Live Session"
