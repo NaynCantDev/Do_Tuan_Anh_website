@@ -1,21 +1,44 @@
-# Bài 4 – ghi đè projects[id=4]. Bài nhóm chuyển thành dự án cá nhân của Tuấn Anh:
-# quản lý bằng GitHub Issues + Milestone (công khai), nội dung là so sánh 2 trợ lý AI.
-objective: "Rèn kỹ năng dùng công cụ hợp tác và quản lý dự án trực tuyến. Đề gốc là bài nhóm; mình làm cá nhân nên tự đóng cả vai trưởng nhóm lẫn thành viên: lập kế hoạch, chia việc thành thẻ công việc, đặt hạn chót, ghi tiến độ và quyết định trên một công cụ trực tuyến công khai để người khác theo dõi và góp ý được. Dự án nhỏ được quản lý là so sánh câu trả lời của các trợ lý AI cho 5 câu hỏi thuộc ngành Thanh nhạc."
+# Bài 4 – ghi đè projects[id=4]. Phần 1: minh chứng họp nhóm thật (Zalo + Google Meet, 13/11/2026).
+# Phần 2: dự án cá nhân quản lý bằng GitHub Issues + Milestone, so sánh 2 trợ lý AI.
+objective: "Rèn kỹ năng dùng công cụ giao tiếp, hợp tác và quản lý dự án trực tuyến. Bài gồm hai phần. Phần 1 là phối hợp nhóm thật: Nhóm 1 (5 thành viên) dùng Zalo để phân công trước và họp trên Google Meet tối 13/11/2026 để thống nhất kế hoạch dự án “Ứng dụng AI trong dạy học Âm nhạc ở Trung học cơ sở”; mình phụ trách ổn định nhóm, kiểm tra đường truyền và giới thiệu mục tiêu cuộc họp. Phần 2 là một dự án nhỏ mình tự quản lý trên GitHub Issues: so sánh câu trả lời của các trợ lý AI cho 5 câu hỏi ngành Thanh nhạc, để luyện cách chia việc, đặt hạn, ghi tiến độ và ghi lại quyết định trên một công cụ công khai."
 process:
-  - "Bước 1: Chọn công cụ. Portfolio này đặt trên GitHub nên mình dùng luôn GitHub Issues làm bảng công việc: mỗi việc là một issue, nhãn (label) cho biết giai đoạn, cột mốc (milestone) gom các việc và hiện phần trăm hoàn thành, hạn chót 16/11/2026."
-  - "Bước 2: Lập kế hoạch. Tạo 6 issue: lập bộ câu hỏi, chạy trên Gemini, chạy trên ChatGPT, chạy trên Copilot, đối chiếu và chấm điểm, viết báo cáo. Mỗi issue có danh sách việc nhỏ để đánh dấu."
-  - "Bước 3: Thực hiện và ghi nhật ký. Mỗi khi xong một việc, mình bình luận kết quả, phát hiện và quyết định vào issue tương ứng rồi đóng issue. Mọi người có liên kết đều xem được tiến độ mà không cần đăng nhập."
-  - "Bước 4: Chạy 5 câu hỏi thuộc 5 dạng (kiến thức chuyên môn, tra cứu sự kiện, sư phạm, nhạc lý, sáng tạo) trên Gemini và ChatGPT, mỗi câu một cuộc trò chuyện mới, chụp màn hình."
-  - "Bước 5: Đối chiếu với tài liệu và chấm theo 5 tiêu chí, thang 1–5. Việc cuối được đóng tự động bằng commit có dòng “Closes #6” khi đưa báo cáo lên web."
+  - "Bước 1 (nhóm): Trước buổi họp, phân công được gửi trong nhóm Zalo “Nhóm 1 CNS&AI” lúc 21:59: mỗi phần của cuộc họp có một người phụ trách, kèm chủ đề, nền tảng và mục tiêu cuộc họp."
+  - "Bước 2 (nhóm): Họp trên Google Meet lúc 22:35 ngày 13/11/2026, đủ 5 thành viên. Mình mở đầu: ổn định nhóm, kiểm tra mic và đường truyền của các bạn, nêu mục tiêu buổi họp. Sau đó Phương Anh giới thiệu ý tưởng, cả nhóm góp ý chọn công cụ AI, Vân Anh tổng hợp và chia nhiệm vụ."
+  - "Bước 3 (cá nhân): Chọn công cụ. Portfolio này đặt trên GitHub nên mình dùng luôn GitHub Issues làm bảng công việc: mỗi việc là một issue, nhãn (label) cho biết giai đoạn, cột mốc (milestone) gom các việc và hiện phần trăm hoàn thành, hạn chót 16/11/2026."
+  - "Bước 4: Lập kế hoạch. Tạo 6 issue: lập bộ câu hỏi, chạy trên Gemini, chạy trên ChatGPT, chạy trên Copilot, đối chiếu và chấm điểm, viết báo cáo. Mỗi issue có danh sách việc nhỏ để đánh dấu."
+  - "Bước 5: Thực hiện và ghi nhật ký. Mỗi khi xong một việc, mình bình luận kết quả, phát hiện và quyết định vào issue tương ứng rồi đóng issue. Mọi người có liên kết đều xem được tiến độ mà không cần đăng nhập."
+  - "Bước 6: Chạy 5 câu hỏi thuộc 5 dạng (kiến thức chuyên môn, tra cứu sự kiện, sư phạm, nhạc lý, sáng tạo) trên Gemini và ChatGPT, mỗi câu một cuộc trò chuyện mới, chụp màn hình."
+  - "Bước 7: Đối chiếu với tài liệu và chấm theo 5 tiêu chí, thang 1–5. Việc cuối được đóng tự động bằng commit có dòng “Closes #6” khi đưa báo cáo lên web."
   - "Khó khăn: Microsoft Copilot bắt đăng nhập; Perplexity chỉ cho hỏi 1 câu rồi chặn bằng màn hình đăng ký. – giải quyết bằng cách không tạo tài khoản mới chỉ để làm bài, ghi quyết định thu hẹp phạm vi còn 2 công cụ vào issue #4 rồi đóng issue với trạng thái “không thực hiện”. Đây cũng là một tình huống quản lý dự án thật: kế hoạch thay đổi thì phải ghi lại lý do."
   - "Khó khăn: Hỏi cùng một câu, AI có thể trả lời khác nhau. – giải quyết bằng cách hỏi lại câu 5 trên Gemini và ghi nhận sự khác biệt thay vì chỉ lấy lần trả lời “đẹp” nhất."
-tool: "GitHub Issues, Labels, Milestone (quản lý dự án); Gemini, ChatGPT (đối tượng so sánh)"
+tool: "Zalo (phân công, nhắn tin nhóm); Google Meet (họp trực tuyến); GitHub Issues, Labels, Milestone (quản lý dự án cá nhân); Gemini, ChatGPT (đối tượng so sánh)"
 ai_use: "Gemini và ChatGPT là đối tượng được so sánh. Việc lập kế hoạch, đối chiếu, chấm điểm do mình thực hiện"
 product:
   intro: "Yêu cầu: trình bày minh chứng về việc sử dụng công cụ quản lý dự án và cách thức phối hợp trực tuyến."
   blocks:
+    - type: meeting
+      title: "Phối hợp nhóm: họp trên Google Meet"
+      intro: "Nhóm 1 CNS&AI thống nhất kế hoạch dự án chung qua hai công cụ: Zalo để phân công trước, Google Meet để họp."
+      facts:
+        - ["Chủ đề dự án", "Ứng dụng AI trong dạy học Âm nhạc ở Trung học cơ sở: Biến mỗi giờ học thành một hành trình khám phá"]
+        - ["Thời gian", "22:35, ngày 13/11/2026"]
+        - ["Nền tảng", "Google Meet (họp), Zalo (phân công trước buổi họp)"]
+        - ["Mục tiêu", "Thống nhất định hướng, nội dung, phương pháp triển khai; chọn công cụ AI phù hợp; lập kế hoạch thực hiện"]
+      members: ["Tuấn anh Do", "Phương Anh Đặng", "anh vân", "Kiều Anh", "Duc Anh Dam Dang"]
+      me: "Tuấn anh Do"
+      agenda:
+        - { who: "Tuấn Anh (mình)", me: true, what: "Ổn định nhóm, kiểm tra đường truyền và thiết bị kết nối, giới thiệu mục tiêu cuộc họp" }
+        - { who: "Phương Anh", what: "Giới thiệu ý tưởng ban đầu, cùng các thành viên thống nhất chủ đề dự án" }
+        - { who: "Cả nhóm", what: "Trao đổi, góp ý về nội dung thực hiện và chọn công cụ AI phù hợp" }
+        - { who: "Vân Anh", what: "Tổng hợp nội dung đã thống nhất, xác định công việc và chia nhiệm vụ cho từng thành viên" }
+      shots:
+        - { file: "images/bai4/nhom_meet.jpg", caption: "Buổi họp Google Meet lúc 22:35 ngày 13/11/2026, đủ 5 thành viên" }
+        - { file: "images/bai4/nhom_zalo_1.jpg", caption: "Phân công trong nhóm Zalo trước buổi họp" }
+        - { file: "images/bai4/nhom_zalo_2.jpg", caption: "Chủ đề, nền tảng và mục tiêu cuộc họp" }
+      note: "Bài học về phối hợp: phân công trước bằng tin nhắn giúp buổi họp ngắn và đúng việc; người mở đầu kiểm tra mic, đường truyền ngay từ đầu để không ai bị lỡ phần thống nhất."
+
     - type: board
-      title: "Bảng công việc trên GitHub"
+      title: "Phần cá nhân: bảng công việc trên GitHub"
       intro: "Milestone “Bài 4” gom 6 việc. Bấm vào từng thẻ để mở issue thật, xem bình luận và lịch sử."
       url: "https://github.com/NaynCantDev/Do_Tuan_Anh_website/milestone/1?closed=1"
       cols:
@@ -42,6 +65,8 @@ product:
       title: "Mình dùng từng tính năng để phối hợp thế nào"
       head: ["Tính năng", "Dùng để", "Trong bài này"]
       rows:
+        - ["Zalo (nhóm)", "Phân công trước buổi họp, nhắn tin hằng ngày", "Tin phân công 4 phần việc cho từng người, gửi lúc 21:59"]
+        - ["Google Meet (nhóm)", "Họp trực tuyến cả 5 người", "Buổi họp 22:35 ngày 13/11/2026, mình mở đầu và kiểm tra đường truyền"]
         - ["Issue", "Giao việc: mỗi việc một thẻ, có danh sách việc nhỏ", "6 issue, từ lập kế hoạch đến viết báo cáo"]
         - ["Label", "Phân loại giai đoạn để lọc nhanh", "ke-hoach · thu-nghiem · danh-gia · bao-cao"]
         - ["Milestone", "Gom việc, đặt hạn chót, hiện % hoàn thành", "Hạn 16/11/2026; thanh tiến độ tự cập nhật khi đóng issue"]
@@ -97,6 +122,8 @@ product:
           text: "Gemini trả lời câu sáng tạo 3 lần ra 3 bộ ý khác nhau. Với câu sáng tạo thì đó là điểm cộng, nhưng với câu cần chính xác thì không thể tin một lần hỏi."
         - title: "Dùng công cụ nào cho việc gì"
           text: "Giải thích khái niệm, soạn hoạt động: cả hai đều dùng tốt làm bản nháp. Nhạc lý: dùng được nhưng phải so với giáo trình. Ngày tháng, sự kiện lịch sử: không dùng AI làm nguồn cuối cùng. Ý tưởng sáng tạo: dùng để mở rộng ý, rồi tự lọc theo chi phí và đạo đức."
+        - title: "Zalo và Meet cho nhóm, GitHub cho việc chia nhỏ"
+          text: "Với nhóm 5 bạn, Zalo và Meet hợp nhất vì ai cũng có sẵn và quen dùng. Với phần mình tự làm, GitHub Issues giúp theo dõi từng việc nhỏ và lưu lại lý do mỗi quyết định – điều mà tin nhắn Zalo dễ trôi mất."
         - title: "Về quản lý dự án"
           text: "Chia việc thành thẻ giúp mình không bỏ sót bước đối chiếu. Ghi quyết định vào issue ngay lúc gặp sự cố (Copilot bị chặn) giúp báo cáo trung thực: người xem thấy kế hoạch đã thay đổi thế nào và vì sao."
 

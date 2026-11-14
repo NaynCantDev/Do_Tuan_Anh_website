@@ -241,6 +241,27 @@
   </ol>
 </div>
 
+{% elif b.type == 'meeting' %}
+<div class="blk meet reveal">
+  <h3 class="blk-h">{{ b.title }}</h3>
+  {% if b.intro %}<p class="blk-intro">{{ b.intro }}</p>{% endif %}
+  <dl class="brief-facts meet-facts">{% for f in b.facts %}<div><dt class="mono">{{ f[0] }}</dt><dd>{{ f[1] }}</dd></div>{% endfor %}</dl>
+  <div class="meet-grid">
+    <div>
+      <p class="mono meet-h">Thành viên · {{ b.members|length }}</p>
+      <ul class="meet-mem">{% for m in b.members %}<li class="{{ 'me' if m == b.me }}"><i aria-hidden="true">{{ m[:1]|upper }}</i>{{ m }}{% if m == b.me %} <em class="mono">mình</em>{% endif %}</li>{% endfor %}</ul>
+    </div>
+    <div>
+      <p class="mono meet-h">Phân công trong cuộc họp</p>
+      <ol class="meet-ag">{% for a in b.agenda %}<li class="{{ 'me' if a.me }}"><strong>{{ a.who }}</strong><span>{{ a.what }}</span></li>{% endfor %}</ol>
+    </div>
+  </div>
+  {% if b.shots %}<div class="meet-shots">{% for sh in b.shots if sh.src %}
+    <button type="button" class="shot{{ ' wide' if loop.first }}" data-lb="{{ sh.src }}" data-cap="{{ sh.caption }}"><img src="{{ sh.src }}" alt="Ảnh chụp màn hình: {{ sh.caption }}" loading="lazy"><span>{{ sh.caption }}</span></button>
+  {% endfor %}</div>{% endif %}
+  {% if b.note %}<p class="blk-note">{{ b.note }}</p>{% endif %}
+</div>
+
 {% elif b.type == 'board' %}
 {% set stl = {'done': 'Đã xong', 'dropped': 'Không thực hiện', 'open': 'Đang làm'} %}
 <div class="blk board reveal">
