@@ -15,6 +15,17 @@ ai_use: "Gemini viết bản nháp và sửa 2 bài tập theo yêu cầu. Phầ
 product:
   intro: "Yêu cầu: trưng bày sản phẩm nội dung số hoàn thiện (hình ảnh, video hoặc bài viết) được hỗ trợ bởi AI."
   blocks:
+    - type: video
+      title: "Sản phẩm nhóm: video “Ứng dụng trí tuệ AI trong dạy học nhạc cụ”"
+      yt: "FkDK4_hFH8E"
+      url: "https://youtu.be/FkDK4_hFH8E"
+      facts:
+        - ["Tên video", "CNS01-NHOM1. Ứng Dụng Trí Tuệ AI Trong Dạy Học Nhạc Cụ"]
+        - ["Nhóm", "Nhóm 1 – CNS01"]
+        - ["Thời lượng", "Khoảng 6 phút"]
+        - ["Nơi đăng", "YouTube, công khai"]
+      note: "Video là sản phẩm chung của Nhóm 1. Bên dưới là sản phẩm cá nhân của mình: một bài viết có AI hỗ trợ và quá trình biên tập."
+
     - type: article
       title: "Hát đúng cao độ: 4 bài tập tự luyện ở nhà"
       byline: "Đỗ Tuấn Anh · bài viết có AI hỗ trợ (Gemini viết nháp, tác giả biên tập và kiểm chứng)"

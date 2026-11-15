@@ -349,6 +349,17 @@
   <p class="ck-state mono" aria-live="polite">0/{{ b['items']|length }} · chưa sẵn sàng nộp</p>
 </div>
 
+{% elif b.type == 'video' %}
+<div class="blk vid reveal">
+  <h3 class="blk-h">{{ b.title }}</h3>
+  <div class="vid-frame">
+    <iframe src="https://www.youtube-nocookie.com/embed/{{ b.yt }}?rel=0" title="{{ b.title }}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  </div>
+  {% if b.facts %}<dl class="brief-facts vid-facts">{% for f in b.facts %}<div><dt class="mono">{{ f[0] }}</dt><dd>{{ f[1] }}</dd></div>{% endfor %}</dl>{% endif %}
+  {% if b.url %}<p class="bd-link"><a class="btn btn-ghost" href="{{ b.url }}" target="_blank" rel="noopener">Xem trên YouTube ↗</a></p>{% endif %}
+  {% if b.note %}<p class="blk-note">{{ b.note }}</p>{% endif %}
+</div>
+
 {% elif b.type == 'article' %}
 <article class="blk post reveal">
   <header class="post-head">
