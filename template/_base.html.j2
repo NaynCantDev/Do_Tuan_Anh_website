@@ -51,6 +51,7 @@
       <div><dt>Lớp</dt><dd>{{ class or 'đang cập nhật' }}</dd></div>
       <div><dt>Ngành</dt><dd>{{ major }}</dd></div>
       <div><dt>Học phần</dt><dd>{{ subject }}</dd></div>
+      {% if teacher %}<div><dt>Giảng viên hướng dẫn</dt><dd>{{ teacher }}</dd></div>{% endif %}
       {% if email %}<div><dt>Liên hệ</dt><dd><a href="mailto:{{ email }}">{{ email }}</a></dd></div>{% endif %}
     </dl>
   </div>

@@ -5,9 +5,10 @@
 # =====================================================================
 
 name: "Đỗ Tuấn Anh"
-student_id: ""          # bắt buộc theo đề – điền khi có
+student_id: "2552210060"
 birthday: ""
-class: ""               # bắt buộc theo đề – điền khi có
+class: "01"
+teacher: "Vũ Việt Hoàng"   # giảng viên hướng dẫn
 subject: "Nhập môn Công nghệ số và ứng dụng trí tuệ nhân tạo"
 school: "Trường Đại học Sư phạm Nghệ thuật Trung ương"
 email: ""
