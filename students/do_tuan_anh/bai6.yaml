@@ -1,14 +1,14 @@
 # Bài 6 – ghi đè projects[id=6]. Bộ nguyên tắc dựa trên (1) những lỗi AI mình đã gặp ở
-# Bài 2–5 và (2) các văn bản/nghiên cứu: UNESCO 2023, Luật BVDLCN 2025, Luật AI 2025.
-objective: "Xây dựng bộ nguyên tắc cá nhân về sử dụng AI có trách nhiệm trong học tập và nghiên cứu. Bộ nguyên tắc không chép lại từ một bộ khung có sẵn: mỗi nguyên tắc dựa trên một lỗi hoặc rủi ro mà mình đã tận mắt gặp khi làm Bài 2–5, rồi được đối chiếu với hướng dẫn của UNESCO và luật Việt Nam. Kỹ năng rèn luyện: nhận diện rủi ro của AI tạo sinh (ảo giác, tự đánh giá sai, câu trả lời không ổn định, quyền riêng tư, bản quyền), trích dẫn nội dung do AI tạo và tự đặt ranh giới cho việc dùng AI."
+# Bài 2–4 và (2) các văn bản/nghiên cứu: UNESCO 2023, Luật BVDLCN 2025, Luật AI 2025.
+objective: "Xây dựng bộ nguyên tắc cá nhân về sử dụng AI có trách nhiệm trong học tập và nghiên cứu. Bộ nguyên tắc không chép lại từ một bộ khung có sẵn: mỗi nguyên tắc dựa trên một lỗi hoặc rủi ro mà mình đã tận mắt gặp khi làm Bài 2–4, rồi được đối chiếu với hướng dẫn của UNESCO và luật Việt Nam. Kỹ năng rèn luyện: nhận diện rủi ro của AI tạo sinh (ảo giác, tự đánh giá sai, câu trả lời không ổn định, quyền riêng tư, bản quyền), trích dẫn nội dung do AI tạo và tự đặt ranh giới cho việc dùng AI."
 process:
-  - "Bước 1: Xem lại nhật ký của Bài 2, 3, 4, 5 và liệt kê mọi lần AI trả lời sai, tự tin sai hoặc trả lời khác nhau cho cùng một câu hỏi. Mỗi trường hợp ghi rõ: AI nào, sai ở đâu, mình phát hiện bằng cách nào."
+  - "Bước 1: Xem lại nhật ký của Bài 2, 3, 4 và liệt kê mọi lần AI trả lời sai, tự tin sai hoặc trả lời khác nhau cho cùng một câu hỏi. Mỗi trường hợp ghi rõ: AI nào, sai ở đâu, mình phát hiện bằng cách nào."
   - "Bước 2: Đọc các tài liệu nền: hướng dẫn của UNESCO về AI tạo sinh trong giáo dục và nghiên cứu (2023), Luật Bảo vệ dữ liệu cá nhân 2025, Luật Trí tuệ nhân tạo 2025, phần quy định về AI và liêm chính học thuật trong đề thi học phần."
   - "Bước 3: Ghép mỗi rủi ro đã gặp với nguyên tắc tương ứng trong tài liệu, viết thành 7 nguyên tắc cá nhân. Mỗi nguyên tắc có một cam kết và một hành động kiểm tra được."
   - "Bước 4: Chuyển nguyên tắc thành công cụ dùng hằng ngày: bảng “được làm, cần cân nhắc, không làm” cho sinh viên Sư phạm Âm nhạc, mẫu trích dẫn AI theo chuẩn Harvard và danh sách tự kiểm tra trước khi nộp bài."
   - "Khó khăn: Các bộ nguyên tắc trên mạng rất giống nhau và dễ chép lại. – giải quyết bằng cách bắt buộc mỗi nguyên tắc phải gắn với một ví dụ thật từ bài làm của chính mình."
   - "Khó khăn: Ranh giới giữa “AI hỗ trợ” và “AI làm thay” không rõ. – giải quyết bằng một câu hỏi kiểm tra: nếu thầy cô hỏi vấn đáp về phần này, mình có tự giải thích được không."
-tool: "Tài liệu UNESCO, văn bản luật trên Thư viện Pháp luật; nhật ký thử nghiệm Gemini, ChatGPT, Copilot ở Bài 3–5"
+tool: "Tài liệu UNESCO, văn bản luật trên Thư viện Pháp luật; nhật ký thử nghiệm Gemini, ChatGPT, Copilot ở Bài 3–4"
 ai_use: "Không dùng AI để viết bộ nguyên tắc. Các ví dụ trong bài là kết quả thử nghiệm AI ở những bài trước"
 product:
   intro: "Yêu cầu: trình bày bộ nguyên tắc cá nhân về sử dụng AI có trách nhiệm dựa trên các nghiên cứu đã thực hiện."
@@ -22,7 +22,6 @@ product:
         - ["Bài 4", "Hỏi về Quốc ca: Gemini ghi “kỳ họp thứ 2, tháng 3/1946” (tháng 3/1946 là kỳ họp thứ nhất); ChatGPT ghi sáng tác “tháng 12/1944” (nhiều nguồn ghi tháng 10). Cả hai cùng lặp lại một mốc ngày mà các nguồn còn ghi khác nhau, không nói có sự khác biệt", "Sai ngày tháng, sự kiện; trình bày điều còn tranh cãi như điều chắc chắn", "Tra nhiều báo chính thống và Hiến pháp 1946"]
         - ["Bài 4", "Cùng một câu hỏi về ý tưởng văn nghệ, Gemini cho 3 bộ ý tưởng khác nhau sau 3 lần hỏi; lần thứ 3 gợi ý dùng deepfake tái hiện thầy cô thế hệ trước", "Câu trả lời không ổn định; gợi ý thiếu cân nhắc về sự đồng ý của người bị tái hiện", "Hỏi lại nhiều lần và tự đọc kỹ từng ý"]
         - ["Bài 4", "ChatGPT (không đăng nhập) chèn quảng cáo dịch vụ tạo giọng AI ngay dưới câu trả lời", "Nội dung thương mại lẫn vào câu trả lời", "Đọc kỹ phần dưới câu trả lời"]
-        - ["Bài 5", "Khi mình chỉ ra lỗi trong bài viết, Gemini khen “góc nhìn rất tinh tế và sắc sảo” rồi đồng ý ngay", "AI dễ chiều theo người hỏi, kể cả khi người hỏi sai", "Tự kiểm tra lại lập luận của mình bằng tài liệu, không coi lời đồng ý của AI là bằng chứng"]
         - ["Bài 2", "Blog bán ứng dụng xếp sản phẩm của chính công ty đứng đầu", "Thông tin thiên lệch, xung đột lợi ích", "Đọc phần “về chúng tôi”, so với blog khác"]
     - type: table
       title: "Cơ sở từ tài liệu"
